@@ -35,9 +35,9 @@
                             location for your special day.
                             </p>
                             <hr class="customline"><!--css modified horizontal line-->
-                            <button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
-                            View Events  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
-                            </button>
+                            <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
+                            Book Event  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
+                            </button></a>
                         </div><!--subcontent div-->
                     </div><!--container div-->
                 </section>
@@ -63,9 +63,10 @@
                             party wishes come true so you can kick back, drink up and enjoy your special day!
                             </p>
                             <hr class="customline"><!--css modified horizontal line-->
-                            <button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
-                            View Events  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
-                            </button>
+                            <hr class="customline"><!--css modified horizontal line-->
+                            <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
+                            Book Event  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
+                            </button></a>
                         </div><!--subcontent div-->
                     </div><!--container div-->
                 </section>
@@ -91,9 +92,10 @@
                             for all your event needs.
                             </p>
                             <hr class="customline"><!--css modified horizontal line-->
-                            <button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
-                            View Events  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
-                            </button> 
+                            <hr class="customline"><!--css modified horizontal line-->
+                            <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
+                            Book Event  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
+                            </button></a>
                         </div><!--subcontent div-->
                     </div><!--container div-->
                 </section>
@@ -119,9 +121,10 @@
                             dedicated event team can assist with all aspects of your event planning.
                             </p>
                             <hr class="customline"><!--css modified horizontal line-->
-                            <button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
-                            View Events  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon--> 
-                            </button> 
+                            <hr class="customline"><!--css modified horizontal line-->
+                            <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
+                            Book Event  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
+                            </button></a>
                         </div><!--subcontent div-->
                     </div><!--container div-->
                 </section>
