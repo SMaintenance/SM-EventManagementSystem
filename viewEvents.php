@@ -66,7 +66,7 @@ $user = $_SESSION['user'];
                             . '<a href="viewLocation.php?id='.$row['LocationID'].'">'.$row['name'].'</a> '
                             . '</td>';
                             echo '<td>'
-                            . '<a href="viewEvent.php?id='.$row['EventID'].'">View</a> '
+                            . '<a href="viewEvent.php?id='.$row['EventID'].'">Edit</a> '
                             . '<a class="delete" href="deleteEvent.php?id='.$row['EventID'].'">Delete</a> '
                             . '</td>';
                             echo '</tr>';  
