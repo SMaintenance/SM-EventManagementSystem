@@ -26,7 +26,8 @@
                     echo '<li><a href = "events2.php">Events</a></li>';
                     echo '<li><a href = "locations2.php">Locations</a></li>';
                     echo '<li><a href = "contact.php">Contact Us</a></li>';
-                    echo '<button type = "button" class = "btn btn-default navbar-btn" data-toggle = "modal" data-target = "#login">Login <Span class="glyphicon glyphicon-log-in"></span></button>';
+                    echo '<a href = "login.php" class = "btn btn-default navbar-btn" >Login <Span class="glyphicon glyphicon-log-in"></span></a>';
+                    // echo '<button type = "button" class = "btn btn-default navbar-btn" data-toggle = "modal" data-target = "#login">Login <Span class="glyphicon glyphicon-log-in"></span></button>';
                 }
                 ?>
                 
@@ -74,7 +75,7 @@
                             </div><!--modal footer div-->
                         </div><!--modal content div-->
                     </div><!--modal dialog div-->
-                </div><!--modal div-->
+                </div><!-- modal div -->
             </ul>
         </div><!--container div-->
     </nav>
