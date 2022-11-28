@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
+        <title>Login Form</title>
         <style>
             span.error{
                 color: red;
@@ -15,6 +15,7 @@
         <?php require 'utils/header.php'; ?><!--header content. file found in utils folder-->
         <div class = "content"><!--body content holder-->
             <div class = "container">
+                <h1 class="text-center">Login Form</h1><!--form title-->
                 <div class ="col-md-6 col-md-offset-3">
                     <?php
                     if (isset($errorMessage))
