@@ -21,7 +21,7 @@ if (!isset($errors)) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Book Event Form</title> 
+        <title>Book Event</title> 
         <?php require 'utils/styles.php'; ?><!--css links. file found in utils folder-->
         <?php require 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
     </head>
