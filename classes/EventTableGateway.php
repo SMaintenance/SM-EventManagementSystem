@@ -101,7 +101,7 @@ class EventTableGateway {
                 "StartDate = :StartDate, " .
                 "EndDate = :EndDate, " .
                 "Cost = :Cost, " .
-                "LocationID = :LocationID, " .
+                "LocationID = :LocationID " .
                 " WHERE eventID = :id";
         
         $statement = $this->connect->prepare($sql);
