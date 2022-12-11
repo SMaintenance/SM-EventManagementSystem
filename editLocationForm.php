@@ -2,6 +2,7 @@
 require_once 'classes/Location.php';
 require_once 'classes/LocationTableGateway.php';
 require_once 'classes/Connection.php';
+require_once 'functions.php';
 
 if (!isset($_GET['id'])) {
     die("Illegal request");
@@ -37,7 +38,7 @@ if (!$row) {
                 }
                 ?>
                 <form action="editLocation.php" method="POST" class="form-horizontal">
-                    <input type="hidden" name="id" value="<?php echo $row['locationID']; ?>" /><!--location id. auto incremented in database. cannot be updated from website-->
+                    <input type="hidden" name="id" value="<?php echo $row['LocationID']; ?>" /><!--location id. auto incremented in database. cannot be updated from website-->
                     <div class="form-group">
                         <label for="Name" class="col-md-2 control-label">Name</label><!--label-->
                         <div class="col-md-5">
@@ -101,6 +102,56 @@ if (!$row) {
                             <span id="capError" class="error"></span><!--error message for invalid input-->
                         </div>
                     </div>
+                    <!--codes below has no connection with the database.-->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Location Type</label><!--radio buttons with multiple options-->
+                        <div class="col-md-5">
+                            <input type="radio"  name="lType" value="indoor" >  Indoor <br>
+                            <input type="radio" name="lType" value="outdoor" >  Outdoor <br>
+                            <input type="radio" name="lType" value="both" >  Both
+                        </div>
+                        <div class="col-md-4">
+                            <span id="typeError" class="error">
+
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Seating Available</label>
+                        <div class="col-md-5">
+                            <select class="form-control" name="seat">
+                                <option value="yes" > Yes</option>
+                                <option value="no" > No</option>
+                            </select>
+                        </div>
+                    </div>    
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Facilities</label>
+                        <div class="col-md-5">
+                            <input type="checkbox" name="facilities[]" value="sound"> Sound Room <br>
+                            <input type="checkbox" name="facilities[]" value="screen"> Big Screen Room <br>
+                            <input type="checkbox" name="facilities[]" value="restaurant"> Restaurants <br>
+                            <input type="checkbox" name="facilities[]" value="bar"> Bar <br>
+                            <input type="checkbox" name="facilities[]" value="disabled"> Disabled Access Toilets <br>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Url</label>
+                        <div class="col-md-5">
+                            <input type="text" class="control-label" name="link">
+                        </div>
+                        <div class="col-md-4">
+                            <span id="urlError" class="error">
+                                <?php //echoValue($errors, 'link');?>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Attach File:</label>
+                        <div class="col-md-5">
+                            <input type="file" class="control-label" name="attachment">
+                        </div>
+                    </div> <br>
                     <button type="submit" class="btn btn-default pull-right" name="editLocation">Update <span class="glyphicon glyphicon-floppy-disk"></span></button><!--submit button-->
                     <a class="btn btn-default" href="viewlocations.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a><!--return/back button-->
                 </form>
