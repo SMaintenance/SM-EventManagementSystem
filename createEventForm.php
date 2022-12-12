@@ -59,6 +59,19 @@ if (!isset($errors)) {
                         </div>
                     </div>
                     <div class="form-group">
+                        <label for="EventType" class="col-md-2 control-label">Event Type</label><!--event type-->
+                        <div class="col-md-5">
+                            <input type="radio" id="wedding" name="eventType" value="Wedding">  Wedding <br>
+                            <input type="radio" id="birthday" name="eventType" value="Birthday">  Birthday <br>
+                            <input type="radio" id="fashion" name="eventType" value="Fashion">  Fashion <br>
+                            <input type="radio" id="meeting" name="eventType" value="Meeting">  Meeting <br>
+                        </div>
+                        <div class="col-md-4">
+                            <span id="EventTypeError" class="error">
+                                <?php echoValue($errors, 'EventType'); ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label for="StartDate" class="col-md-2 control-label">Start Date</label><!--start date-->
                         <div class="col-md-5">
                             <input type="text" class="form-control" id="StartDate" name="StartDate" value="<?php echoValue($formdata, "StartDate")?>" /><!--input-->
@@ -111,6 +124,11 @@ if (!isset($errors)) {
                             </span>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Attach Event Image</label>
+                        <div class="col-md-5">
+                            <input type="file" class="control-label" name="attachment">
+                        </div><br>
                     <button type="submit" class = "btn btn-default pull-right">Create Event <span class="glyphicon glyphicon-send"></span></button>
                     <a class="btn btn-default navbar-btn" href = "viewEvents.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a><!--register button-->
                 </form>
