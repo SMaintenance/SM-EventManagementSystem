@@ -116,9 +116,9 @@ if (!isset($errors)) {
                     <div class="row form-group">
                         <label class="col-md-3 control-label">Location Type</label><!--radio buttons with multiple options-->
                         <div class="col-md-5">
-                            <input type="radio"  name="lType" value="indoor" <?php echoChecked($formdata, "lType", "indoor"); ?> >Indoor <br>
-                            <input type="radio" name="lType" value="outdoor" <?php echoChecked($formdata, "lType", "outdoor"); ?>>Outdoor <br>
-                            <input type="radio" name="lType" value="both" <?php echoChecked($formdata, "lType", "both"); ?>>Both
+                            <input type="radio"  name="lType" value=1 <?php echoChecked($formdata, "lType", 1); ?> >Indoor <br>
+                            <input type="radio" name="lType" value=2 <?php echoChecked($formdata, "lType", 2); ?>>Outdoor <br>
+                            <input type="radio" name="lType" value=3 <?php echoChecked($formdata, "lType", 3); ?>>Both
                         </div>
                         <div class="col-md-3">
                             <span id="typeError" class="error">
@@ -130,19 +130,19 @@ if (!isset($errors)) {
                         <label class="col-md-3 control-label">Seating Available</label>
                         <div class="col-md-5">
                             <select class="form-control" name="seat">
-                                <option value="yes" <?php echoSelected($formdata, "seat", "yes"); ?>>Yes</option>
-                                <option value="no" <?php echoSelected($formdata, "seat", "no"); ?>>No</option>
+                                <option value=1 <?php echoSelected($formdata, "seat", 1); ?>>Yes</option>
+                                <option value=2 <?php echoSelected($formdata, "seat", 2); ?>>No</option>
                             </select>
                         </div>
                     </div>    
                     <div class="row form-group">
                         <label class="col-md-3 control-label">Facilities</label>
                         <div class="col-md-5">
-                            <input type="checkbox" name="facilities[]" value="sound" <?php echoCheckedArray($formdata, 'facilities', 'sound'); ?> >Sound Room <br>
-                            <input type="checkbox" name="facilities[]" value="screen" <?php echoCheckedArray($formdata, "facilities", "screen"); ?> >Big Screen Room <br>
-                            <input type="checkbox" name="facilities[]" value="restaurant" <?php echoCheckedArray($formdata, "facilities", "restaurant"); ?> >Restaurants <br>
-                            <input type="checkbox" name="facilities[]" value="bar" <?php echoCheckedArray($formdata, "facilities", "bar"); ?> >Bar <br>
-                            <input type="checkbox" name="facilities[]" value="disabled" <?php echoCheckedArray($formdata, "facilities", "disabled"); ?> >Disabled Access Toilets <br>
+                            <input type="checkbox" name="facilities[]" value=1 <?php echoCheckedArray($formdata, 'facilities', 1); ?> >Sound Room <br>
+                            <input type="checkbox" name="facilities[]" value=2 <?php echoCheckedArray($formdata, "facilities", 2); ?> >Big Screen Room <br>
+                            <input type="checkbox" name="facilities[]" value=3 <?php echoCheckedArray($formdata, "facilities", 3); ?> >Restaurants <br>
+                            <input type="checkbox" name="facilities[]" value=4 <?php echoCheckedArray($formdata, "facilities", 4); ?> >Bar <br>
+                            <input type="checkbox" name="facilities[]" value=5 <?php echoCheckedArray($formdata, "facilities", 5); ?> >Disabled Access Toilets <br>
                         </div>
                     </div>
                     <div class="row form-group">

@@ -57,7 +57,12 @@ CREATE TABLE `locations` (
   `ManagerLName` varchar(255) NOT NULL,
   `ManagerEmail` varchar(255) NOT NULL,
   `ManagerNumber` int(11) NOT NULL,
-  `MaxCapacity` int(11) NOT NULL
+  `MaxCapacity` int(11) NOT NULL,
+  `LocationType` int(11) DEFAULT NULL,
+  `SeatingAvailable` int(11) DEFAULT NULL,
+  `Facilities` varchar(255) DEFAULT NULL,
+  `Url` varchar(255) DEFAULT NULL,
+  `Image` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
