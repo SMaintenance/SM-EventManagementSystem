@@ -17,8 +17,15 @@ if (empty($errors)) {
     $managerEmail = $formdata['managerEmail'];
     $managerNumber = $formdata['managerNumber'];
     $maxCap = $formdata['maxCap'];
+    // $locationType = $formdata['lType'];
+    // $seat = $formdata['seat'];
+    // $facilities = $formdata['facilities'];
+    // $url= $formdata['url'];
+    // $image = $formdata['image'];
 
     $location = new Location(-1, $locationName, $locationAddress, $managerFName, $managerLName, $managerEmail, $managerNumber, $maxCap);
+
+    // $location = new Location(-1, $locationName, $locationAddress, $managerFName, $managerLName, $managerEmail, $managerNumber, $maxCap, $locationType, $seat, $facilities, $url, $image);
 
     $connection = Connection::getInstance();
 
