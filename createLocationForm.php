@@ -74,6 +74,19 @@ if (!isset($errors)) {
                     </div>
                     <div class="row form-group">
                         <div class="col-md-3">
+                            <label for="managerLName" class="control-label">Manager Last Name</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="managerLName" name="managerLName" value="<?php echoValue($formdata, "managerLName")?>" /><!--input-->
+                        </div>
+                        <div class="col-md-offset-3" style="padding-left:15px">
+                            <span id="mNameError" class="error"><!--error message for invalid input-->
+                                <?php echoValue($errors, 'managerLName');?>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-md-3">
                             <label for="managerEmail" class="control-label">Manager Email</label>
                         </div>
                         <div class="col-md-9">
@@ -112,9 +125,8 @@ if (!isset($errors)) {
                         </div>
                     </div>
 
-                <!--codes below has no connection with the database.-->
                     <div class="row form-group">
-                        <label class="col-md-3 control-label">Location Type</label><!--radio buttons with multiple options-->
+                        <label class="col-md-3 control-label">Location Type</label>
                         <div class="col-md-5">
                             <input type="radio"  name="lType" value=1 <?php echoChecked($formdata, "lType", 1); ?> >Indoor <br>
                             <input type="radio" name="lType" value=2 <?php echoChecked($formdata, "lType", 2); ?>>Outdoor <br>
@@ -122,17 +134,22 @@ if (!isset($errors)) {
                         </div>
                         <div class="col-md-3">
                             <span id="typeError" class="error">
-
+                                <?php echoValue($errors, 'lType');?>
                             </span>
                         </div>
                     </div>
                     <div class="row form-group">
-                        <label class="col-md-3 control-label">Seating Available</label>
+                        <label for="seating" class="col-md-3 control-label">Seating Available</label>
                         <div class="col-md-5">
-                            <select class="form-control" name="seat">
-                                <option value=1 <?php echoSelected($formdata, "seat", 1); ?>>Yes</option>
-                                <option value=2 <?php echoSelected($formdata, "seat", 2); ?>>No</option>
+                            <select name="seating" id="seating" class="form-control">
+                                <option value=0>Please Choose</option>
+                                <option value=1 >Yes</option>
+                                <option value=2 >No</option>
                             </select>
+                        </div>
+                        <div class="col-md-3">
+                            <span id="typeError" class="error">
+                            </span>
                         </div>
                     </div>    
                     <div class="row form-group">
@@ -144,14 +161,21 @@ if (!isset($errors)) {
                             <input type="checkbox" name="facilities[]" value=4 <?php echoCheckedArray($formdata, "facilities", 4); ?> >Bar <br>
                             <input type="checkbox" name="facilities[]" value=5 <?php echoCheckedArray($formdata, "facilities", 5); ?> >Disabled Access Toilets <br>
                         </div>
+                        <div class="col-md-3">
+                            <span id="typeError" class="error">
+                                <?php echoValue($errors, 'facilities');?>
+                            </span>
+                        </div>
                     </div>
                     <div class="row form-group">
-                        <label class="col-md-3 control-label">Url</label>
-                        <div class="col-md-5">
-                            <input type="text" class="control-label" name="link">
-                        </div>
                         <div class="col-md-3">
-                            <span id="urlError" class="error">
+                            <label for="Url" class="control-label">Url</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="link" name="link" value="<?php echoValue($formdata, "link")?>" /><!--input-->
+                        </div>
+                        <div class="col-md-offset-3" style="padding-left:15px">
+                            <span id="LinkError" class="error"><!--error message for invalid input-->
                                 <?php echoValue($errors, 'link');?>
                             </span>
                         </div>
@@ -159,10 +183,10 @@ if (!isset($errors)) {
                     <div class="row form-group">
                         <label class="col-md-3 control-label">Attach File:</label>
                         <div class="col-md-5">
-                            <input type="file" class="control-label" name="attachment">
+                            <input type="file" class="control-label" name="image">
                         </div>
                     </div>
-                <button type="submit" name="createLocation" class="btn btn-default pull-right">Create Location <span class="glyphicon glyphicon-send"></span></button>
+                <button type="submit" class="btn btn-default pull-right">Create Location <span class="glyphicon glyphicon-send"></span></button>
                 </form>
                 <a class="btn btn-default" href="viewLocations.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a><!--return/back button-->
             </div>

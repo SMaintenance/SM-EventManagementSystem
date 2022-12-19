@@ -1,31 +1,46 @@
 <?php
 class Location {
-    private $Name;
-    private $Address;    
-    private $ManagerFName;
-    private $ManagerLName;
-    private $ManagerEmail;
-    private $ManagerNumber;
-    private $MaxCapacity;
-    
-    public function __construct($id, $name, $address, $manFName, $manLName, $manEmail, $manNumber, $maxCap) {
+    private $name;
+    private $address;    
+    private $managerFName;
+    private $managerLName;
+    private $managerEmail;
+    private $managerNumber;
+    private $maxCapacity;
+    private $locationType = NULL;
+    private $seat = NULL;
+    private $facilities = NULL;
+    private $url = NULL;
+    private $image = NULL;
+
+    public function __construct($id, $name, $address, $manFName, $manLName, $manEmail, $manNumber, $maxCap, $locationType, $seat, $facilities, $url, $image) {
         $this->id = $id;
-        $this->Name = $name;
-        $this->Address = $address;
-        $this->ManagerFName = $manFName;
-        $this->ManagerLName = $manLName;
-        $this->ManagerEmail = $manEmail;
-        $this->ManagerNumber = $manNumber;
-        $this->MaxCapacity = $maxCap;
+        $this->name = $name;
+        $this->address = $address;
+        $this->managerFName = $manFName;
+        $this->managerLName = $manLName;
+        $this->managerEmail = $manEmail;
+        $this->managerNumber = $manNumber;
+        $this->maxCapacity = $maxCap;
+        $this->locationType = $locationType;
+        $this->seat = $seat;
+        $this->facilities = $facilities;
+        $this->url = $url;
+        $this->image = $image;
     }
     
     public function getId() { return $this->id; }
-    public function getName() { return $this->Name; }
-    public function getAddress() { return $this->Address; }
-    public function getMFName() { return $this->ManagerFName; }
-    public function getMLName() { return $this->ManagerLName; }
-    public function getMEmail() { return $this->ManagerEmail; }
-    public function getMNumber() { return $this->ManagerNumber; }
-    public function getCap() { return $this->MaxCapacity; }
+    public function getName() { return $this->name; }
+    public function getAddress() { return $this->address; }
+    public function getMFName() { return $this->managerFName; }
+    public function getMLName() { return $this->managerLName; }
+    public function getMEmail() { return $this->managerEmail; }
+    public function getMNumber() { return $this->managerNumber; }
+    public function getCap() { return $this->maxCapacity; }
+    public function getLocationType() { return $this->locationType; }
+    public function getSeat() { return $this->seat; }
+    public function getFacilities() { return $this->facilities; }
+    public function getUrl() { return $this->url; }
+    public function getImage() { return $this->image; }
 }
 ?>
