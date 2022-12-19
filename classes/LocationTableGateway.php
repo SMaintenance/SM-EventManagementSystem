@@ -43,8 +43,7 @@ class LocationTableGateway {
     
     //execute a insert sql statement that inserts data taken from user to a database.
     public function insert($p) {
-        $sql = "INSERT INTO locations(Name, Address, ManagerFName, ManagerLName, ManagerEmail, ManagerNumber, MaxCapacity) " .
-                "VALUES (:Name, :Address, :ManagerFName, :ManagerLName, :ManagerEmail, :ManagerNumber, :MaxCapacity)";
+        $sql = "INSERT INTO locations(Name, Address, ManagerFName, ManagerLName, ManagerEmail, ManagerNumber, MaxCapacity, LocationType, SeatingAvailable,  Url, Image) VALUES (:Name, :Address,:ManagerFName , :ManagerLName, :ManagerEmail, :ManagerNumber, :MaxCapacity, :LocationType, :Seat, :Url, :Image)";
         
         $statement = $this->connect->prepare($sql);
         $params = array(
@@ -54,7 +53,11 @@ class LocationTableGateway {
             "ManagerLName"      => $p->getMLName(),
             "ManagerEmail"      => $p->getMEmail(),
             "ManagerNumber"     => $p->getMNumber(),
-            "MaxCapacity"       => $p->getCap()
+            "MaxCapacity"       => $p->getCap(),
+            "LocationType"      => $p->getLocationType(),
+            "Seat"              => $p->getSeat(),
+            "Url"               => $p->getUrl(),
+            "Image"             => $p->getImage()
         );
         
         echo "<pre>";
@@ -70,9 +73,27 @@ class LocationTableGateway {
         }
         
         $id = $this->connect->lastInsertId();
+
+        // Insert Facilities into Facilities table
+        foreach($p->getFacilities() as $facility) {
+            $sqlQuery = "INSERT INTO facilities(Facility, LocationID) VALUES ($facility, :id)";
+        
+            $statement = $this->connect->prepare($sqlQuery);
+            $params = array(
+                "id" => $id
+            );
+            
+            $status = $statement->execute($params);
+            
+            if (!$status) {
+                die("Could not insert facilities");
+            }
+        }
         
         return $id;
     }
+
+
     
     public function update($p) {
         

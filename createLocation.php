@@ -17,15 +17,13 @@ if (empty($errors)) {
     $managerEmail = $formdata['managerEmail'];
     $managerNumber = $formdata['managerNumber'];
     $maxCap = $formdata['maxCap'];
-    // $locationType = $formdata['lType'];
-    // $seat = $formdata['seat'];
-    // $facilities = $formdata['facilities'];
-    // $url= $formdata['url'];
-    // $image = $formdata['image'];
+    $locationType = $formdata['lType'];
+    $seat = $_POST['seating'];
+    $facilities = $formdata['facilities'];
+    $url= $formdata['link'];
+    $image = $_POST['image'];
 
-    $location = new Location(-1, $locationName, $locationAddress, $managerFName, $managerLName, $managerEmail, $managerNumber, $maxCap);
-
-    // $location = new Location(-1, $locationName, $locationAddress, $managerFName, $managerLName, $managerEmail, $managerNumber, $maxCap, $locationType, $seat, $facilities, $url, $image);
+    $location = new Location(-1, $locationName, $locationAddress, $managerFName, $managerLName, $managerEmail, $managerNumber, $maxCap, $locationType, $seat, $facilities, $url, $image);
 
     $connection = Connection::getInstance();
 
@@ -33,8 +31,9 @@ if (empty($errors)) {
 
     $id = $gateway->insert($location);
 
-    header('Location: homeIn.php');
+    header('Location: viewLocations.php');
 }
 else {
+    echo implode($errors);
     require 'createLocationForm.php';
 }

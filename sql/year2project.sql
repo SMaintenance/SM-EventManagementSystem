@@ -51,16 +51,15 @@ INSERT INTO `events` (`EventID`, `Title`, `Description`, `StartDate`, `EndDate`,
 
 CREATE TABLE `locations` (
   `LocationID` int(11) NOT NULL,
-  `Name` varchar(255) NOT NULL,
-  `Address` varchar(255) NOT NULL,
-  `ManagerFName` varchar(255) NOT NULL,
-  `ManagerLName` varchar(255) NOT NULL,
-  `ManagerEmail` varchar(255) NOT NULL,
-  `ManagerNumber` int(11) NOT NULL,
-  `MaxCapacity` int(11) NOT NULL,
+  `Name` varchar(255) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  `ManagerFName` varchar(255) DEFAULT NULL,
+  `ManagerLName` varchar(255) DEFAULT NULL,
+  `ManagerEmail` varchar(255) DEFAULT NULL,
+  `ManagerNumber` int(11) DEFAULT NULL,
+  `MaxCapacity` int(11) DEFAULT NULL,
   `LocationType` int(11) DEFAULT NULL,
   `SeatingAvailable` int(11) DEFAULT NULL,
-  `Facilities` varchar(255) DEFAULT NULL,
   `Url` varchar(255) DEFAULT NULL,
   `Image` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -69,8 +68,54 @@ CREATE TABLE `locations` (
 -- Dumping data for table `locations`
 --
 
-INSERT INTO `locations` (`LocationID`, `Name`, `Address`, `ManagerFName`, `ManagerLName`, `ManagerEmail`, `ManagerNumber`, `MaxCapacity`) VALUES
-(1, 'Royal Hotel', 'Bray', 'John', 'Byrne', 'John@email.com', 123456, 100);
+INSERT INTO `locations` (`LocationID`, `Name`, `Address`, `ManagerFName`, `ManagerLName`, `ManagerEmail`, `ManagerNumber`, `MaxCapacity`, `LocationType`, `SeatingAvailable`, `Url`, `Image`) VALUES
+(1, 'Royal Hotel', 'Bray', 'John', 'Byrne', 'John@email.com', 123456, 100, NULL, 1, NULL, NULL),
+(2, 'Desamas', 'No.1, Jalan AU5C/6', 'Humaira&#39; ', 'Ahmad Shuhemi', 'humairas00@yahoo.com', 12345, 50, 2, 1, 'https://www.google.com', 0x64616e6765722e706e67);
+
+-- FACILITIES --------------------------------------------------------
+
+-- Table structure for table `facilities`
+
+CREATE TABLE `facilities` (
+  `FacilitiesID` int(11) NOT NULL,
+  `Facility` int(11) DEFAULT NULL,
+  `LocationID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table `facilities`
+
+INSERT INTO `facilities` (`FacilitiesID`, `Facility`, `LocationID`) VALUES
+(1, 1, 2),
+(2, 2, 2),
+(3, 3, 2),
+(4, 4, 2),
+(5, 5, 2);
+
+-- Indexes for dumped tables
+
+
+-- Indexes for table `facilities`
+
+ALTER TABLE `facilities`
+  ADD PRIMARY KEY (`FacilitiesID`),
+  ADD KEY `LocationID` (`LocationID`);
+
+-- AUTO_INCREMENT for dumped tables
+
+
+-- AUTO_INCREMENT for table `facilities`
+
+ALTER TABLE `facilities`
+  MODIFY `FacilitiesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
+
+-- Constraints for dumped tables
+
+
+-- Constraints for table `facilities`
+ALTER TABLE `facilities`
+  ADD CONSTRAINT `LocationID` FOREIGN KEY (`LocationID`) REFERENCES `locations` (`LocationID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+COMMIT;
 
 -- --------------------------------------------------------
 

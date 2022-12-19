@@ -16,58 +16,58 @@ function validateLocation($input_method, &$formdata, &$errors) {
                     $formdata['Name'] === FALSE ||
                     $formdata['Name'] === "")
     {
-        $errors['Name'] = "name required";
+        $errors['Name'] = "Name is required";
     }
     
     if ($formdata['Address'] === NULL ||
                     $formdata['Address'] === FALSE ||
                     $formdata['Address'] === "")
     {
-        $errors['Address'] = "address required";
+        $errors['Address'] = "Address is required";
     }   
     
     if ($formdata['managerFName'] === NULL ||
                     $formdata['managerFName'] === FALSE ||
                     $formdata['managerFName'] === "")
     {
-        $errors['managerFName'] = "first name required";
+        $errors['managerFName'] = "First Name is required";
     }
     
     if ($formdata['managerLName'] === NULL ||
                     $formdata['managerLName'] === FALSE ||
                     $formdata['managerLName'] === "")
     {
-        $errors['managerLName'] = "last name required";
+        $errors['managerLName'] = "Last Name is required";
     }
     
     if ($formdata['managerEmail'] === NULL ||
                     $formdata['managerEmail'] === FALSE ||
                     $formdata['managerEmail'] === "")
     {
-        $errors['managerEmail'] = "manager email required";
+        $errors['managerEmail'] = "Manager Email is required";
     }
     
     if ($formdata['managerNumber'] === NULL ||
                     $formdata['managerNumber'] === FALSE ||
                     $formdata['managerNumber'] === "")
     {
-         $errors['managerNumber'] = "manager number required";
+         $errors['managerNumber'] = "Manager Number is required";
     }
     
     if ($formdata['maxCap'] === ""){
         $capacity = intval($formdata['maxCap']);
         if ($capacity < 0 || $capacity > 999999) {
     }
-        $errors['maxCap'] = "capacity required. Cannot be a negative value";
+        $errors['maxCap'] = "Capacity is required. Cannot be a negative value";
     }
     
     if ($formdata['lType'] !== NULL &&
                     $formdata['lType'] !== FALSE &&
                     $formdata['lType'] !== "")
     {
-        $type = array("indoor", "outdoor", "both");
+        $type = array(1, 2, 3);
         if(!in_array($formdata['lType'], $type)){
-            $errors['lType'] = "invalid type";
+            $errors['lType'] = "Invalid type";
         }
     }
     
@@ -77,7 +77,7 @@ function validateLocation($input_method, &$formdata, &$errors) {
     {
         $fcl = array("sound", "screen", "restaurant", "bar", "disabled");
         if(in_array($formdata['facilities'], $fcl)){
-            $errors['facilities'] = "invalid restriction";
+            $errors['facilities'] = "Invalid restriction";
         }
     }
     
