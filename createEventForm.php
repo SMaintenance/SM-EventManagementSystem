@@ -74,7 +74,7 @@ if (!isset($errors)) {
                     <div class="form-group">
                         <label for="StartDate" class="col-md-2 control-label">Start Date</label><!--start date-->
                         <div class="col-md-5">
-                            <input type="text" class="form-control" id="StartDate" name="StartDate" value="<?php echoValue($formdata, "StartDate")?>" /><!--input-->
+                            <input type="date" class="form-control" id="StartDate" name="StartDate" value="<?php echoValue($formdata, "StartDate")?>" /><!--input-->
                         </div>
                         <div class="col-md-4">
                             <span id="StartDateError" class="error"><!--error message for invalid input-->
@@ -85,7 +85,7 @@ if (!isset($errors)) {
                     <div class="form-group">
                         <label for="EndDate" class="col-md-2 control-label">End Date</label><!--end date-->
                         <div class="col-md-5">
-                            <input type="text" class="form-control" id="EndDate" name="EndDate" value="<?php echoValue($formdata, "EndDate")?>" /><!--input-->
+                            <input type="date" class="form-control" id="EndDate" name="EndDate" value="<?php echoValue($formdata, "EndDate")?>" /><!--input-->
                         </div>
                         <div class="col-md-4">
                             <span id="EndDateError" class="error"><!--error message for invalid input-->
