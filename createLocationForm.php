@@ -149,7 +149,6 @@ if (!isset($errors)) {
                         </div>
                         <div class="col-md-3">
                             <span id="typeError" class="error">
-                                <?php echo implode($formdata);?>
                             </span>
                         </div>
                     </div>    

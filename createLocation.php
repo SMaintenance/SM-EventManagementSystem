@@ -17,11 +17,11 @@ if (empty($errors)) {
     $managerEmail = $formdata['managerEmail'];
     $managerNumber = $formdata['managerNumber'];
     $maxCap = $formdata['maxCap'];
-    $locationType = $formdata['lType'];
-    $seat = $_POST['seating'];
+    $locationType = !empty($formdata['lType']) ? $formdata['lType']: NULL;
+    $seat = !empty($_POST['seating']) ? $_POST['seating']: NULL;
     $facilities = $formdata['facilities'];
-    $url= $formdata['link'];
-    $image = $_POST['image'];
+    $url= !empty($formdata['link']) ? $formdata['link']: NULL;
+    $image = !empty($_POST['image']) ? $_POST['image']: NULL;
 
     $location = new Location(-1, $locationName, $locationAddress, $managerFName, $managerLName, $managerEmail, $managerNumber, $maxCap, $locationType, $seat, $facilities, $url, $image);
 
@@ -34,6 +34,5 @@ if (empty($errors)) {
     header('Location: viewLocations.php');
 }
 else {
-    echo implode($errors);
     require 'createLocationForm.php';
 }
