@@ -46,7 +46,7 @@
                                 <?php if (isset($errors['password'])) echo $errors['password']; ?>
                             </span>
                         </div>
-                        <button type = "submit" class = "btn btn-default">Login</button>
+                        <button type = "submit" class = "btn btn-primary">Login</button>
                         <a href = "forgotPassword.php" class="btn btn-default">Forget Password</a>
                     </form>
                 </div><!--col md 6 div-->
