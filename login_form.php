@@ -47,7 +47,7 @@
                             </span>
                         </div>
                         <button type = "submit" class = "btn btn-primary">Login</button>
-                        <a href = "forgotPassword.php" class="btn btn-default">Forget Password</a>
+                        <a href = "forgotpasswordForm.php" class="btn btn-default">Forget Password</a>
                     </form>
                 </div><!--col md 6 div-->
             </div><!--container div-->
