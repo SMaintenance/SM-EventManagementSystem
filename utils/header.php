@@ -26,7 +26,7 @@
                     echo '<li><a href = "events2.php">Events</a></li>';
                     echo '<li><a href = "locations2.php">Locations</a></li>';
                     echo '<li><a href = "contact.php">Contact Us</a></li>';
-                    echo '<a href = "login.php" class = "btn btn-default navbar-btn" >Login <Span class="glyphicon glyphicon-log-in"></span></a>';
+                    echo '<a href = "login_form.php" class = "btn btn-default navbar-btn" >Login <Span class="glyphicon glyphicon-log-in"></span></a>';
                     // echo '<button type = "button" class = "btn btn-default navbar-btn" data-toggle = "modal" data-target = "#login">Login <Span class="glyphicon glyphicon-log-in"></span></button>';
                 }
                 ?>
