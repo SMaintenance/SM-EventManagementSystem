@@ -5,7 +5,8 @@ body {
 
 /*background image style for header*/
 .bgImage {
-    background-image: url(../images/bgImage1.jpg);
+    /*background-image: url(../images/bgImage1.jpg);*/
+    background-image: url(/images/bgimage3.jpg);
     background-size: cover;
     background-position: center center;
     height: 600px;
