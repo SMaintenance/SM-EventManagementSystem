@@ -17,6 +17,7 @@ try {
     $input_method = INPUT_POST;
 
     $formdata['username'] = filter_input($input_method, "username", FILTER_SANITIZE_STRING);
+    $formdata['password'] = filter_input($input_method, "password", FILTER_SANITIZE_STRING);
     
     // throw an exception if any of the form fields 
     // are empty
@@ -28,11 +29,14 @@ try {
     //    $errors['username'] = "Valid email required required";
     //}
 
-   
+    if (empty($formdata['password'])) {
+        $errors['password'] = "Password required";
+    }
     if (empty($errors)) {
         // since none of the form fields were empty, 
         // store the form data in variables
         $username = $formdata['username'];
+        $password = $formdata['password'];
 
         // create a UserTable object and use it to retrieve 
         // the users
@@ -56,7 +60,17 @@ try {
     // a new User object, add it to the database using the
     // UserTable object, and store it in the session array
     // using the key 'user'
-    
+   
+    $username = $formdata['username'];
+    $password = $formdata['password'];
+
+   
+    $connection = DB::getConnection();
+    $userTable = new UserTable($connection);
+    $user = $userTable->getUserByUsername($username);
+    $user->setPassword($password);
+    $userTable->update($user);
+   
     
     // now the user is registered and logged in so redirect
     // them the their home page
@@ -66,13 +80,13 @@ try {
     // will not be resubmitting the login form.
     // 
     // require 'home.php';
-    header('Location: resetpasswordForm.php');
+    header('Location: login.php');
     }
     catch (Exception $ex) {
         // if an exception occurs then extract the message
         // from the exception and send the user the
         // registration form
         $errorMessage = $ex->getMessage();
-        require 'forgotpasswordForm.php';
+        require 'resetpasswordForm.php';
     }
     ?>
