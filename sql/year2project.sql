@@ -30,10 +30,12 @@ CREATE TABLE `events` (
   `EventID` int(11) NOT NULL,
   `Title` varchar(255) NOT NULL,
   `Description` varchar(255) NOT NULL,
+  `EventType` int(11) DEFAULT NULL,
   `StartDate` varchar(255) NOT NULL,
   `EndDate` varchar(255) NOT NULL,
   `Cost` int(11) NOT NULL,
-  `LocationID` int(11) NOT NULL
+  `LocationID` int(11) NOT NULL,
+  `Image` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -41,7 +43,7 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`EventID`, `Title`, `Description`, `StartDate`, `EndDate`, `Cost`, `LocationID`) VALUES
-(1, 'Wedding Anniversary', '1st Anniversary Celebration', '10-Oct-2015', '10-Oct-2016', 25000, 1);
+(1, 'Wedding Anniversary', '1st Anniversary Celebration', '2015-06-15', '2015-06-16', 25000, 1);
 
 -- --------------------------------------------------------
 
@@ -113,9 +115,9 @@ ALTER TABLE `facilities`
 
 
 -- Constraints for table `facilities`
-ALTER TABLE `facilities`
-  ADD CONSTRAINT `LocationID` FOREIGN KEY (`LocationID`) REFERENCES `locations` (`LocationID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-COMMIT;
+-- ALTER TABLE `facilities`
+--   ADD CONSTRAINT `LocationID` FOREIGN KEY (`LocationID`) REFERENCES `locations` (`LocationID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+-- COMMIT;
 
 -- --------------------------------------------------------
 
@@ -174,4 +176,4 @@ ALTER TABLE `locations`
 ALTER TABLE `events` CHANGE `StartDate` `StartDate` DATE NOT NULL;
 ALTER TABLE `events` CHANGE `EndDate` `EndDate` DATE NOT NULL;
 
-UPDATE `events` SET `StartDate` = '2015-06-15', `EndDate` = '2016-06-15' WHERE `events`.`EventID` = 1
+-- UPDATE `events` SET `StartDate` = '2015-06-15', `EndDate` = '2016-06-15' WHERE `events`.`EventID` = 1
