@@ -63,7 +63,7 @@ CREATE TABLE `locations` (
   `LocationType` int(11) DEFAULT NULL,
   `SeatingAvailable` int(11) DEFAULT NULL,
   `Url` varchar(255) DEFAULT NULL,
-  `Image` blob DEFAULT NULL
+  `Image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
