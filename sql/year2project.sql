@@ -35,7 +35,7 @@ CREATE TABLE `events` (
   `EndDate` varchar(255) NOT NULL,
   `Cost` int(11) NOT NULL,
   `LocationID` int(11) NOT NULL,
-  `Image` blob DEFAULT NULL
+  `Image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

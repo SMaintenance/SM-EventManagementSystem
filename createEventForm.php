@@ -42,7 +42,7 @@ if (!isset($errors)) {
                 echo '<p>Error: ' . $errorMessage . '</p>';
             }
             ?>
-            <form action="createEvent.php" method="POST" class="form-horizontal">
+            <form action="createEvent.php" method="POST" class="form-horizontal" enctype="multipart/form-data">
                 <div style="margin-left: 25%;">
                     <div class="form-group">
                         <label for="Title" class="col-md-2 control-label">Title</label>
@@ -150,11 +150,15 @@ if (!isset($errors)) {
                     <div class="form-group">
                         <label class="col-md-2 control-label">Attach Event Image</label>
                         <div class="col-md-5">
-                            <input type="file" class="control-label" name="image">
+                            <img src="uploads/<?php echo "noImage.png" ?>" style="width: 100%; height: auto" id="image">
+                            <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;">
+                            <label class="btn btn-default" style="margin-top: 3%;" for="imageUploaded">
+                                Choose file
+                            </label>
                         </div>
                     </div>
                 </div><br>
-                <button type="submit" class="btn btn-default pull-right">Create Event <span class="glyphicon glyphicon-send"></span></button>
+                <button type="submit" name="submit" class="btn btn-default pull-right">Create Event <span class="glyphicon glyphicon-send"></span></button>
                 <a class="btn btn-default navbar-btn" href="viewEvents.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a>
                 <!--register button-->
             </form>
@@ -162,6 +166,11 @@ if (!isset($errors)) {
     </div>
     <?php require 'utils/footer.php'; ?>
     <!--footer content. file found in utils folder-->
+    <script type="text/javascript">
+        document.getElementById('imageUploaded').onchange = function() {
+            document.getElementById('image').src = URL.createObjectURL(imageUploaded.files[0]);
+        }
+    </script>
 </body>
 
 </html>
