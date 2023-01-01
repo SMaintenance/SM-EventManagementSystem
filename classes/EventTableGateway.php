@@ -111,7 +111,7 @@ class EventTableGateway
             "StartDate = :StartDate, " .
             "EndDate = :EndDate, " .
             "Cost = :Cost, " .
-            "LocationID = :LocationID " .
+            "LocationID = :LocationID, " .
             "Image = :Image " .
             " WHERE eventID = :id";
 

@@ -3,20 +3,39 @@ require_once 'classes/Event.php';
 require_once 'classes/EventTableGateway.php';
 require_once 'classes/Connection.php';
 
-$id = $_POST['id'];
-$title = $_POST['Title'];
-$description = $_POST['Description'];
-$startDate = $_POST['StartDate'];
-$endDate = $_POST['EndDate'];
-$cost = $_POST['Cost'];
-$locationID = $_POST['LocID'];
+if (isset($_POST['submit'])) {
+    $id = $_POST['id'];
+    $title = $_POST['Title'];
+    $description = $_POST['Description'];
+    $eType = $_POST['eType'];
+    $startDate = $_POST['StartDate'];
+    $endDate = $_POST['EndDate'];
+    $cost = $_POST['Cost'];
+    $locationID = $_POST['LocID'];
+    $old_image = $_POST['old_image'];
 
-$event = new Event($id, $title, $description, $startDate, $endDate, $cost, $locationID);
+    if (isset($_FILES['image']['name']) && ($_FILES['image']['name'] != "")) {
+        $target_dir = "uploads/";
+        $file = $_FILES['image']['name'];
+        $path = pathinfo($file);
+        $filename = $path['filename'];
+        $ext = $path['extension'];
+        $temp_name = $_FILES['image']['tmp_name'];
+        $path_filename_ext = $target_dir . $filename . "." . $ext;
 
-$connection = Connection::getInstance();
+        unlink("uploads/$old_image");
+        move_uploaded_file($temp_name, $path_filename_ext);
+    } else {
+        $file = $old_image;
+    }
 
-$gateway = new EventTableGateway($connection);
+    $event = new Event($id, $title, $description, $eType, $startDate, $endDate, $cost, $locationID, $file);
 
-$id = $gateway->update($event);
+    $connection = Connection::getInstance();
 
-header('Location: viewEvents.php');
+    $gateway = new EventTableGateway($connection);
+
+    $id = $gateway->update($event);
+
+    header('Location: viewEvents.php');
+}
