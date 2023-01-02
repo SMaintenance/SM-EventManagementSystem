@@ -27,7 +27,6 @@
                     <p>
                         <span class="glyphicon glyphicon-envelope"></span> Email: julzengracio@yahoo.ie<br>
                         <span class="glyphicon glyphicon-link"></span> Facebook: www.facebook.com/julzengracio<br>
-                        <span class="glyphicon glyphicon-phone"></span> Mobile: 08712345678
                     </p>
                 </div>
                 <div class="col-md-6">
