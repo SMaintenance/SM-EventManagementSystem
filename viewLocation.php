@@ -17,10 +17,10 @@ $eventGateway = new EventTableGateway($connection);
 // $statement = $gateway->getLocationsById($id);
 $events = $eventGateway->getEventsByLocationId($id);
 
-$row = $statement->fetch(PDO::FETCH_ASSOC);
-if (!$row) {
-    die("Illegal request");
-}
+// $row = $statement->fetch(PDO::FETCH_ASSOC);
+// if (!$row) {
+//     die("Illegal request");
+// }
 ?>
 <!DOCTYPE html>
 <html>
@@ -67,7 +67,8 @@ if (!$row) {
                             echo '<td>' . $row['EndDate'] . '</td>';
                             echo '<td>' . $row['Cost'] . '</td>';
                             echo '<td>'
-                            . $row['LocationID'].'">'.$row['name']
+                            // . $row['LocationID'].'">'
+                            .$row['name']
                             . '</td>';
                             echo '</tr>';  
                         }
