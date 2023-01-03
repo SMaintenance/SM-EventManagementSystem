@@ -25,9 +25,8 @@
                 <div class="col-md-6 contacts">
                     <h1><span class="glyphicon glyphicon-user"></span> Jullian Engracio</h1>
                     <p>
-                        <span class="glyphicon glyphicon-envelope"></span> Email: julzengracio@yahoo.ie<br>
-                        <span class="glyphicon glyphicon-link"></span> Facebook: www.facebook.com/julzengracio<br>
-                        <span class="glyphicon glyphicon-phone"></span> Mobile: 08712345678
+                        <span class="glyphicon glyphicon-envelope"></span><a href="mailto:julzengracio@gmail.com"> Email: julzengracio@gmail.com</a><br>
+                        <span class="glyphicon glyphicon-link"></span><a href="https://www.facebook.com/TaylorSwift/"> Facebook: www.facebook.com/julzengracio</a><br>
                     </p>
                 </div>
                 <div class="col-md-6">

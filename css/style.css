@@ -75,9 +75,9 @@ header .navbar-nav a:hover:before {
     visibility: visible;
     -webkit-transform: scaleX(1);
     transform: scaleX(1);
-    //background-color: transparent;
-    //color: #bdc3c7;
-    //border-bottom: 3px solid #ecf0f1;
+    background-color: transparent;
+    color: #bdc3c7;
+    border-bottom: 3px solid #ecf0f1;
 }
 
 header .navbar-nav .btnlogout a:hover:before {
@@ -107,7 +107,7 @@ header .navbar-nav a:active {
 }
 
 header .navbar-header a {
-    color: #ecf0f1;
+    color: #25c2e9;
 }
 
 header .navbar-nav .btn {
