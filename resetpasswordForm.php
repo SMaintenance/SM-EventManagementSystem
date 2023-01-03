@@ -1,3 +1,7 @@
+<?php
+$username = $_GET['username'];
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
     <head>
@@ -20,14 +24,15 @@
                 <br><br>
                 <div class="container" style="padding-left:20%">
 
-                    <div class="form-inline ">
+                    <!-- <div class="form-inline ">
                         <div class = "form-group">
-                            <!--username field-->
-                            <label for="username" class="" style="width:10cm">Please enter your username again: </label>
-                            <input type="text"
-                                    name="username"class="form-control"value="<?php if (isset($formdata['username'])) echo $formdata['username']; ?>">
-                        </div>
-                    </div>
+                            username field-->
+                            <!-- <label for="username" class="" style="width:10cm">Please enter your username again: </label> -->
+                            <!-- <input type="text" -->
+                                    <!-- name="username"class="form-control"value=> -->
+                        <!-- </div> -->
+                    <!-- </div> --> 
+                    <input type="hidden" value="<?php $_GET['username']; ?>" name="username">
                     <br>
                     <div class="form-inline ">
                         <div class = "form-group">

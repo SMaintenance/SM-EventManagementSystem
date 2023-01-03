@@ -35,6 +35,7 @@ $user = $_SESSION['user'];
                     echo '<p>'.$message.'</p>';
                 }
                 ?>
+                <h3>Location List</h3>
                 <table class ="table table-hover">
                     <thead>
                         <tr>

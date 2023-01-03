@@ -80,7 +80,7 @@ try {
     // will not be resubmitting the login form.
     // 
     // require 'home.php';
-    header('Location: login.php');
+    header('Location: login_form.php');
     }
     catch (Exception $ex) {
         // if an exception occurs then extract the message
