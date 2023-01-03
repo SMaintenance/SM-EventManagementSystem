@@ -1,17 +1,17 @@
 <?php
 require_once 'utils/functions.php';
 require_once 'classes/User.php';
-require_once 'classes/Event.php';
-require_once 'classes/EventTableGateway.php';
+require_once 'classes/Booking.php';
+require_once 'classes/BookingTableGateway.php';
 require_once 'classes/Location.php';
 require_once 'classes/LocationTableGateway.php';
 require_once 'classes/Connection.php';
 
 
 $connection = Connection::getInstance();
-$gateway = new EventTableGateway($connection);
+$gateway = new BookingTableGateway($connection);
 
-$statement = $gateway->getEvents();
+$statement = $gateway->getBookings();
 
 start_session();
 
@@ -38,16 +38,16 @@ $user = $_SESSION['user'];
                     echo '<p>'.$message.'</p>';
                 }
                 ?>
-                <h3>Event List</h3>
+                <h3>Booking List</h3>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Event ID</th>
-                            <th>Title</th>
-                            <th>Description</th>                    
+                            <th>Customer's Name</th>
+                            <th>Contact</th>
+                            <th>Title</th>    
+                            <th>Event Type</th>               
                             <th>Start Date</th>
                             <th>End Date</th>
-                            <th>Cost</th>
                             <th>Location</th>
                             <th>Actions</th>
                         </tr>
@@ -57,18 +57,17 @@ $user = $_SESSION['user'];
                         $row = $statement->fetch(PDO::FETCH_ASSOC);
                         while ($row) {
                             echo '<tr>';
-                            echo '<td>' . $row['EventID'] . '</td>';
-                            echo '<td>' . $row['Title'] . '</td>';
-                            echo '<td>' . $row['Description'] . '</td>';                    
+                            echo '<td>' . $row['FullName'] . '</td>';
+                            echo '<td>' . $row['ContactNum'] . '</td>';
+                            echo '<td>' . $row['Title'] . '</td>';    
+                            echo '<td>' . $row['EventType'] . '</td>';               
                             echo '<td>' . $row['StartDate'] . '</td>';
                             echo '<td>' . $row['EndDate'] . '</td>';
-                            echo '<td>' . $row['Cost'] . '</td>';
                             echo '<td>'
-                            . '<a href="viewLocation.php?id='.$row['LocationID'].'">'.$row['name'].'</a> '
+                            . '<a href="viewLocation.php?id='.$row['LocationID'].'">'.$row['Name'].'</a> '
                             . '</td>';
                             echo '<td>'
-                            . '<a href="editEventForm.php?id='.$row['EventID'].'&locId='.$row['LocationID'].'">Edit</a> '
-                            . '<a class="delete" href="deleteEvent.php?id='.$row['EventID'].'">Delete</a> '
+                            . '<a href="viewBookingForm.php?id='.$row['BookingID'].'">View</a> '
                             . '</td>';
                             echo '</tr>';  
 
@@ -77,8 +76,6 @@ $user = $_SESSION['user'];
                         ?>
                     </tbody>
                 </table>
-                
-                <a class="btn btn-default" href = "createEventForm.php">Create Event</a><!--register button-->
             </div>
         </div>
         
