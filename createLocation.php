@@ -9,30 +9,47 @@ $errors = array();
 
 validateLocation(INPUT_POST, $formdata, $errors);
 
-if (empty($errors)) {
-    $locationName = $formdata['Name'];
-    $locationAddress = $formdata['Address'];    
-    $managerFName = $formdata['managerFName'];
-    $managerLName = $formdata['managerLName'];
-    $managerEmail = $formdata['managerEmail'];
-    $managerNumber = $formdata['managerNumber'];
-    $maxCap = $formdata['maxCap'];
-    $locationType = !empty($formdata['lType']) ? $formdata['lType']: NULL;
-    $seat = !empty($_POST['seating']) ? $_POST['seating']: NULL;
-    $facilities = $formdata['facilities'];
-    $url= !empty($formdata['link']) ? $formdata['link']: NULL;
-    $image = !empty($_POST['image']) ? $_POST['image']: NULL;
+if (isset($_POST['submit'])) {
+    if (empty($errors)) {
+        $locationName = $formdata['Name'];
+        $locationAddress = $formdata['Address'];
+        $managerFName = $formdata['managerFName'];
+        $managerLName = $formdata['managerLName'];
+        $managerEmail = $formdata['managerEmail'];
+        $managerNumber = $formdata['managerNumber'];
+        $maxCap = $formdata['maxCap'];
+        $locationType = !empty($formdata['lType']) ? $formdata['lType'] : NULL;
+        $seat = !empty($_POST['seating']) ? $_POST['seating'] : NULL;
+        $facilities = $formdata['facilities'];
+        $url = !empty($formdata['link']) ? $formdata['link'] : NULL;
 
-    $location = new Location(-1, $locationName, $locationAddress, $managerFName, $managerLName, $managerEmail, $managerNumber, $maxCap, $locationType, $seat, $facilities, $url, $image);
+        // Where the file is going to be stored
+        $target_dir = "uploads/";
+        $file = $_FILES['image']['name'];
+        $path = pathinfo($file);
+        $filename = $path['filename'];
+        $ext = $path['extension'];
+        $temp_name = $_FILES['image']['tmp_name'];
+        $path_filename_ext = $target_dir . $filename . "." . $ext;
 
-    $connection = Connection::getInstance();
+        // Check if file already exists
+        if (file_exists($path_filename_ext)) {
+            echo "Sorry, file already exists.";
+        } else {
+            move_uploaded_file($temp_name, $path_filename_ext);
+            echo "Congratulations! File Uploaded Successfully.";
+        }
 
-    $gateway = new LocationTableGateway($connection);
+        $location = new Location(-1, $locationName, $locationAddress, $managerFName, $managerLName, $managerEmail, $managerNumber, $maxCap, $locationType, $seat, $facilities, $url, $file);
 
-    $id = $gateway->insert($location);
+        $connection = Connection::getInstance();
 
-    header('Location: viewLocations.php');
-}
-else {
-    require 'createLocationForm.php';
+        $gateway = new LocationTableGateway($connection);
+
+        $id = $gateway->insert($location);
+
+        header('Location: viewLocations.php');
+    } else {
+        require 'createLocationForm.php';
+    }
 }
