@@ -42,6 +42,7 @@ if (!$row1) {
     <?php require 'utils/header.php'; ?>
     <!--header content. file found in utils folder-->
     <div class="content">
+
         <div class="container">
             <h1 align="center">Edit Location Form</h1>
             <!--form title-->
@@ -203,6 +204,7 @@ if (!$row1) {
                 <!--submit button-->
                 <a class="btn btn-default" href="viewlocations.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a>
                 <!--return/back button-->
+
             </form>
         </div>
     </div>
