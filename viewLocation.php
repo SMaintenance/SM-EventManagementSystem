@@ -11,10 +11,10 @@ if (!isset($_GET['id'])) {
 $id = $_GET['id'];
 
 $connection = Connection::getInstance();
-$gateway = new LocationTableGateway($connection);
+// $gateway = new LocationTableGateway($connection);
 $eventGateway = new EventTableGateway($connection);
 
-$statement = $gateway->getLocationsById($id);
+// $statement = $gateway->getLocationsById($id);
 $events = $eventGateway->getEventsByLocationId($id);
 
 $row = $statement->fetch(PDO::FETCH_ASSOC);
@@ -39,42 +39,6 @@ if (!$row) {
                     echo '<p>' . $message . '</p>';
                 }
                 ?>
-                <table class = "table table-hover">
-                    <thead>
-                        <!--table label-->
-                        <!--this will only show the detail of a location with specific ID chosen by the user-->
-                        <tr>
-                            <th>Location ID</th>
-                            <th>Location Name</th>
-                            <th>Address</th>
-                            <th>Manager First Name</th>
-                            <th>Manager Last Name</th>
-                            <th>Manager Email</th>
-                            <th>Manager Number</th>
-                            <th>Max Capacity</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!--table contents-->
-                        <?php
-                        echo '<tr>';
-                        echo '<td>' . $row['LocationID'] . '</td>';
-                        echo '<td>' . $row['Name'] . '</td>';
-                        echo '<td>' . $row['Address'] . '</td>';
-                        echo '<td>' . $row['ManagerFName'] . '</td>';
-                        echo '<td>' . $row['ManagerLName'] . '</td>';
-                        echo '<td>' . $row['ManagerEmail'] . '</td>';
-                        echo '<td>' . $row['ManagerNumber'] . '</td>';
-                        echo '<td>' . $row['MaxCapacity'] . '</td>';
-                        echo '<td>'
-                        . '<a href="editLocationForm.php?id=' . $row['LocationID'] . '">Edit</a> '
-                        . '<a class="delete" href="deleteLocation.php?id=' . $row['LocationID'] . '">Delete</a> '
-                        . '</td>';
-                        echo '</tr>';
-                        ?>
-                    </tbody>
-                </table>
                 <?php
                 if ($events->rowCount() > 0) {
                 ?>
@@ -89,13 +53,12 @@ if (!$row) {
                             <th>End Date</th>
                             <th>Cost</th>
                             <th>Location</th>
-                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $row = $events->fetch(PDO::FETCH_ASSOC);
-                        while ($row) {
+                        $getRow = $events->fetchAll();
+                        foreach ($getRow as $row) {
                             echo '<tr>';
                             echo '<td>' . $row['EventID'] . '</td>';
                             echo '<td>' . $row['Title'] . '</td>';
@@ -104,15 +67,9 @@ if (!$row) {
                             echo '<td>' . $row['EndDate'] . '</td>';
                             echo '<td>' . $row['Cost'] . '</td>';
                             echo '<td>'
-                            . '<a href="viewLocation.php?id='.$row['LocationID'].'">'.$row['name'].'</a> '
-                            . '</td>';
-                            echo '<td>'
-                            . '<a href="editEventForm.php?id='.$row['EventID'].'&locId='.$row['LocationID'].'">Edit</a> '
-                            . '<a class="delete" href="deleteEvent.php?id='.$row['EventID'].'">Delete</a> '
+                            . $row['LocationID'].'">'.$row['name']
                             . '</td>';
                             echo '</tr>';  
-
-                            $row = $events->fetch(PDO::FETCH_ASSOC);
                         }
                         ?>
                     </tbody>
