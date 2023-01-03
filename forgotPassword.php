@@ -66,7 +66,7 @@ try {
     // will not be resubmitting the login form.
     // 
     // require 'home.php';
-    header('Location: resetpasswordForm.php');
+    header('Location: resetpasswordForm.php?username='.$formdata['username'].'');
     }
     catch (Exception $ex) {
         // if an exception occurs then extract the message

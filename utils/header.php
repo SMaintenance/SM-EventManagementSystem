@@ -17,6 +17,7 @@
                     echo '<li><a href = "index.php">Home</a></li>';
                     echo '<li><a href = "viewEvents.php">Events</a></li>';
                     echo '<li><a href = "viewLocations.php">Locations</a></li>';
+                    echo '<li><a href = "viewBookings.php">Bookings</a></li>';
                     echo '<li><a href = "contact.php">Contact Us</a></li>';
                     echo '<li class="btnlogout"><a class = "btn btn-default navbar-btn" href = "logout.php">Logout <span class = "glyphicon glyphicon-log-out"></span></a></li>';
                 }  

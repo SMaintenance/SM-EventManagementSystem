@@ -194,11 +194,22 @@ class LocationTableGateway
             }
         }
     }
+    
+    public function delete($id) {
+        $sql = "DELETE FROM facilities WHERE LocationID = :id";
+        
+        $statement = $this->connect->prepare($sql);
+        $params = array(
+            "id" => $id
+        );
+        $status = $statement->execute($params);
+        
+        if (!$status) {
+            die("Could not delete facilities");
+        }
 
-    public function delete($id)
-    {
-        $sql = "DELETE FROM locations WHERE locationID = :id";
-
+        $sql = "DELETE FROM locations WHERE LocationID = :id";
+        
         $statement = $this->connect->prepare($sql);
         $params = array(
             "id" => $id
