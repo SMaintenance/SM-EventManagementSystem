@@ -28,6 +28,25 @@ class EventTableGateway
         return $statement;
     }
 
+    public function getEventsOrderByDate($start, $numEvents)
+    {
+        // execute a query to get all events
+        $sqlQuery = "SELECT e.*, l.name " .
+            "FROM events e " .
+            "LEFT JOIN locations l ON e.locationID = l.locationID ORDER BY StartDate DESC LIMIT :start, :numEvents";
+        $statement = $this->connect->prepare($sqlQuery);
+        $statement->bindParam(':start', $start, PDO::PARAM_INT);
+        $statement->bindParam(':numEvents', $numEvents, PDO::PARAM_INT);
+        $status = $statement->execute();
+
+        if (!$status) {
+            die("Could not retrieve event details");
+        }
+
+        return $statement;
+    }
+
+
     public function getEventsByLocationId($id)
     {
         // execute a query to get all events
@@ -47,6 +66,19 @@ class EventTableGateway
         }
 
         return $statement;
+    }
+
+    public function getNumEvents()
+    {
+        $sqlQuery = "SELECT COUNT(*) FROM events";
+        $statement = $this->connect->prepare($sqlQuery);
+        $status = $statement->execute();
+
+        if (!$status) {
+            die("Could not retrieve event count");
+        }
+
+        return $statement->fetchColumn();
     }
 
     public function getEventsById($id)
