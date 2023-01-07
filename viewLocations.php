@@ -3,12 +3,15 @@ require_once 'utils/functions.php';
 require_once 'classes/User.php';
 require_once 'classes/Location.php';
 require_once 'classes/LocationTableGateway.php';
+require_once 'classes/EventTableGateway.php';
 require_once 'classes/Connection.php';
 
 $connection = Connection::getInstance();
 $gateway = new LocationTableGateway($connection);
+$gateway1 = new EventTableGateway($connection);
 
 $statement = $gateway->getLocations();
+$statement1 = $gateway1->getEvents();
 
 start_session();
 
@@ -20,67 +23,146 @@ $user = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title></title>
-        <?php require 'utils/styles.php'; ?>
-        <?php require 'utils/scripts.php'; ?>
-    </head>
-    <body>
-        <?php require 'utils/header.php'; ?>
-        <div class = "content">
-            <div class = "container">
-                <?php 
-                if (isset($message)) {
-                    echo '<p>'.$message.'</p>';
-                }
-                ?>
-                <h3>Location List</h3>
-                <table class ="table table-hover">
-                    <thead>
-                        <tr>
-                            <!--table label-->
-                            <!--this will only show the detail of a location with specific ID chosen by the user-->
-                            <th>Location ID</th>
-                            <th>Name</th>
-                            <th>Address</th>                    
-                            <th>Manager First Name</th>
-                            <th>Manager Last Name</th>
-                            <th>Manager Email</th>
-                            <th>Manager Number</th>
-                            <th>Max Capacity</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!--table contents-->
-                        <?php
-                        $row = $statement->fetch(PDO::FETCH_ASSOC);
-                        while ($row) {
-                            echo '<tr>';
-                            echo '<td>' . $row['LocationID'] . '</td>';
-                            echo '<td>' . $row['Name'] . '</td>';
-                            echo '<td>' . $row['Address'] . '</td>';                    
-                            echo '<td>' . $row['ManagerFName'] . '</td>';
-                            echo '<td>' . $row['ManagerLName'] . '</td>';
-                            echo '<td>' . $row['ManagerEmail'] . '</td>';
-                            echo '<td>' . $row['ManagerNumber'] . '</td>';
-                            echo '<td>' . $row['MaxCapacity'] . '</td>';
-                            echo '<td>'
-                            . '<a href="viewLocation.php?id='.$row['LocationID'].'">View</a> '
-                            . '<a href="editLocationForm.php?id='.$row['LocationID'].'">Edit</a> '
-                            . '<a class="delete" href="deleteLocation.php?id='.$row['LocationID'].'">Delete</a> '
-                            . '</td>';
-                            echo '</tr>';  
 
-                            $row = $statement->fetch(PDO::FETCH_ASSOC);
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <?php require 'utils/styles.php'; ?>
+    <?php require 'utils/scripts.php'; ?>
+</head>
+
+<body>
+    <?php require 'utils/header.php'; ?>
+    <div class="content">
+        <div class="container">
+            <?php
+            if (isset($message)) {
+                echo '<p>' . $message . '</p>';
+            }
+            ?>
+            <h3>Location List</h3>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <!--table label-->
+                        <!--this will only show the detail of a location with specific ID chosen by the user-->
+                        <th>Location ID</th>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Manager First Name</th>
+                        <th>Manager Last Name</th>
+                        <th>Manager Email</th>
+                        <th>Manager Number</th>
+                        <th>Max Capacity</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--table contents-->
+                    <?php
+                    $row = $statement->fetch(PDO::FETCH_ASSOC);
+                    $row1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
+                    $events = array_column($row1, 'LocationID');
+                    while ($row) {
+                        echo '<tr data-depth = 0>';
+                        echo '<td>' . $row['LocationID'] . '</td>';
+                        echo '<td>' . $row['Name'] . '</td>';
+                        echo '<td>' . $row['Address'] . '</td>';
+                        echo '<td>' . $row['ManagerFName'] . '</td>';
+                        echo '<td>' . $row['ManagerLName'] . '</td>';
+                        echo '<td>' . $row['ManagerEmail'] . '</td>';
+                        echo '<td>' . $row['ManagerNumber'] . '</td>';
+                        echo '<td>' . $row['MaxCapacity'] . '</td>';
+                        echo '<td>'
+                            . '<a href="viewLocation.php?id=' . $row['LocationID'] . '">View</a> '
+                            . '<a href="editLocationForm.php?id=' . $row['LocationID'] . '">Edit</a> ';
+                        if (in_array($row['LocationID'], $events)) {
+                            echo '<a class="delete cannotDeleteButton" style="cursor:pointer;">Delete</a> ';
+                        } else {
+                            echo '<a class="delete deleteButton" style="cursor:pointer;">Delete</a> ';
                         }
-                        ?>
-                    </tbody>
-                </table>
-                <a class="btn btn-default" href="createLocationForm.php">Create Location</a>
+
+                        echo '</td>' . '</tr>';
+
+                        $row = $statement->fetch(PDO::FETCH_ASSOC);
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <a class="btn btn-default" href="createLocationForm.php">Create Location</a>
+        </div>
+    </div>
+
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
+                </div>
+                <form action="deleteLocation.php" method="post">
+                    <div class="modal-body">
+                        <input type="hidden" name="deleteId" id="deleteId">
+                        Are you sure you want to delete this location?
+                    </div>
+                    <div class="modal-footer">
+                        <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+                        <button type="submit" name="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <?php require 'utils/footer.php'; ?>
-    </body>
+    </div>
+
+    <div class="modal fade" id="cannotDeleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Unable to Delete Location</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="cannotDeleteId" id="cannotDeleteId">
+                    There are still events associated with this location.
+                </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-default" data-dismiss="modal">Okay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.deleteButton').on('click', function() {
+                $('#deleteModal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function() {
+                    return $(this).text();
+                }).get();
+
+                $('#deleteId').val(data[0]);
+            })
+        })
+
+        $(document).ready(function() {
+            $('.cannotDeleteButton').on('click', function() {
+                $('#cannotDeleteModal').modal('show');
+
+                $tr = $(this).closest('tr');
+
+                var data = $tr.children("td").map(function() {
+                    return $(this).text();
+                }).get();
+
+                $('#cannotDeleteId').val(data[0]);
+            })
+        })
+    </script>
+
+    <?php require 'utils/footer.php'; ?>
+</body>
+
 </html>
