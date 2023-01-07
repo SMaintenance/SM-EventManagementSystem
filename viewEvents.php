@@ -42,7 +42,7 @@ $user = $_SESSION['user'];
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Event ID</th>
+                            <th>No</th>
                             <th>Title</th>
                             <th>Description</th>                    
                             <th>Start Date</th>
@@ -55,9 +55,10 @@ $user = $_SESSION['user'];
                     <tbody>
                         <?php
                         $row = $statement->fetch(PDO::FETCH_ASSOC);
+                        $count = 1;
                         while ($row) {
                             echo '<tr>';
-                            echo '<td>' . $row['EventID'] . '</td>';
+                            echo '<td>' . $count . '</td>';
                             echo '<td>' . $row['Title'] . '</td>';
                             echo '<td>' . $row['Description'] . '</td>';                    
                             echo '<td>' . $row['StartDate'] . '</td>';
@@ -67,12 +68,13 @@ $user = $_SESSION['user'];
                             . '<a href="viewLocation.php?id='.$row['LocationID'].'">'.$row['name'].'</a> '
                             . '</td>';
                             echo '<td>'
-                            . '<a href="editEventForm.php?id='.$row['EventID'].'&locId='.$row['LocationID'].'">Edit</a> '
-                            . '<a class="delete" href="deleteEvent.php?id='.$row['EventID'].'">Delete</a> '
+                            . '<a href="editEventForm.php?id='.$row['EventID'].'&locId='.$row['LocationID'].'"><span class="glyphicon glyphicon-pencil mr-2"></a> '
+                            . '<a href="deleteEvent.php?id='.$row['EventID'].'"><span class="glyphicon glyphicon-trash"></a> '
                             . '</td>';
                             echo '</tr>';  
 
                             $row = $statement->fetch(PDO::FETCH_ASSOC);
+                            $count++;
                         }
                         ?>
                     </tbody>
