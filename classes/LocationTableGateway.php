@@ -26,6 +26,35 @@ class LocationTableGateway
         return $statement;
     }
 
+    public function getNumLocations()
+    {
+        $sqlQuery = "SELECT COUNT(*) FROM locations";
+        $statement = $this->connect->prepare($sqlQuery);
+        $status = $statement->execute();
+
+        if (!$status) {
+            die("Could not retrieve location count");
+        }
+
+        return $statement->fetchColumn();
+    }
+
+    public function getLocationsOrderById($start, $numLocations)
+    {
+        // execute a query to get all locations
+        $sqlQuery = "SELECT * FROM locations ORDER BY LocationID ASC LIMIT :start, :numLocations";
+        $statement = $this->connect->prepare($sqlQuery);
+        $statement->bindParam(':start', $start, PDO::PARAM_INT);
+        $statement->bindParam(':numLocations', $numLocations, PDO::PARAM_INT);
+        $status = $statement->execute();
+
+        if (!$status) {
+            die("Could not retrieve location details");
+        }
+
+        return $statement;
+    }
+
     // execute a query to get a location with the specified id
     public function getLocationsById($id)
     {
