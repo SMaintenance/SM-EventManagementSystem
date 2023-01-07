@@ -69,5 +69,35 @@ class BookingTableGateway {
         
         return $id;
     }
-    
+
+    public function updateEventId($bookingId, $eventId)
+    {
+        $sql = "UPDATE bookings SET EventID = :EventID WHERE BookingID = :BookingID";
+
+        $statement = $this->connect->prepare($sql);
+        $params = array(
+            "BookingID" => $bookingId,
+            "EventID" => $eventId
+        );
+        $status = $statement->execute($params);
+
+        if (!$status) {
+            die("Could not update event id");
+        }
+    }
+
+    public function delete($id)
+    {
+        $sql = "DELETE FROM bookings WHERE BookingID = :id";
+
+        $statement = $this->connect->prepare($sql);
+        $params = array(
+            "id" => $id
+        );
+        $status = $statement->execute($params);
+
+        if (!$status) {
+            die("Could not delete booking");
+        }
+    }
 }
