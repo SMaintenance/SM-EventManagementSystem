@@ -212,7 +212,7 @@ if (!isset($errors)) {
                         </label>
                     </div>
                 </div>
-                <button type="submit" name="submit" class="btn btn-default pull-right">Create Location <span class="glyphicon glyphicon-send"></span></button>
+                <button type="submit" name="submit" class="btn btn-default pull-right submit">Create Location <span class="glyphicon glyphicon-send"></span></button>
             </form>
             <a class="btn btn-default" href="viewLocations.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a>
             <!--return/back button-->
