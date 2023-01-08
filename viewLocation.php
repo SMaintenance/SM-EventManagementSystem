@@ -11,16 +11,21 @@ if (!isset($_GET['id'])) {
 $id = $_GET['id'];
 
 $connection = Connection::getInstance();
-// $gateway = new LocationTableGateway($connection);
+
+$gateway = new LocationTableGateway($connection);
+$statement = $gateway->getLocationsById($id);
+
+$location = $statement->fetch(PDO::FETCH_ASSOC);
+if (!$location) {
+    die("Illegal request");
+}
+
 $eventGateway = new EventTableGateway($connection);
-
-// $statement = $gateway->getLocationsById($id);
 $events = $eventGateway->getEventsByLocationId($id);
+if (!$events) {
+    die("Illegal request");
+}
 
-// $row = $statement->fetch(PDO::FETCH_ASSOC);
-// if (!$row) {
-//     die("Illegal request");
-// }
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,11 +47,11 @@ $events = $eventGateway->getEventsByLocationId($id);
                 <?php
                 if ($events->rowCount() > 0) {
                 ?>
-                <h2>Events at this location</h2>
+                <h2>Events at <?php echo $location['Name']?></h2>
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th>Event ID</th>
+                            <th>No</th>
                             <th>Title</th>
                             <th>Description</th>                    
                             <th>Start Date</th>
@@ -58,19 +63,20 @@ $events = $eventGateway->getEventsByLocationId($id);
                     <tbody>
                         <?php
                         $getRow = $events->fetchAll();
+                        $count = 1;
                         foreach ($getRow as $row) {
                             echo '<tr>';
-                            echo '<td>' . $row['EventID'] . '</td>';
+                            echo '<td>' . $count . '</td>';
                             echo '<td>' . $row['Title'] . '</td>';
                             echo '<td>' . $row['Description'] . '</td>';                    
                             echo '<td>' . $row['StartDate'] . '</td>';
                             echo '<td>' . $row['EndDate'] . '</td>';
                             echo '<td>' . $row['Cost'] . '</td>';
                             echo '<td>'
-                            // . $row['LocationID'].'">'
-                            .$row['name']
+                            . $row['name']
                             . '</td>';
                             echo '</tr>';  
+                            $count++;
                         }
                         ?>
                     </tbody>

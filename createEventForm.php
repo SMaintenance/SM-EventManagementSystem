@@ -158,7 +158,7 @@ if (!isset($errors)) {
                         </div>
                     </div>
                 </div><br>
-                <button type="submit" name="submit" class="btn btn-default pull-right">Create Event <span class="glyphicon glyphicon-send"></span></button>
+                <button type="submit" name="submit" class="btn btn-default pull-right submit">Create Event <span class="glyphicon glyphicon-send"></span></button>
                 <a class="btn btn-default navbar-btn" href="viewEvents.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a>
                 <!--register button-->
             </form>

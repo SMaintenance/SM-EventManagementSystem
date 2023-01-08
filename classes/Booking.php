@@ -21,7 +21,6 @@ class Booking {
         $this->startDate = $startDate;
         $this->endDate = $endDate;
         $this->location = $location;
-
     }
     
     public function getId() { return $this->id; }

@@ -100,10 +100,10 @@ if (!$row) {
                             <label for="EventType" class="control-label">Event Type</label><!--event type-->
                         </div>
                         <div class="col-md-9">
-                            <input readonly type="radio" name="EventType" value="Wedding" <?php echoChecked($row, "EventType", "Wedding"); ?>>  Wedding <br>
-                            <input readonly type="radio"  name="EventType" value="Birthday" <?php echoChecked($row, "EventType", "Birthday"); ?>>  Birthday <br>
-                            <input readonly type="radio" name="EventType" value="Fashion" <?php echoChecked($row, "EventType", "Fashion"); ?>>  Fashion <br>
-                            <input readonly type="radio"  name="EventType" value="Meeting" <?php echoChecked($row, "EventType", "Meeting"); ?>>  Meeting <br>
+                            <input readonly type="radio" name="EventType" value=1 <?php echoChecked($row, "EventType", 1); ?>>  Wedding <br>
+                            <input readonly type="radio"  name="EventType" value=2 <?php echoChecked($row, "EventType", 2); ?>>  Birthday <br>
+                            <input readonly type="radio" name="EventType" value=3 <?php echoChecked($row, "EventType", 3); ?>>  Fashion <br>
+                            <input readonly type="radio"  name="EventType" value=4 <?php echoChecked($row, "EventType", 4); ?>>  Meeting <br>
                         </div>
                         <div class="col-md-offset-3" style="padding-left:15px">
                         </div>

@@ -41,7 +41,7 @@ $user = $_SESSION['user'];
                         <tr>
                             <!--table label-->
                             <!--this will only show the detail of a location with specific ID chosen by the user-->
-                            <th>Location ID</th>
+                            <th>No</th>
                             <th>Name</th>
                             <th>Address</th>                    
                             <th>Manager First Name</th>
@@ -49,16 +49,17 @@ $user = $_SESSION['user'];
                             <th>Manager Email</th>
                             <th>Manager Number</th>
                             <th>Max Capacity</th>
-                            <th>Actions</th>
+                            <th style="width: 15%">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!--table contents-->
                         <?php
                         $row = $statement->fetch(PDO::FETCH_ASSOC);
+                        $count = 1;
                         while ($row) {
                             echo '<tr>';
-                            echo '<td>' . $row['LocationID'] . '</td>';
+                            echo '<td>' . $count . '</td>';
                             echo '<td>' . $row['Name'] . '</td>';
                             echo '<td>' . $row['Address'] . '</td>';                    
                             echo '<td>' . $row['ManagerFName'] . '</td>';
@@ -67,12 +68,13 @@ $user = $_SESSION['user'];
                             echo '<td>' . $row['ManagerNumber'] . '</td>';
                             echo '<td>' . $row['MaxCapacity'] . '</td>';
                             echo '<td>'
-                            . '<a href="viewLocation.php?id='.$row['LocationID'].'">View</a> '
-                            . '<a href="editLocationForm.php?id='.$row['LocationID'].'">Edit</a> '
-                            . '<a class="delete" href="deleteLocation.php?id='.$row['LocationID'].'">Delete</a> '
+                            . '<a href="editLocationForm.php?id='.$row['LocationID'].'"><span class="glyphicon glyphicon-pencil mr-2"></a> '
+                            . '<a href="deleteLocation.php?id='.$row['LocationID'].'"><span class="glyphicon glyphicon-trash mr-2""></a> '
+                            . '<a href="viewLocation.php?id='.$row['LocationID'].'">View Event</a> '
                             . '</td>';
                             echo '</tr>';  
 
+                            $count++;
                             $row = $statement->fetch(PDO::FETCH_ASSOC);
                         }
                         ?>

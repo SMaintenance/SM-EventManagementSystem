@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2023 at 07:25 AM
+-- Generation Time: Jan 07, 2023 at 02:05 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -34,11 +34,19 @@ CREATE TABLE `bookings` (
   `ContactNum` varchar(20) DEFAULT NULL,
   `Title` varchar(50) DEFAULT NULL,
   `Description` varchar(255) DEFAULT NULL,
-  `EventType` varchar(50) DEFAULT NULL,
+  `EventType` int(11) DEFAULT NULL,
   `StartDate` date DEFAULT NULL,
   `EndDate` date DEFAULT NULL,
-  `LocationID` int(11) DEFAULT NULL
+  `LocationID` int(11) DEFAULT NULL,
+  `EventID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`BookingID`, `FullName`, `Email`, `ContactNum`, `Title`, `Description`, `EventType`, `StartDate`, `EndDate`, `LocationID`, `EventID`) VALUES
+(7, 'Humaira&#39; Ahmad Shuhemi', 'whomyras00@gmail.com', '0182469011', 'Birthday Party', 'A birthday party', 2, '2023-01-07', '2023-01-08', 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -63,7 +71,7 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`EventID`, `Title`, `Description`, `EventType`, `StartDate`, `EndDate`, `Cost`, `LocationID`, `Image`) VALUES
-(1, 'Wedding Anniversary', '1st Anniversary Celebration', NULL, '2015-06-15', '2015-06-16', 25000, 1, '');
+(45, 'New Year Show', '5th fashion show', 3, '2023-01-07', '2023-01-08', 100, 4, '');
 
 -- --------------------------------------------------------
 
@@ -82,11 +90,11 @@ CREATE TABLE `facilities` (
 --
 
 INSERT INTO `facilities` (`FacilitiesID`, `Facility`, `LocationID`) VALUES
-(1, 1, 2),
-(2, 2, 2),
-(3, 3, 2),
-(4, 4, 2),
-(5, 5, 2);
+(31, 1, 4),
+(32, 2, 4),
+(33, 3, 4),
+(34, 4, 4),
+(35, 5, 4);
 
 -- --------------------------------------------------------
 
@@ -101,7 +109,7 @@ CREATE TABLE `locations` (
   `ManagerFName` varchar(255) DEFAULT NULL,
   `ManagerLName` varchar(255) DEFAULT NULL,
   `ManagerEmail` varchar(255) DEFAULT NULL,
-  `ManagerNumber` int(11) DEFAULT NULL,
+  `ManagerNumber` varchar(20) DEFAULT NULL,
   `MaxCapacity` int(11) DEFAULT NULL,
   `LocationType` int(11) DEFAULT NULL,
   `SeatingAvailable` int(11) DEFAULT NULL,
@@ -114,8 +122,7 @@ CREATE TABLE `locations` (
 --
 
 INSERT INTO `locations` (`LocationID`, `Name`, `Address`, `ManagerFName`, `ManagerLName`, `ManagerEmail`, `ManagerNumber`, `MaxCapacity`, `LocationType`, `SeatingAvailable`, `Url`, `Image`) VALUES
-(1, 'Royal Hotel', 'Bray', 'John', 'Byrne', 'John@email.com', 123456, 100, NULL, 1, NULL, ''),
-(2, 'Desamas', 'No.1, Jalan AU5C/6', 'Humaira&#39; ', 'Ahmad Shuhemi', 'humairas00@yahoo.com', 12345, 50, 2, 1, 'https://www.google.com', 'danger.png');
+(4, 'Royal Hotel', 'Bray', 'John', 'Byrne', 'John@email.com', '1974384722', 100, 1, 1, '', 'hotel.jpg');
 
 -- --------------------------------------------------------
 
@@ -146,7 +153,8 @@ INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
 --
 ALTER TABLE `bookings`
   ADD PRIMARY KEY (`BookingID`),
-  ADD KEY `bookings_LocationID` (`LocationID`) USING BTREE;
+  ADD KEY `bookings_LocationID` (`LocationID`) USING BTREE,
+  ADD KEY `bookings_EventID` (`EventID`) USING BTREE;
 
 --
 -- Indexes for table `events`
@@ -182,25 +190,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `EventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `EventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `facilities`
 --
 ALTER TABLE `facilities`
-  MODIFY `FacilitiesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `FacilitiesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `LocationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `LocationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -216,6 +224,7 @@ ALTER TABLE `users`
 -- Constraints for table `bookings`
 --
 ALTER TABLE `bookings`
+  ADD CONSTRAINT `bookings_EventID` FOREIGN KEY (`EventID`) REFERENCES `events` (`EventID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `bookings_LocationID` FOREIGN KEY (`LocationID`) REFERENCES `locations` (`LocationID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
