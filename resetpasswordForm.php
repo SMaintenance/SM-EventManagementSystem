@@ -1,5 +1,8 @@
 <?php
-$username = $_GET['username'];
+if (!isset($_GET['username'])) {
+    die("Illegal request");
+}
+$username  = $_GET['username'];
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -22,29 +25,27 @@ $username = $_GET['username'];
                 <h1 class="text-center">Reset Password</h1><!--form title-->
                 <form action="resetPassword.php" method="POST"><!--form-->
                 <br><br>
-                <div class="container" style="padding-left:20%">
-
-                    <!-- <div class="form-inline ">
+                <div class="container">
+                    <input type="hidden" value="<?php if (isset($username)) echo $username; ?>" name="username">
+                    <div class="form-inline text-center" style="padding-right:1.9cm;">
                         <div class = "form-group">
-                            username field-->
-                            <!-- <label for="username" class="" style="width:10cm">Please enter your username again: </label> -->
-                            <!-- <input type="text" -->
-                                    <!-- name="username"class="form-control"value=> -->
-                        <!-- </div> -->
-                    <!-- </div> --> 
-                    <input type="hidden" value="<?php $_GET['username']; ?>" name="username">
+                            <label for="password" class="" style="width:7.3cm">Please enter your new password: </label>
+                            <input type="password"name="password"class="form-control" value="<?php if (isset($formdata['password'])) echo $formdata['password']; ?>">
+                        </div>
+                    </div>
                     <br>
-                    <div class="form-inline ">
-                        <div class = "form-group">
-                            <!--username field-->
-                            <label for="password" class="" style="width:10cm">Please enter your new password: </label>
-                            <input type="text"name="password"class="form-control" value="<?php if (isset($formdata['password'])) echo $formdata['password']; ?>">
+                    <div class="form-inline text-center">
+                    <div class = "form-group">
+                            <label for="password_confirmation" class="" style="width:7cm">Please re-enter your the password: </label>
+                            <input type="password"name="password_confirmation"class="form-control" value="<?php if (isset($formdata['password_confirmation'])) echo $formdata['password_confirmation']; ?>">
                         </div>
                         <button type = "submit" class = "btn btn-primary">Save</button>
                     </div>
+                    
                     <div class="text-center" style="padding-left:4cm">
                         <span class = "error"><!--error message for invalid input-->
                             <?php if (isset($errors['password'])) echo $errors['password']; ?>
+                            <?php if (isset($errors['password_confirmation'])) echo $errors['password_confirmation']; ?>
                         </span>
                     </div>
                     
