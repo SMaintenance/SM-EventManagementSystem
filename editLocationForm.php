@@ -210,7 +210,7 @@ if (!$row1) {
                         <label for="Url" class="control-label">Url</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="control-label" name="link" value="<?php echo $row['Url']; ?>">
+                        <input type="text" class="form-control" name="link" value="<?php echo $row['Url']; ?>">
                     </div>
                     <div class="col-md-offset-3" style="padding-left: 15px;">
                         <span id="urlError" class="error">
