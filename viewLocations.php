@@ -75,14 +75,13 @@ $user = $_SESSION['user'];
                         echo '<td>' . $row['ManagerNumber'] . '</td>';
                         echo '<td>' . $row['MaxCapacity'] . '</td>';
                         echo '<td>'
-                            . '<a href="viewLocation.php?id=' . $row['LocationID'] . '">View</a> '
-                            . '<a href="editLocationForm.php?id=' . $row['LocationID'] . '">Edit</a> ';
+                            . '<a href="editLocationForm.php?id=' . $row['LocationID'] . '"><span class="glyphicon glyphicon-pencil mr-2"></a> ';
                         if (in_array($row['LocationID'], $events)) {
-                            echo '<a class="delete cannotDeleteButton" style="cursor:pointer;">Delete</a> ';
+                            echo '<a class="cannotDeleteButton" style="cursor:pointer;"><span class="glyphicon glyphicon-trash mr-2"></a> ';
                         } else {
-                            echo '<a class="delete deleteButton" style="cursor:pointer;">Delete</a> ';
+                            echo '<a class="deleteButton" style="cursor:pointer;"><span class="glyphicon glyphicon-trash mr-2"></a> ';
                         }
-
+                            echo '<a href="viewLocation.php?id=' . $row['LocationID'] . '">View Event</a> ';
                         echo '</td>' . '</tr>';
                         
                         $count++;

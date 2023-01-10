@@ -69,8 +69,8 @@ $user = $_SESSION['user'];
                             . '<a href="viewLocation.php?id=' . $row['LocationID'] . '">' . $row['name'] . '</a> '
                             . '</td>';
                         echo '<td>'
-                            . '<a href="editEventForm.php?id=' . $row['EventID'] . '&locId=' . $row['LocationID'] . '">Edit</a> '
-                            . '<a class="delete deleteButton" style="cursor:pointer;">Delete</a>'
+                            . '<a href="editEventForm.php?id=' . $row['EventID'] . '&locId=' . $row['LocationID'] . '"><span class="glyphicon glyphicon-pencil mr-2"></a> '
+                            . '<a class="deleteButton" style="cursor:pointer;"><span class="glyphicon glyphicon-trash"></a>'
                             . '</td>';
                         echo '</tr>';
                         
