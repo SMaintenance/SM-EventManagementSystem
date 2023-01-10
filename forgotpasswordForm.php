@@ -15,7 +15,7 @@
     <?php require 'utils/header.php'; ?><!--header content. file found in utils folder-->
         <div class = "content"><!--body content holder-->
             <div class = "container">
-                <h1 class="text-center">Forget Password</h1><!--form title-->
+                <h1 class="text-center">Forgot Password</h1><!--form title-->
                 <form action="forgotPassword.php" method="POST"><!--form-->
                 <br><br>
                 <div class="form-inline text-center">

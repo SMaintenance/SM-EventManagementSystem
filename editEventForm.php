@@ -1,4 +1,5 @@
 <?php
+require_once 'functions.php';
 require_once 'classes/Event.php';
 require_once 'classes/EventTableGateway.php';
 require_once 'classes/Location.php';
@@ -28,6 +29,14 @@ if (!$row1) {
     die("Illegal request");
 }
 
+if (!isset($formdata)) {
+    $formdata = array();
+}
+
+if (!isset($errors)) {
+    $errors = array();
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,7 +62,7 @@ if (!$row1) {
                 echo '<p>Error: ' . $errorMessage . '</p>';
             }
             ?>
-            <form action="editEvent.php" method="POST" class="form-horizontal">
+            <form action="editEvent.php" method="POST" class="form-horizontal" enctype="multipart/form-data">
                 <input type="hidden" name="id" value="<?php echo $row['EventID']; ?>" />
                 <div class="row form-group">
                     <div class="col-md-3">
@@ -61,11 +70,12 @@ if (!$row1) {
                         <!--event title-->
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="Title" name="Title" value="<?php echo $row['Title']; ?>" />
+                        <input type="text" class="form-control" id="Title" name="Title" value="<?php echo (isset($formdata['Title'])) ? ($formdata['Title']) : $row['Title']; ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
                         <span id="TitleError" class="error">
+                            <?php echoValue($errors, 'Title'); ?>   
                             <!--error message for invalid input-->
                         </span>
                     </div>
@@ -76,26 +86,48 @@ if (!$row1) {
                         <!--event description-->
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="Description" name="Description" value="<?php echo $row['Description']; ?>" />
+                        <input type="text" class="form-control" id="Description" name="Description" value="<?php echo (isset($formdata['Description'])) ? ($formdata['Description']) : $row['Description']; ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
                         <span id="DescriptionError" class="error">
+                            <?php echoValue($errors, 'Description'); ?>   
                             <!--error message for invalid input-->
                         </span>
                     </div>
                 </div>
+
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label for="EventType" class="control-label">Event Type</label>
+                        <!--event type-->
+                    </div>
+                    <div class="col-md-9">
+                        <?php $eType = (isset($formdata['EventType'])) ? ($formdata['EventType']) : $row['EventType']; ?>
+                        <input type="radio" name="EventType" value=1 <?php echo ($eType == 1) ?  "checked" : "";  ?>> Wedding <br>
+                        <input type="radio" name="EventType" value=2 <?php echo ($eType == 2) ?  "checked" : "";  ?>> Birthday <br>
+                        <input type="radio" name="EventType" value=3 <?php echo ($eType == 3) ?  "checked" : "";  ?>> Fashion <br>
+                        <input type="radio" name="EventType" value=4 <?php echo ($eType == 4) ?  "checked" : "";  ?>> Meeting <br>
+                    </div>
+                    <div class="col-md-offset-3" style="padding-left:15px">
+                        <span id="EventTypeError" class="error">
+                            <?php echoValue($errors, 'EventType'); ?>   
+                            <!--error message for invalid input-->
+                    </div>
+                </div>
+
                 <div class="row form-group">
                     <div class="col-md-3">
                         <label for="StartDate" class="control-label">Start Date</label>
                         <!--start date-->
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="StartDate" name="StartDate" value="<?php echo $row['StartDate']; ?>" />
+                        <input type="date" class="form-control" id="StartDate" name="StartDate" value="<?php echo (isset($formdata['StartDate'])) ? ($formdata['StartDate']) :  $row['StartDate']; ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
                         <span id="StartDateError" class="error">
+                            <?php echoValue($errors, 'StartDate'); ?>
                             <!--error message for invalid input-->
                         </span>
                     </div>
@@ -106,11 +138,12 @@ if (!$row1) {
                         <!--end date-->
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="EndDate" name="EndDate" value="<?php echo $row['EndDate']; ?>" />
+                        <input type="date" class="form-control" id="EndDate" name="EndDate" value="<?php echo (isset($formdata['EndDate'])) ? ($formdata['EndDate']) : $row['EndDate']; ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
                         <span id="EndDateError" class="error">
+                            <?php echoValue($errors, 'EndDate'); ?>
                             <!--error message for invalid input-->
                         </span>
                     </div>
@@ -121,18 +154,19 @@ if (!$row1) {
                         <!--cost-->
                     </div>
                     <div class="col-md-9">
-                        <input type="number" class="form-control" id="Cost" name="Cost" value="<?php echo $row['Cost']; ?>" />
+                        <input type="number" class="form-control" id="Cost" name="Cost" value="<?php echo (isset($formdata['Cost'])) ? ($formdata['Cost']) : $row['Cost']; ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
                         <span id="CostError" class="error">
+                            <?php echoValue($errors, 'Cost'); ?>
                             <!--error message for invalid input-->
                         </span>
                     </div>
                 </div>
                 <div class="row form-group">
                     <div class="col-md-3">
-                        <label for="LocID" class="control-label">Location ID</label>
+                        <label for="LocID" class="control-label">Location</label>
                         <!--location id-->
                     </div>
                     <div class="col-md-9">
@@ -151,12 +185,26 @@ if (!$row1) {
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
                         <span id="LocIDError" class="error">
+                            <?php echoValue($errors, 'LocID'); ?>
                             <!--error message for invalid input-->
                         </span>
                     </div>
                 </div>
+                <div class="row form-group">
+                    <div class="col-md-3">
+                        <label class="control-label">Attach Event Image</label>
+                    </div>
+                    <div class="col-md-9">
+                        <img src="uploads/<?php echo $row['Image'] ?>" style="width: 100%; height: auto" id="image">
+                        <input type="hidden" class="control-label" name="old_image" value="<?php echo $row['Image'] ?>">
+                        <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;">
+                        <label class="btn btn-default" style="margin-top: 2%;" for="imageUploaded">
+                            Choose file
+                        </label>
+                    </div>
+                </div>
 
-                <button type="submit" class="btn btn-default pull-right">Update <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                <button type="submit" name="submit" class="btn btn-default pull-right">Update <span class="glyphicon glyphicon-floppy-disk"></span></button>
                 <a class="btn btn-default navbar-btn" href="viewEvents.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a>
                 <!--register button-->
 
@@ -165,6 +213,11 @@ if (!$row1) {
     </div>
     <?php require 'utils/footer.php'; ?>
     <!--footer content. file found in utils folder-->
+    <script type="text/javascript">
+        document.getElementById('imageUploaded').onchange = function() {
+            document.getElementById('image').src = URL.createObjectURL(imageUploaded.files[0]);
+        }
+    </script>
 </body>
 
 </html>

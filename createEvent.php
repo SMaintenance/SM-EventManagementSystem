@@ -9,24 +9,43 @@ $errors = array();
 
 validateEvents(INPUT_POST, $formdata, $errors);
 
-if (empty($errors)) {
-    $title = $formdata['Title'];
-    $description = $formdata['Description'];    
-    $sDate = $formdata['StartDate'];
-    $eDate = $formdata['EndDate'];
-    $cost = $formdata['Cost'];
-    $locID = $formdata['LocID'];
+if (isset($_POST['submit'])) {
+    if (empty($errors)) {
+        $title = $formdata['Title'];
+        $description = $formdata['Description'];
+        $eType = !empty($formdata['eType']) ? $formdata['eType'] : NULL;
+        $sDate = $formdata['StartDate'];
+        $eDate = $formdata['EndDate'];
+        $cost = $formdata['Cost'];
+        $locID = $formdata['LocID'];
 
-    $event = new Event(-1, $title, $description, $sDate, $eDate, $cost, $locID);
+        // Where the file is going to be stored
+        $target_dir = "uploads/";
+        $file = $_FILES['image']['name'];
+        $path = pathinfo($file);
+        $filename = $path['filename'];
+        $ext = $path['extension'];
+        $temp_name = $_FILES['image']['tmp_name'];
+        $path_filename_ext = $target_dir . $filename . "." . $ext;
 
-    $connection = Connection::getInstance();
+        // Check if file already exists
+        if (file_exists($path_filename_ext)) {
+            echo "Sorry, file already exists.";
+        } else {
+            move_uploaded_file($temp_name, $path_filename_ext);
+            echo "Congratulations! File Uploaded Successfully.";
+        }
 
-    $gateway = new EventTableGateway($connection);
+        $event = new Event(-1, $title, $description, $eType, $sDate, $eDate, $cost, $locID, $file);
 
-    $id = $gateway->insert($event);
+        $connection = Connection::getInstance();
 
-    header('Location: viewEvents.php');
-}
-else {
-    require 'createEventForm.php';
+        $gateway = new EventTableGateway($connection);
+
+        $id = $gateway->insert($event);
+
+        header('Location: viewEvents.php');
+    } else {
+        require 'createEventForm.php';
+    }
 }

@@ -4,7 +4,7 @@ function validateEvents($input_method, &$formdata, &$errors)
 {
     $formdata['Title'] = filter_input($input_method, "Title");
     $formdata['Description'] = filter_input($input_method, "Description");
-    $formdata['eType'] = filter_input($input_method, "eType", FILTER_SANITIZE_NUMBER_INT);
+    $formdata['EventType'] = filter_input($input_method, "EventType", FILTER_SANITIZE_NUMBER_INT);
     $formdata['StartDate'] = filter_input($input_method, "StartDate");
     $formdata['EndDate'] = filter_input($input_method, "EndDate");
     $formdata['Cost'] = filter_input($input_method, "Cost", FILTER_SANITIZE_NUMBER_INT);
@@ -27,13 +27,13 @@ function validateEvents($input_method, &$formdata, &$errors)
     }
 
     if (
-        $formdata['eType'] !== NULL &&
-        $formdata['eType'] !== FALSE &&
-        $formdata['eType'] !== ""
+        $formdata['EventType'] !== NULL &&
+        $formdata['EventType'] !== FALSE &&
+        $formdata['EventType'] !== ""
     ) {
         $type = array(1, 2, 3, 4);
-        if (!in_array($formdata['eType'], $type)) {
-            $errors['eType'] = "Invalid type";
+        if (!in_array($formdata['EventType'], $type)) {
+            $errors['EventType'] = "Invalid type";
         }
     }
 
