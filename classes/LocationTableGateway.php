@@ -26,6 +26,35 @@ class LocationTableGateway
         return $statement;
     }
 
+    public function getNumLocations()
+    {
+        $sqlQuery = "SELECT COUNT(*) FROM locations";
+        $statement = $this->connect->prepare($sqlQuery);
+        $status = $statement->execute();
+
+        if (!$status) {
+            die("Could not retrieve location count");
+        }
+
+        return $statement->fetchColumn();
+    }
+
+    public function getLocationsOrderById($start, $numLocations)
+    {
+        // execute a query to get all locations
+        $sqlQuery = "SELECT * FROM locations ORDER BY LocationID ASC LIMIT :start, :numLocations";
+        $statement = $this->connect->prepare($sqlQuery);
+        $statement->bindParam(':start', $start, PDO::PARAM_INT);
+        $statement->bindParam(':numLocations', $numLocations, PDO::PARAM_INT);
+        $status = $statement->execute();
+
+        if (!$status) {
+            die("Could not retrieve location details");
+        }
+
+        return $statement;
+    }
+
     // execute a query to get a location with the specified id
     public function getLocationsById($id)
     {
@@ -118,7 +147,6 @@ class LocationTableGateway
     }
 
 
-
     public function update($p)
     {
 
@@ -194,22 +222,22 @@ class LocationTableGateway
             }
         }
     }
-    
-    public function delete($id) {
+
+    public function delete($id)
+    {
         $sql = "DELETE FROM facilities WHERE LocationID = :id";
-        
+
         $statement = $this->connect->prepare($sql);
         $params = array(
             "id" => $id
         );
         $status = $statement->execute($params);
-        
+
         if (!$status) {
             die("Could not delete facilities");
         }
-
         $sql = "DELETE FROM locations WHERE LocationID = :id";
-        
+
         $statement = $this->connect->prepare($sql);
         $params = array(
             "id" => $id
