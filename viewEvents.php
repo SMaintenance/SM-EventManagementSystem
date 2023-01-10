@@ -56,7 +56,7 @@ $user = $_SESSION['user'];
                 <tbody>
                     <?php
                     $row = $statement->fetch(PDO::FETCH_ASSOC);
-                    $count = 0;
+                    $count = 1;
                     while ($row) {
                         echo '<tr>';
                         echo '<td>' . $count . '</td>';
