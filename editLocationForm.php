@@ -50,9 +50,8 @@ if (!isset($errors)) {
     <?php require 'utils/header.php'; ?>
     <!--header content. file found in utils folder-->
     <div class="content">
-
-        <div class="container">
-            <h1 align="center">Edit Location Form</h1>
+        <div class="container" style="width: 50%;">
+            <h1 style="text-align: center;">Edit Location Form</h1>
             <!--form title-->
             <br>
             <?php
@@ -231,12 +230,14 @@ if (!isset($errors)) {
                         <label class="btn btn-default" style="margin-top: 2%;" for="imageUploaded">
                             Choose file
                         </label>
-                        </div>
                     </div>
-                </div> <br>
-                <button type="submit" name="submit" class="btn btn-default pull-right" name="editLocation">Update <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                </div>
+                <br>
+                <button type="submit" name="submit" class="btn btn-default pull-right" name="editLocation">Update <span
+                        class="glyphicon glyphicon-floppy-disk"></span></button>
                 <!--submit button-->
-                <a class="btn btn-default" href="viewlocations.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a>
+                <a class="btn btn-default" href="viewlocations.php"><span
+                        class="glyphicon glyphicon-circle-arrow-left"></span> Back</a>
                 <!--return/back button-->
 
             </form>
@@ -245,7 +246,7 @@ if (!isset($errors)) {
     <?php require 'utils/footer.php'; ?>
     <!--footer content. file found in utils folder-->
     <script type="text/javascript">
-        document.getElementById('imageUploaded').onchange = function() {
+        document.getElementById('imageUploaded').onchange = function () {
             document.getElementById('image').src = URL.createObjectURL(imageUploaded.files[0]);
         }
     </script>
