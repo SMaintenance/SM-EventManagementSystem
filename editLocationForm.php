@@ -25,6 +25,14 @@ if (!$row1) {
     die("Illegal request");
 }
 
+if (!isset($formdata)) {
+    $formdata = array();
+}
+
+if (!isset($errors)) {
+    $errors = array();
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,177 +60,171 @@ if (!$row1) {
             }
             ?>
             <form action="editLocation.php" method="POST" class="form-horizontal" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?php echo $row['LocationID']; ?>" />
-                <!--location id. auto incremented in database. cannot be updated from website-->
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label for="Name" class="control-label">Name</label>
+                <div style="margin-left: 25%">
+                    <input type="hidden" name="id" value="<?php echo $row['LocationID']; ?>" />
+                    <!--location id. auto incremented in database. cannot be updated from website-->
+                    <div class="form-group">
+                        <label for="Name" class="col-md-2 control-label">Name</label>
+                        <!--label-->
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="Name" name="Name" value="<?php echo (isset($formdata['Name'])) ? ($formdata['Name']) :  $row['Name']; ?>" />
+                            <!--input with current data from database-->
+                        </div>
+                        <div class="col-md-4">
+                            <span id="LNameError" class="error">
+                                <?php echoValue($errors, 'Name'); ?>
+                            </span>
+                            <!--error message for invalid input-->
+                        </div>
                     </div>
-                    <!--label-->
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="Name" name="Name"
-                            value="<?php echo $row['Name']; ?>" />
-                        <!--input with current data from database-->
+                    <div class="form-group">
+                        <label for="Address" class="col-md-2 control-label">Address</label>
+                        <!--label-->
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="Address" name="Address" value="<?php echo (isset($formdata['Address'])) ? ($formdata['Address']) :  $row['Address'];  ?>" />
+                            <!--input with current data from database-->
+                        </div>
+                        <div class="col-md-4">
+                            <span id="LAddressError" class="error">
+                                <?php echoValue($errors, 'Address'); ?>
+                            </span>
+                            <!--error message for invalid input-->
+                        </div>
                     </div>
-                    <div class="col-md-offset-3" style="padding-left: 15px;">
-                        <span id="LNameError" class="error"></span>
-                        <!--error message for invalid input-->
+                    <div class="form-group">
+                        <label for="ManagerFName" class="col-md-2 control-label">Manager First Name</label>
+                        <!--label-->
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="ManagerFName" name="ManagerFName" value="<?php echo (isset($formdata['ManagerFName'])) ? ($formdata['ManagerFName']) : $row['ManagerFName']; ?>" />
+                            <!--input with current data from database-->
+                        </div>
+                        <div class="col-md-4">
+                            <span id="mNameError" class="error">
+                                <?php echoValue($errors, 'ManagerFName'); ?>
+                            </span>
+                            <!--error message for invalid input-->
+                        </div>
                     </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label for="Address" class="control-label">Address</label>
+                    <div class="form-group">
+                        <label for="ManagerLName" class="col-md-2 control-label">Manager Last Name</label>
+                        <!--label-->
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="ManagerLName" name="ManagerLName" value="<?php echo (isset($formdata['ManagerLName'])) ? ($formdata['ManagerLName']) : $row['ManagerLName']; ?>" />
+                            <!--input with current data from database-->
+                        </div>
+                        <div class="col-md-4">
+                            <span id="mNameError" class="error">
+                                <?php echoValue($errors, 'ManagerLName'); ?>
+                            </span>
+                            <!--error message for invalid input-->
+                        </div>
                     </div>
-                    <!--label-->
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="Address" name="Address"
-                            value="<?php echo $row['Address']; ?>" />
-                        <!--input with current data from database-->
+                    <div class="form-group">
+                        <label for="ManagerEmail" class="col-md-2 control-label">Manager Email</label>
+                        <!--label-->
+                        <div class="col-md-5">
+                            <input type="text" class="form-control" id="ManagerEmail" name="ManagerEmail" value="<?php echo (isset($formdata['ManagerEmail'])) ? ($formdata['ManagerEmail']) : $row['ManagerEmail']; ?>" />
+                            <!--input with current data from database-->
+                        </div>
+                        <div class="col-md-4">
+                            <span id="mEmailError" class="error">
+                                <?php echoValue($errors, 'ManagerEmail'); ?>
+                            </span>
+                            <!--error message for invalid input-->
+                        </div>
                     </div>
-                    <div class="col-md-offset-3" style="padding-left: 15px;">
-                        <span id="LAddressError" class="error"></span>
-                        <!--error message for invalid input-->
+                    <div class="form-group">
+                        <label for="ManagerNumber" class="col-md-2 control-label">Manager Number</label>
+                        <!--label-->
+                        <div class="col-md-5">
+                            <input type="number" class="form-control" id="ManagerNumber" name="ManagerNumber" value="<?php echo (isset($formdata['ManagerNumber'])) ? ($formdata['ManagerNumber']) : $row['ManagerNumber']; ?>" />
+                            <!--input with current data from database-->
+                        </div>
+                        <div class="col-md-4">
+                            <span id="mNumError" class="error">
+                                <?php echoValue($errors, 'ManagerNumber'); ?>
+                            </span>
+                            <!--error message for invalid input-->
+                        </div>
                     </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label for="ManagerFName" class="control-label">Manager First Name</label>
+                    <div class="form-group">
+                        <label for="MaxCapacity" class="col-md-2 control-label">Max Capacity</label>
+                        <!--label-->
+                        <div class="col-md-5">
+                            <input type="number" class="form-control" id="MaxCapacity" name="MaxCapacity" value="<?php echo (isset($formdata['MaxCapacity'])) ? ($formdata['MaxCapacity']) : $row['MaxCapacity']; ?>" />
+                            <!--input with current data from database-->
+                        </div>
+                        <div class="col-md-4">
+                            <span id="capError" class="error">
+                                <?php echoValue($errors, 'MaxCapacity'); ?>
+                            </span>
+                            <!--error message for invalid input-->
+                        </div>
                     </div>
-                    <!--label-->
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="ManagerFName" name="ManagerFName"
-                            value="<?php echo $row['ManagerFName']; ?>" />
-                        <!--input with current data from database-->
+                    <!--codes below has no connection with the database.-->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Location
+                            Type</label>
+                        <!--radio buttons with multiple options-->
+                        <div class="col-md-5">
+                            <?php $lType = (isset($formdata['LocationType'])) ? ($formdata['LocationType']) : $row['LocationType']; ?>
+                            <input type="radio" name="LocationType" value=1 <?php echo ($lType == 1) ?  "checked" : "";  ?>> Indoor <br>
+                            <input type="radio" name="LocationType" value=2 <?php echo ($lType == 2) ?  "checked" : "";  ?>> Outdoor <br>
+                            <input type="radio" name="LocationType" value=3 <?php echo ($lType == 3) ?  "checked" : "";  ?>> Both
+                        </div>
+                        <div class="col-md-4">
+                            <span id="typeError" class="error">
+                                <?php echoValue($errors, 'lType'); ?>
+                            </span>
+                        </div>
                     </div>
-                    <div class="col-md-offset-3" style="padding-left: 15px;">
-                        <span id="mNameError" class="error"></span>
-                        <!--error message for invalid input-->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Seating Available</label>
+                        <div class="col-md-5">
+                            <?php $seat = (isset($formdata['SeatingAvailable'])) ? ($formdata['SeatingAvailable']) : $row['SeatingAvailable']; ?>
+                            <select class="form-control" name="seat">
+                                <option>Please Choose</option>
+                                <option value=1 <?php echo ($seat == 1) ?  "selected" : "";  ?>> Yes</option>
+                                <option value=2 <?php echo ($seat == 2) ?  "selected" : "";  ?>> No</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <span id="typeError" class="error">
+                                <?php echoValue($errors, 'seat'); ?>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label for="ManagerLName" class="control-label">Manager Last Name</label>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Facilities</label>
+                        <div class="col-md-5">
+                            <?php $facilities = (isset($formdata['facilities'])) ? ($formdata['facilities']) : array_column($row1, 'Facility');  ?>
+                            <input type="checkbox" name="facilities[]" value=1 <?php echo (in_array("1", $facilities)) ?  "checked" : "";  ?>> Sound Room <br>
+                            <input type="checkbox" name="facilities[]" value=2 <?php echo (in_array("2", $facilities)) ?  "checked" : "";  ?>> Big Screen Room <br>
+                            <input type="checkbox" name="facilities[]" value=3 <?php echo (in_array("3", $facilities)) ?  "checked" : "";  ?>> Restaurants <br>
+                            <input type="checkbox" name="facilities[]" value=4 <?php echo (in_array("4", $facilities)) ?  "checked" : "";  ?>> Bar <br>
+                            <input type="checkbox" name="facilities[]" value=5 <?php echo (in_array("5", $facilities)) ?  "checked" : "";  ?>> Disabled Access Toilets <br>
+                        </div>
+                        <div class="col-md-4">
+                            <span id="typeError" class="error">
+                                <?php echoValue($errors, 'facilities'); ?>
+                            </span>
+                        </div>
                     </div>
-                    <!--label-->
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="ManagerLName" name="ManagerLName"
-                            value="<?php echo $row['ManagerLName']; ?>" />
-                        <!--input with current data from database-->
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Url</label>
+                        <div class="col-md-5">
+                            <input type="text" class="control-label" name="link" value="<?php echo (isset($formdata['Url'])) ? ($formdata['Url']) :  $row['Url']; ?>">
+                        </div>
+                        <div class="col-md-4">
+                            <span id="urlError" class="error">
+                                <?php echoValue($errors, 'link'); ?>
+                            </span>
+                        </div>
                     </div>
-                    <div class="col-md-offset-3" style="padding-left: 15px;">
-                        <span id="mNameError" class="error"></span>
-                        <!--error message for invalid input-->
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label for="ManagerEmail" class="control-label">Manager Email</label>
-                    </div>
-                    <!--label-->
-                    <div class="col-md-5">
-                        <input type="text" class="form-control" id="ManagerEmail" name="ManagerEmail"
-                            value="<?php echo $row['ManagerEmail']; ?>" />
-                        <!--input with current data from database-->
-                    </div>
-                    <div class="col-md-offset-3" style="padding-left: 15px">
-                        <span id="mEmailError" class="error"></span>
-                        <!--error message for invalid input-->
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label for="ManagerNumber" class="control-label">Manager Number</label>
-                    </div>
-                    <!--label-->
-                    <div class="col-md-9">
-                        <input type="number" class="form-control" id="ManagerNumber" name="ManagerNumber"
-                            value="<?php echo $row['ManagerNumber']; ?>" />
-                        <!--input with current data from database-->
-                    </div>
-                    <div class="col-md-offset-3" style="padding-left: 15px;">
-                        <span id="mNumError" class="error"></span>
-                        <!--error message for invalid input-->
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label for="MaxCapacity" class="control-label">Max Capacity</label>
-                    </div>
-                    <!--label-->
-                    <div class="col-md-9">
-                        <input type="number" class="form-control" id="MaxCapacity" name="MaxCapacity"
-                            value="<?php echo $row['MaxCapacity']; ?>" />
-                        <!--input with current data from database-->
-                    </div>
-                    <div class="col-md-offset-3" style="padding-left: 15px;">
-                        <span id="capError" class="error"></span>
-                        <!--error message for invalid input-->
-                    </div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label class="control-label">Location
-                        Type</label>
-                    </div>    
-                    <!--radio buttons with multiple options-->
-                    <div class="col-md-9">
-                        <?php $lType = $row['LocationType']; ?>
-                        <input type="radio" name="lType" value=1 <?php echo ($lType == 1) ? "checked" : ""; ?>> Indoor
-                        <br>
-                        <input type="radio" name="lType" value=2 <?php echo ($lType == 2) ? "checked" : ""; ?>> Outdoor
-                        <br>
-                        <input type="radio" name="lType" value=3 <?php echo ($lType == 3) ? "checked" : ""; ?>> Both
-                    </div>
-                    <div class="col-md-offset-3" style="padding-left: 15px">
-                        <span id="typeError" class="error">
-                        </span>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label class="control-label">Seating Available</label>
-                    </div>
-                    <div class="col-md-9">
-                        <?php $seat = $row['SeatingAvailable']; ?>
-                        <select class="form-control" name="seat">
-                            <option>Please Choose</option>
-                            <option value=1 <?php echo ($seat == 1) ? "selected" : ""; ?>> Yes</option>
-                            <option value=2 <?php echo ($seat == 2) ? "selected" : ""; ?>> No</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label class="control-label">Facilities</label>
-                    </div>
-                    <div class="col-md-9">
-                        <?php $facilities = array_column($row1, 'Facility'); ?>
-                        <input type="checkbox" name="facilities[]" value=1 <?php echo (in_array("1", $facilities)) ? "checked" : ""; ?>> Sound Room <br>
-                        <input type="checkbox" name="facilities[]" value=2 <?php echo (in_array("2", $facilities)) ? "checked" : ""; ?>> Big Screen Room <br>
-                        <input type="checkbox" name="facilities[]" value=3 <?php echo (in_array("3", $facilities)) ? "checked" : ""; ?>> Restaurants <br>
-                        <input type="checkbox" name="facilities[]" value=4 <?php echo (in_array("4", $facilities)) ? "checked" : ""; ?>> Bar <br>
-                        <input type="checkbox" name="facilities[]" value=5 <?php echo (in_array("5", $facilities)) ? "checked" : ""; ?>> Disabled Access Toilets <br>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label for="Url" class="control-label">Url</label>
-                    </div>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" name="link" value="<?php echo $row['Url']; ?>">
-                    </div>
-                    <div class="col-md-offset-3" style="padding-left: 15px;">
-                        <span id="urlError" class="error">
-                        </span>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-md-3">
-                        <label class="control-label">Attach File</label>
-                    </div>
-                    <div class="col-md-9">
-                        <img src="uploads/<?php echo $row['Image'] ?>" style="width: 100%; height: auto" id="image">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">Attach File</label>
+                        <div class="col-md-5">
+                        <img src="uploads/<?php echo (isset($formdata['Image'])) ? ($formdata['Image']) :  $row['Image'] ?>" style="width: 100%; height: auto" id="image">
                         <input type="hidden" class="control-label" name="old_image" value="<?php echo $row['Image'] ?>">
                         <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;">
                         <label class="btn btn-default" style="margin-top: 2%;" for="imageUploaded">
