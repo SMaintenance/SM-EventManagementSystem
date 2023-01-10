@@ -70,7 +70,7 @@ $user = $_SESSION['user'];
                             . '</td>';
                         echo '<td>'
                             . '<a href="editEventForm.php?id=' . $row['EventID'] . '&locId=' . $row['LocationID'] . '"><span class="glyphicon glyphicon-pencil mr-2"></a> '
-                            . '<a class="deleteButton" style="cursor:pointer;"><span class="glyphicon glyphicon-trash"></a>'
+                            . '<a onclick="deleteEvent('.$row['EventID'].')" data-toggle="modal" data-target="#deleteModal" class="deleteButton" style="cursor:pointer;"><span class="glyphicon glyphicon-trash"></a>'
                             . '</td>';
                         echo '</tr>';
                         
@@ -92,7 +92,7 @@ $user = $_SESSION['user'];
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
                 </div>
-                <form action="deleteEvent.php" method="post">
+                <form id="delete-form" action="" method="post">
                     <div class="modal-body" id="eventTitle">
                         <input type="hidden" name="deleteId" id="deleteId">
                         Are you sure you want to delete this event?
@@ -107,19 +107,10 @@ $user = $_SESSION['user'];
     </div>
 
     <script>
-        $(document).ready(function() {
-            $('.deleteButton').on('click', function() {
-                $('#deleteModal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-
-                $('#deleteId').val(data[0]);
-            })
-        })
+        function deleteEvent(id) {
+                document.getElementById("delete-form").action = "deleteEvent.php?id="+id;
+                
+        }
     </script>
 
     <?php require 'utils/footer.php'; ?>

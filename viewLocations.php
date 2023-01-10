@@ -79,7 +79,7 @@ $user = $_SESSION['user'];
                         if (in_array($row['LocationID'], $events)) {
                             echo '<a class="cannotDeleteButton" style="cursor:pointer;"><span class="glyphicon glyphicon-trash mr-2"></a> ';
                         } else {
-                            echo '<a class="deleteButton" style="cursor:pointer;"><span class="glyphicon glyphicon-trash mr-2"></a> ';
+                            echo '<a onclick="deleteLocation('.$row['LocationID'].')" data-toggle="modal" data-target="#deleteModal" class="deleteButton" style="cursor:pointer;"><span class="glyphicon glyphicon-trash mr-2"></a> ';
                         }
                             echo '<a href="viewLocation.php?id=' . $row['LocationID'] . '">View Event</a> ';
                         echo '</td>' . '</tr>';
@@ -101,7 +101,7 @@ $user = $_SESSION['user'];
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
                 </div>
-                <form action="deleteLocation.php" method="post">
+                <form id="delete-form" action="" method="post">
                     <div class="modal-body">
                         <input type="hidden" name="deleteId" id="deleteId">
                         Are you sure you want to delete this location?
@@ -134,31 +134,14 @@ $user = $_SESSION['user'];
     </div>
 
     <script>
-        $(document).ready(function() {
-            $('.deleteButton').on('click', function() {
-                $('#deleteModal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-
-                $('#deleteId').val(data[0]);
-            })
-        })
+        function deleteLocation(id) {
+                document.getElementById("delete-form").action = "deleteLocation.php?id="+id;
+                
+        }
 
         $(document).ready(function() {
             $('.cannotDeleteButton').on('click', function() {
                 $('#cannotDeleteModal').modal('show');
-
-                $tr = $(this).closest('tr');
-
-                var data = $tr.children("td").map(function() {
-                    return $(this).text();
-                }).get();
-
-                $('#cannotDeleteId').val(data[0]);
             })
         })
     </script>
