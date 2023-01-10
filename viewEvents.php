@@ -43,7 +43,7 @@ $user = $_SESSION['user'];
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Event ID</th>
+                        <th>No</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th>Start Date</th>
@@ -56,9 +56,10 @@ $user = $_SESSION['user'];
                 <tbody>
                     <?php
                     $row = $statement->fetch(PDO::FETCH_ASSOC);
+                    $count = 0;
                     while ($row) {
                         echo '<tr>';
-                        echo '<td>' . $row['EventID'] . '</td>';
+                        echo '<td>' . $count . '</td>';
                         echo '<td>' . $row['Title'] . '</td>';
                         echo '<td>' . $row['Description'] . '</td>';
                         echo '<td>' . $row['StartDate'] . '</td>';
@@ -72,7 +73,8 @@ $user = $_SESSION['user'];
                             . '<a class="delete deleteButton" style="cursor:pointer;">Delete</a>'
                             . '</td>';
                         echo '</tr>';
-
+                        
+                        $count++;
                         $row = $statement->fetch(PDO::FETCH_ASSOC);
                     }
                     ?>

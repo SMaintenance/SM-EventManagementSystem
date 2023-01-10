@@ -118,10 +118,10 @@ if (!isset($errors)) {
                             <label for="EventType" class="control-label">Event Type</label><!--event type-->
                         </div>
                         <div class="col-md-9">
-                            <input type="radio" name="EventType" value="Wedding" <?php echoChecked($formdata, "EventType", "Wedding"); ?>>  Wedding <br>
-                            <input type="radio"  name="EventType" value="Birthday" <?php echoChecked($formdata, "EventType", "Birthday"); ?>>  Birthday <br>
-                            <input type="radio" name="EventType" value="Fashion" <?php echoChecked($formdata, "EventType", "Fashion"); ?>>  Fashion <br>
-                            <input type="radio"  name="EventType" value="Meeting" <?php echoChecked($formdata, "EventType", "Meeting"); ?>>  Meeting <br>
+                            <input type="radio" name="EventType" value=1 <?php echoChecked($formdata, "EventType", 1); ?>>  Wedding <br>
+                            <input type="radio"  name="EventType" value=2 <?php echoChecked($formdata, "EventType", 2); ?>>  Birthday <br>
+                            <input type="radio" name="EventType" value=3 <?php echoChecked($formdata, "EventType", 3); ?>>  Fashion <br>
+                            <input type="radio"  name="EventType" value=4 <?php echoChecked($formdata, "EventType", 4); ?>>  Meeting <br>
                         </div>
                         <div class="col-md-offset-3" style="padding-left:15px">
                             <span id="EventTypeError" class="error">
@@ -179,7 +179,7 @@ if (!isset($errors)) {
                             </span>
                         </div>
                     </div>
-                    <button type="submit" class = "btn btn-default pull-right">Book Event <span class="glyphicon glyphicon-send"></span></button>
+                    <button type="submit" class = "btn btn-default pull-right submit">Book Event <span class="glyphicon glyphicon-send"></span></button>
                     <a class="btn btn-default navbar-btn" href = "index.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a><!--register button-->
                 </form>
             </div>

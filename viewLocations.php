@@ -46,7 +46,7 @@ $user = $_SESSION['user'];
                     <tr>
                         <!--table label-->
                         <!--this will only show the detail of a location with specific ID chosen by the user-->
-                        <th>Location ID</th>
+                        <th>No</th>
                         <th>Name</th>
                         <th>Address</th>
                         <th>Manager First Name</th>
@@ -63,9 +63,10 @@ $user = $_SESSION['user'];
                     $row = $statement->fetch(PDO::FETCH_ASSOC);
                     $row1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
                     $events = array_column($row1, 'LocationID');
+                    $count = 1;
                     while ($row) {
                         echo '<tr data-depth = 0>';
-                        echo '<td>' . $row['LocationID'] . '</td>';
+                        echo '<td>' . $count . '</td>';
                         echo '<td>' . $row['Name'] . '</td>';
                         echo '<td>' . $row['Address'] . '</td>';
                         echo '<td>' . $row['ManagerFName'] . '</td>';
@@ -83,7 +84,8 @@ $user = $_SESSION['user'];
                         }
 
                         echo '</td>' . '</tr>';
-
+                        
+                        $count++;
                         $row = $statement->fetch(PDO::FETCH_ASSOC);
                     }
                     ?>

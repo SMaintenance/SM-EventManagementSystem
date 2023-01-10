@@ -175,7 +175,19 @@ class EventTableGateway
 
     public function delete($id)
     {
-        $sql = "DELETE FROM events WHERE eventID = :id";
+        $sql = "UPDATE bookings SET EventID = NULL WHERE EventID = :id";
+
+        $statement = $this->connect->prepare($sql);
+        $params = array(
+            "id" => $id
+        );
+        $status = $statement->execute($params);
+
+        if (!$status) {
+            die("Could not delete event id from bookings");
+        }
+
+        $sql = "DELETE FROM events WHERE EventID = :id";
 
         $statement = $this->connect->prepare($sql);
         $params = array(
@@ -186,5 +198,6 @@ class EventTableGateway
         if (!$status) {
             die("Could not delete event");
         }
+        
     }
 }
