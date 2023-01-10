@@ -47,7 +47,7 @@ if (!$events) {
                 <?php
                 if ($events->rowCount() > 0) {
                 ?>
-                <h2>Events at <?php echo $location['Name']?></h2>
+                <h3>Events at <?php echo $location['Name']?></h3>
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -84,7 +84,8 @@ if (!$events) {
                 <?php
                 } else {
                 ?>
-                <p>There are no events for this location.</p>
+                <h3>There are no events at <?php echo $location['Name']; ?> </h3>
+                <br>
                 <?php
                 }
                 ?>
