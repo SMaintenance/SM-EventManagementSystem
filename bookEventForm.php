@@ -35,7 +35,6 @@ if (!isset($errors)) {
                     echo '<p>Error: ' . $errorMessage . '</p>';
                 }
                 ?>
-                <?php echo(implode($formdata))?>
                 <form action="bookEvent.php" method="POST">
                     <hr>
                     <h4>Customer's Information</h4>

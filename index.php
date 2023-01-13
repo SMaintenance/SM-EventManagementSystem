@@ -63,7 +63,6 @@
                             party wishes come true so you can kick back, drink up and enjoy your special day!
                             </p>
                             <hr class="customline"><!--css modified horizontal line-->
-                            <hr class="customline"><!--css modified horizontal line-->
                             <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
                             Book Event  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
                             </button></a>
@@ -92,7 +91,6 @@
                             for all your event needs.
                             </p>
                             <hr class="customline"><!--css modified horizontal line-->
-                            <hr class="customline"><!--css modified horizontal line-->
                             <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
                             Book Event  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
                             </button></a>
@@ -120,7 +118,6 @@
                             spaces can cater to your every need for meetings and conferences large or small, and our
                             dedicated event team can assist with all aspects of your event planning.
                             </p>
-                            <hr class="customline"><!--css modified horizontal line-->
                             <hr class="customline"><!--css modified horizontal line-->
                             <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
                             Book Event  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->

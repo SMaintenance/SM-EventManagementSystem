@@ -141,7 +141,7 @@ $user = $_SESSION['user'];
 
         <!-- delete modal -->
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
+            <div class="modal-dialog modal-md">
                 <div class="modal-content">
 
                     <div class="modal-header">

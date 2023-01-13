@@ -175,11 +175,11 @@ if (!isset($errors)) {
                 <div class="row form-group">
                     <label class="col-md-3 control-label">Facilities</label>
                     <div class="col-md-5">
-                        <input type="checkbox" name="facilities[]" value=1 <?php echoCheckedArray($formdata, 'facilities', 1); ?>>Sound Room <br>
-                        <input type="checkbox" name="facilities[]" value=2 <?php echoCheckedArray($formdata, "facilities", 2); ?>>Big Screen Room <br>
-                        <input type="checkbox" name="facilities[]" value=3 <?php echoCheckedArray($formdata, "facilities", 3); ?>>Restaurants <br>
-                        <input type="checkbox" name="facilities[]" value=4 <?php echoCheckedArray($formdata, "facilities", 4); ?>>Bar <br>
-                        <input type="checkbox" name="facilities[]" value=5 <?php echoCheckedArray($formdata, "facilities", 5); ?>>Disabled Access Toilets <br>
+                        <input type="checkbox" name="facilities[]" value=1 <?php echoCheckedArray($formdata, 'facilities', 1); ?>> Sound Room <br>
+                        <input type="checkbox" name="facilities[]" value=2 <?php echoCheckedArray($formdata, "facilities", 2); ?>> Big Screen Room <br>
+                        <input type="checkbox" name="facilities[]" value=3 <?php echoCheckedArray($formdata, "facilities", 3); ?>> Restaurants <br>
+                        <input type="checkbox" name="facilities[]" value=4 <?php echoCheckedArray($formdata, "facilities", 4); ?>> Bar <br>
+                        <input type="checkbox" name="facilities[]" value=5 <?php echoCheckedArray($formdata, "facilities", 5); ?>> Disabled Access Toilets <br>
                     </div>
                     <div class="col-md-3">
                         <span id="typeError" class="error">
