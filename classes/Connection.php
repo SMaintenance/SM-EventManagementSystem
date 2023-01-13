@@ -6,13 +6,17 @@ class Connection {
     public static function getInstance() {
         if (Connection::$connect === NULL) {
             // connect to the database
-            $host = "localhost";
-			$database = "year2project";
-			$username = "root";
-			$password = "";
+            $host = "DB_HOST";
+			$database = "DB_DATABASE";
+			$username = "DB_USERNAME";
+			$password = "DB_PASSWORD";
 
             $dsn = "mysql:host=" . $host . ";dbname=" . $database;
-            Connection::$connect = new PDO($dsn, $username, $password);
+
+            $options = array(
+                PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/DigiCertGlobalRootCA.crt.pem'
+            );
+            Connection::$connect = new PDO($dsn, $username, $password, $options);
             if (!Connection::$connect) {
                 die("Could not connect to database");
             }
