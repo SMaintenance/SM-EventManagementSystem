@@ -25,15 +25,15 @@ if (!$row) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Book Event Form</title> 
-        <?php require 'utils/styles.php'; ?><!--css links. file found in utils folder-->
-        <?php require 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
+        <title>Book Event Form</title>
+        <?php require_once 'utils/styles.php'; ?><!--css links. file found in utils folder-->
+        <?php require_once 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
     </head>
     <body>
-        <?php require 'utils/header.php'; ?><!--header content. file found in utils folder-->
+        <?php require_once 'utils/header.php'; ?><!--header content. file found in utils folder-->
         <div class = "content">
             <div class = "container" style="width:50%">
                 <h1 style="text-align:center">Book Event Form</h1><!--form title-->
@@ -147,6 +147,6 @@ if (!$row) {
                 </form>
             </div>
         </div>
-        <?php require 'utils/footer.php'; ?><!--footer content. file found in utils folder-->
+        <?php require_once 'utils/footer.php'; ?><!--footer content. file found in utils folder-->
     </body>
 </html>

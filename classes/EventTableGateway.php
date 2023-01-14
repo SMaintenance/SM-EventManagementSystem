@@ -6,6 +6,8 @@ class EventTableGateway
 
     private $connect;
 
+    private $fail_retrieve = "Could not retrieve event details";
+
     public function __construct($c)
     {
         $this->connect = $c;
@@ -14,15 +16,15 @@ class EventTableGateway
     public function getEvents()
     {
         // execute a query to get all events
-        $sqlQuery = "SELECT e.*, l.name " .
-            "FROM events e " .
-            "LEFT JOIN locations l ON e.locationID = l.locationID";
+        $sqlQuery = "SELECT events.*, locations.name " .
+            "FROM events " .
+            "LEFT JOIN locations ON events.locationID = locations.locationID";
 
         $statement = $this->connect->prepare($sqlQuery);
         $status = $statement->execute();
 
         if (!$status) {
-            die("Could not retrieve event details");
+            die($this->fail_retrieve);
         }
 
         return $statement;
@@ -31,16 +33,16 @@ class EventTableGateway
     public function getEventsOrderByDate($start, $numEvents)
     {
         // execute a query to get all events
-        $sqlQuery = "SELECT e.*, l.name " .
-            "FROM events e " .
-            "LEFT JOIN locations l ON e.locationID = l.locationID ORDER BY StartDate DESC LIMIT :start, :numEvents";
+        $sqlQuery = "SELECT events.*, locations.name " .
+            "FROM events " .
+            "LEFT JOIN locations ON events.locationID = locations.locationID ORDER BY StartDate DESC LIMIT :start, :numEvents";
         $statement = $this->connect->prepare($sqlQuery);
         $statement->bindParam(':start', $start, PDO::PARAM_INT);
         $statement->bindParam(':numEvents', $numEvents, PDO::PARAM_INT);
         $status = $statement->execute();
 
         if (!$status) {
-            die("Could not retrieve event details");
+            die($this->fail_retrieve);
         }
 
         return $statement;
@@ -50,10 +52,10 @@ class EventTableGateway
     public function getEventsByLocationId($id)
     {
         // execute a query to get all events
-        $sqlQuery = "SELECT e.*, l.name " .
-            "FROM events e " .
-            "LEFT JOIN locations l ON e.locationID = l.locationID " .
-            "WHERE e.locationID=:locationId";
+        $sqlQuery = "SELECT events.*, locations.name " .
+            "FROM events " .
+            "LEFT JOIN locations ON events.locationID = locations.locationID " .
+            "WHERE events.locationID=:locationId";
 
         $params = array(
             "locationId" => $id
@@ -62,7 +64,7 @@ class EventTableGateway
         $status = $statement->execute($params);
 
         if (!$status) {
-            die("Could not retrieve event details");
+            die($this->fail_retrieve);
         }
 
         return $statement;
@@ -117,11 +119,6 @@ class EventTableGateway
             "Image"      => $p->getImage()
         );
 
-        echo "<pre>";
-        print_r($p);
-        print_r($params);
-        echo "</pre>";
-
         $status = $statement->execute($params);
 
 
@@ -129,9 +126,7 @@ class EventTableGateway
             die("Could not insert event");
         }
 
-        $id = $this->connect->lastInsertId();
-
-        return $id;
+        return $this->connect->lastInsertId();
     }
 
     public function update($p)

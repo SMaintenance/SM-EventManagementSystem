@@ -6,10 +6,8 @@ start_session();
 
 if (!is_logged_in()) {
     header("Location: index.php");
-}
-else {
+} else {
 	unset($_SESSION['user']);
 	
 	header("Location: index.php");
 }
-?>

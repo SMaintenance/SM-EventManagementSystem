@@ -18,10 +18,10 @@ if (isset($_POST['submit'])) {
         $managerEmail = $formdata['managerEmail'];
         $managerNumber = $formdata['managerNumber'];
         $maxCap = $formdata['maxCap'];
-        $locationType = !empty($formdata['lType']) ? $formdata['lType'] : NULL;
-        $seat = !empty($_POST['seating']) ? $_POST['seating'] : NULL;
+        $locationType = !empty($formdata['lType']) ? $formdata['lType'] : null;
+        $seat = !empty($_POST['seating']) ? $_POST['seating'] : null;
         $facilities = $formdata['facilities'];
-        $url = !empty($formdata['link']) ? $formdata['link'] : NULL;
+        $url = !empty($formdata['link']) ? $formdata['link'] : null;
 
         // Where the file is going to be stored
         $target_dir = "uploads/";
@@ -50,6 +50,6 @@ if (isset($_POST['submit'])) {
 
         header('Location: viewLocations.php');
     } else {
-        require 'createLocationForm.php';
+        require_once 'createLocationForm.php';
     }
 }

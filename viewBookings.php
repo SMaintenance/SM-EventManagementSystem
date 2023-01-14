@@ -22,15 +22,15 @@ if (!is_logged_in()) {
 $user = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
-        <?php require 'utils/styles.php'; ?>
-        <?php require 'utils/scripts.php'; ?>
+        <?php require_once 'utils/styles.php'; ?>
+        <?php require_once 'utils/scripts.php'; ?>
     </head>
     <body>
-        <?php require 'utils/header.php'; ?>
+        <?php require_once 'utils/header.php'; ?>
         <div class = "content">
             <div class = "container">
                 <?php 
@@ -39,14 +39,14 @@ $user = $_SESSION['user'];
                 }
                 ?>
                 <h3>Booking List</h3>
-                <table class="table table-hover">
+                <table class="table table-hover" aria-describedby="booking list">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Customer's Name</th>
                             <th>Contact</th>
-                            <th>Title</th>    
-                            <th>Event Type</th>               
+                            <th>Title</th>
+                            <th>Event Type</th>    
                             <th>Start Date</th>
                             <th>End Date</th>
                             <th>Location</th>
@@ -63,38 +63,39 @@ $user = $_SESSION['user'];
                             echo '<td>' . $row['FullName'] . '</td>';
                             echo '<td>' . $row['ContactNum'] . '</td>';
                             echo '<td>' . $row['Title'] . '</td>';
-                            if($row['EventType'] == 1){
+                            if ($row['EventType'] == 1) {
                                 echo '<td> Wedding </td>';
-                            }
-                            else if($row['EventType'] == 2){
+                            } elseif ($row['EventType'] == 2) {
                                 echo '<td> Birthday </td>';
-                            }
-                            else if($row['EventType'] == 3){
+                            } elseif ($row['EventType'] == 3) {
                                 echo '<td> Fashion </td>';
-                            }
-                            else if($row['EventType'] == 4){
+                            } elseif ($row['EventType'] == 4) {
                                 echo '<td> Meeting </td>';
-                            }             
+                            }
                             echo '<td>' . $row['StartDate'] . '</td>';
                             echo '<td>' . $row['EndDate'] . '</td>';
                             echo '<td>'
                             . '<a href="viewLocation.php?id='.$row['LocationID'].'">'.$row['Name'].'</a> '
                             . '</td>';
-                            if(isset($row['EventID'])){
+                            if (isset($row['EventID'])) {
                                 echo '<td>'
-                                . '<a href="viewBookingForm.php?id='.$row['BookingID'].'"><span class="glyphicon glyphicon-eye-open mr-2"></span></a>'
-                                . '<a onclick="deleteBooking('.$row['BookingID'].')"><span class="glyphicon glyphicon-trash mr-2"></span></a> '
+                                . '<a href="viewBookingForm.php?id='.$row['BookingID'].'">
+                                <span class="glyphicon glyphicon-eye-open mr-2"></span></a>'
+                                . '<a onclick="deleteBooking('.$row['BookingID'].')"><
+                                span class="glyphicon glyphicon-trash mr-2"></span></a> '
                                 . '<a href="removeFromEvent.php?id='.$row['EventID'].'">&nbspRemove from Event</a> '
                                 . '</td>';
-                            }
-                            else{
+                            } else {
                                 echo '<td>'
-                                . '<a href="viewBookingForm.php?id='.$row['BookingID'].'"><span class="glyphicon glyphicon-eye-open mr-2"></span></a>'
-                                . '<a onclick="deleteBooking('.$row['BookingID'].')" data-toggle="modal" data-target="#deleteModal"><span class="glyphicon glyphicon-trash mr-2"></span></a> '
-                                . '<a onclick="addToEvent('.$row['BookingID'].')" data-toggle="modal" data-target="#imageModal">&nbspAdd to Event</a> '
+                                . '<a href="viewBookingForm.php?id='.$row['BookingID'].'">
+                                <span class="glyphicon glyphicon-eye-open mr-2"></span></a>'
+                                . '<a onclick="deleteBooking('.$row['BookingID'].')" data-toggle="modal" data-target="#deleteModal">
+                                <span class="glyphicon glyphicon-trash mr-2"></span></a> '
+                                . '<a onclick="addToEvent('.$row['BookingID'].')" data-toggle="modal" 
+                                data-target="#imageModal">&nbspAdd to Event</a> '
                                 . '</td>';
                             }
-                            echo '</tr>';  
+                            echo '</tr>';
 
                             $count++;
                             $row = $statement->fetch(PDO::FETCH_ASSOC);
@@ -122,7 +123,7 @@ $user = $_SESSION['user'];
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Attach Event Image</label>
                                 <div class="col-md-5">
-                                    <img src="uploads/<?php echo "noImage.png" ?>" style="width: 100%; height: auto" id="image">
+                                    <img src="uploads/<?php echo "noImage.png" ?>" style="width: 100%; height: auto" id="image" alt="event">
                                     <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;" required>
                                     <label class="btn btn-default" style="margin-top: 3%;" for="imageUploaded">
                                         Choose file
@@ -180,6 +181,6 @@ $user = $_SESSION['user'];
         }
         </script>
         
-        <?php require 'utils/footer.php'; ?>
+        <?php require_once 'utils/footer.php'; ?>
     </body>
 </html>

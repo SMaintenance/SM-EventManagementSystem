@@ -21,17 +21,17 @@ if (!is_logged_in()) {
 $user = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title></title>
-    <?php require 'utils/styles.php'; ?>
-    <?php require 'utils/scripts.php'; ?>
+    <?php require_once 'utils/styles.php'; ?>
+    <?php require_once 'utils/scripts.php'; ?>
 </head>
 
 <body>
-    <?php require 'utils/header.php'; ?>
+    <?php require_once 'utils/header.php'; ?>
     <div class="content">
         <div class="container">
             <?php
@@ -40,7 +40,7 @@ $user = $_SESSION['user'];
             }
             ?>
             <h3>Event List</h3>
-            <table class="table table-hover">
+            <table class="table table-hover" aria-describedby="event list">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -69,8 +69,11 @@ $user = $_SESSION['user'];
                             . '<a href="viewLocation.php?id=' . $row['LocationID'] . '">' . $row['name'] . '</a> '
                             . '</td>';
                         echo '<td>'
-                            . '<a href="editEventForm.php?id=' . $row['EventID'] . '&locId=' . $row['LocationID'] . '"><span class="glyphicon glyphicon-pencil mr-2"></a> '
-                            . '<a onclick="deleteEvent('.$row['EventID'].')" data-toggle="modal" data-target="#deleteModal" class="deleteButton" style="cursor:pointer;"><span class="glyphicon glyphicon-trash"></a>'
+                            . '<a href="editEventForm.php?id=' . $row['EventID'] . '&locId=' . 
+                            $row['LocationID'] . '"><span class="glyphicon glyphicon-pencil mr-2"></a> '
+                            . '<a onclick="deleteEvent('.$row['EventID'].')" data-toggle="modal" 
+                            data-target="#deleteModal" class="deleteButton" style="cursor:pointer;">
+                            <span class="glyphicon glyphicon-trash"></a>'
                             . '</td>';
                         echo '</tr>';
                         
@@ -113,7 +116,6 @@ $user = $_SESSION['user'];
         }
     </script>
 
-    <?php require 'utils/footer.php'; ?>
+    <?php require_once 'utils/footer.php'; ?>
 </body>
-
 </html>

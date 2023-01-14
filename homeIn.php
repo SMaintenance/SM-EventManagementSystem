@@ -24,22 +24,22 @@ if (!is_logged_in()) {
 $user = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
-        <?php require 'utils/styles.php'; ?>
-        <?php require 'utils/scripts.php'; ?>
+        <?php require_once 'utils/styles.php'; ?>
+        <?php require_once 'utils/scripts.php'; ?>
     </head>
     <body>
-        <?php require 'utils/header.php'; ?>
-        <?php require 'utils/toolbar.php'; ?>
+        <?php require_once 'utils/header.php'; ?>
+        <?php require_once 'utils/toolbar.php'; ?>
 
-        <?php 
+        <?php
         if (isset($message)) {
             echo '<p>'.$message.'</p>';
         }
         ?>
-        <?php require 'utils/footer.php'; ?>
+        <?php require_once 'utils/footer.php'; ?>
     </body>
 </html>
