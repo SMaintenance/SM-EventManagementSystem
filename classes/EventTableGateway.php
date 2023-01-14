@@ -5,6 +5,8 @@ class EventTableGateway
 {
 
     private $connect;
+    private $query = "SELECT e.*, l.name FROM events e ";
+    private $errmsg = "Could not retrieve event details";
 
     public function __construct($c)
     {
@@ -13,16 +15,16 @@ class EventTableGateway
 
     public function getEvents()
     {
+        
         // execute a query to get all events
-        $sqlQuery = "SELECT e.*, l.name " .
-            "FROM events e " .
+        $sqlQuery = $this->query .
             "LEFT JOIN locations l ON e.locationID = l.locationID";
 
         $statement = $this->connect->prepare($sqlQuery);
         $status = $statement->execute();
 
         if (!$status) {
-            die("Could not retrieve event details");
+            die($this->errmsg);
         }
 
         return $statement;
@@ -31,8 +33,7 @@ class EventTableGateway
     public function getEventsOrderByDate($start, $numEvents)
     {
         // execute a query to get all events
-        $sqlQuery = "SELECT e.*, l.name " .
-            "FROM events e " .
+        $sqlQuery = $this->query .
             "LEFT JOIN locations l ON e.locationID = l.locationID ORDER BY StartDate DESC LIMIT :start, :numEvents";
         $statement = $this->connect->prepare($sqlQuery);
         $statement->bindParam(':start', $start, PDO::PARAM_INT);
@@ -40,7 +41,7 @@ class EventTableGateway
         $status = $statement->execute();
 
         if (!$status) {
-            die("Could not retrieve event details");
+            die($this->errmsg);
         }
 
         return $statement;
@@ -50,8 +51,7 @@ class EventTableGateway
     public function getEventsByLocationId($id)
     {
         // execute a query to get all events
-        $sqlQuery = "SELECT e.*, l.name " .
-            "FROM events e " .
+        $sqlQuery = $this->query .
             "LEFT JOIN locations l ON e.locationID = l.locationID " .
             "WHERE e.locationID=:locationId";
 
@@ -62,7 +62,7 @@ class EventTableGateway
         $status = $statement->execute($params);
 
         if (!$status) {
-            die("Could not retrieve event details");
+            die($this->errmsg);
         }
 
         return $statement;

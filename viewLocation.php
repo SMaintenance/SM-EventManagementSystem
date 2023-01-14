@@ -3,7 +3,7 @@ require_once 'classes/Location.php';
 require_once 'classes/LocationTableGateway.php';
 require_once 'classes/EventTableGateway.php';
 require_once 'classes/Connection.php';
-
+require_once 'utils/checkLogin.php';
 
 if (!isset($_GET['id'])) {
     die("Illegal request");

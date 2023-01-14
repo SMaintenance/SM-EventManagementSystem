@@ -3,6 +3,7 @@ require_once 'functions.php';
 require_once 'classes/Location.php';
 require_once 'classes/LocationTableGateway.php';
 require_once 'classes/Connection.php';
+require_once 'utils/checkLogin.php';
 
 $connection = Connection::getInstance();
 $gateway = new LocationTableGateway($connection);

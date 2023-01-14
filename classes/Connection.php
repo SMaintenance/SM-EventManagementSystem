@@ -13,10 +13,6 @@ class Connection {
 
             $dsn = "mysql:host=" . $host . ";dbname=" . $database;
 
-            // $options = array(
-            //     PDO::MYSQL_ATTR_SSL_CA => '/var/www/html/DigiCertGlobalRootCA.crt.pem'
-            // );
-            // Connection::$connect = new PDO($dsn, $username, $password, $options);
             Connection::$connect = new PDO($dsn, $username, $password);
             if (!Connection::$connect) {
                 die("Could not connect to database");

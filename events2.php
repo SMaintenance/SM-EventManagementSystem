@@ -2,6 +2,7 @@
 require_once 'classes/Event.php';
 require_once 'classes/EventTableGateway.php';
 require_once 'classes/Connection.php';
+require_once 'utils/checkLogin.php';
 
 $connection = Connection::getInstance();
 $gateway = new EventTableGateway($connection);

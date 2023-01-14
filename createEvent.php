@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     if (empty($errors)) {
         $title = $formdata['Title'];
         $description = $formdata['Description'];
-        $eType = !empty($formdata['eType']) ? $formdata['eType'] : NULL;
+        $eType = !empty($formdata['eType']) ? $formdata['eType'] : null;
         $sDate = $formdata['StartDate'];
         $eDate = $formdata['EndDate'];
         $cost = $formdata['Cost'];
