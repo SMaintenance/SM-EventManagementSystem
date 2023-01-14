@@ -1,10 +1,10 @@
 <?php
 class DB {
 
-    private static $host = "DB_HOST";
-    private static $database = "DB_DATABASE";
-    private static $username = "DB_USERNAME";
-    private static $password = "DB_PASSWORD";
+    private static $host = "localhost";
+    private static $database = "year2project";
+    private static $username = "root";
+    private static $password = "";
     
     public static function getConnection() {
         $dsn = 'mysql:host=' . DB::$host . ';dbname=' . DB::$database;
