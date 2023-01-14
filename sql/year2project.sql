@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2023 at 02:05 PM
+-- Generation Time: Jan 14, 2023 at 09:27 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 8.0.2
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `year2project`
 --
+CREATE DATABASE IF NOT EXISTS `year2project` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `year2project`;
 
 -- --------------------------------------------------------
 
@@ -27,6 +29,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `bookings`
 --
 
+DROP TABLE IF EXISTS `bookings`;
 CREATE TABLE `bookings` (
   `BookingID` int(11) NOT NULL,
   `FullName` varchar(50) DEFAULT NULL,
@@ -41,19 +44,13 @@ CREATE TABLE `bookings` (
   `EventID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `bookings`
---
-
-INSERT INTO `bookings` (`BookingID`, `FullName`, `Email`, `ContactNum`, `Title`, `Description`, `EventType`, `StartDate`, `EndDate`, `LocationID`, `EventID`) VALUES
-(7, 'Humaira&#39; Ahmad Shuhemi', 'whomyras00@gmail.com', '0182469011', 'Birthday Party', 'A birthday party', 2, '2023-01-07', '2023-01-08', 4, NULL);
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `events`
 --
 
+DROP TABLE IF EXISTS `events`;
 CREATE TABLE `events` (
   `EventID` int(11) NOT NULL,
   `Title` varchar(255) DEFAULT NULL,
@@ -66,19 +63,13 @@ CREATE TABLE `events` (
   `Image` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `events`
---
-
-INSERT INTO `events` (`EventID`, `Title`, `Description`, `EventType`, `StartDate`, `EndDate`, `Cost`, `LocationID`, `Image`) VALUES
-(45, 'New Year Show', '5th fashion show', 3, '2023-01-07', '2023-01-08', 100, 4, '');
-
 -- --------------------------------------------------------
 
 --
 -- Table structure for table `facilities`
 --
 
+DROP TABLE IF EXISTS `facilities`;
 CREATE TABLE `facilities` (
   `FacilitiesID` int(11) NOT NULL,
   `Facility` int(11) DEFAULT NULL,
@@ -90,11 +81,11 @@ CREATE TABLE `facilities` (
 --
 
 INSERT INTO `facilities` (`FacilitiesID`, `Facility`, `LocationID`) VALUES
-(31, 1, 4),
-(32, 2, 4),
-(33, 3, 4),
-(34, 4, 4),
-(35, 5, 4);
+(42, 1, 4),
+(43, 2, 4),
+(44, 3, 4),
+(45, 4, 4),
+(46, 5, 4);
 
 -- --------------------------------------------------------
 
@@ -102,6 +93,7 @@ INSERT INTO `facilities` (`FacilitiesID`, `Facility`, `LocationID`) VALUES
 -- Table structure for table `locations`
 --
 
+DROP TABLE IF EXISTS `locations`;
 CREATE TABLE `locations` (
   `LocationID` int(11) NOT NULL,
   `Name` varchar(255) DEFAULT NULL,
@@ -122,7 +114,7 @@ CREATE TABLE `locations` (
 --
 
 INSERT INTO `locations` (`LocationID`, `Name`, `Address`, `ManagerFName`, `ManagerLName`, `ManagerEmail`, `ManagerNumber`, `MaxCapacity`, `LocationType`, `SeatingAvailable`, `Url`, `Image`) VALUES
-(4, 'Royal Hotel', 'Bray', 'John', 'Byrne', 'John@email.com', '1974384722', 100, 1, 1, '', 'hotel.jpg');
+(4, 'Royal Hotel', 'Test', 'Test', 'Byrne', 'John@email.com', '1974384722', 100, NULL, 1, '', 'hotel.jpg');
 
 -- --------------------------------------------------------
 
@@ -130,6 +122,7 @@ INSERT INTO `locations` (`LocationID`, `Name`, `Address`, `ManagerFName`, `Manag
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
@@ -142,7 +135,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
-(1, 'test', '1234', 'user');
+(1, 'Jullian', 'jullian123', 'user');
 
 --
 -- Indexes for dumped tables
@@ -190,25 +183,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `BookingID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `EventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `EventID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `facilities`
 --
 ALTER TABLE `facilities`
-  MODIFY `FacilitiesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `FacilitiesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `locations`
 --
 ALTER TABLE `locations`
-  MODIFY `LocationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `LocationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
