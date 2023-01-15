@@ -2,7 +2,7 @@
     <nav class="navbar">
         <div class="container">
             <div class="navbar-header"><!--website name/title-->
-                <?php 
+                <?php
                 require_once 'utils/functions.php';
                 echo '<a href = "index.php" class = "navbar-brand">
                     Event Management Systems
@@ -10,9 +10,9 @@
                 ?>
             </div>
             <ul class="nav navbar-nav navbar-right"><!--navigation-->
-                <?php 
+                <?php
                 //links to database contents. *if logged in
-                if(is_logged_in()){
+                if (is_logged_in()) {
                     require_once 'utils/functions.php';
                     echo '<li><a href = "index.php">Home</a></li>';
                     echo '<li><a href = "viewEvents.php">Events</a></li>';
@@ -20,9 +20,7 @@
                     echo '<li><a href = "viewBookings.php">Bookings</a></li>';
                     echo '<li><a href = "contact.php">Contact Us</a></li>';
                     echo '<li class="btnlogout"><a class = "btn btn-default navbar-btn" href = "logout.php">Logout <span class = "glyphicon glyphicon-log-out"></span></a></li>';
-                }  
-                //links non database contents. *if logged out
-                else {
+                } else {
                     echo '<li><a href = "index.php">Home</a></li>';
                     echo '<li><a href = "events2.php">Events</a></li>';
                     echo '<li><a href = "locations2.php">Locations</a></li>';
@@ -48,10 +46,10 @@
                                                 <input type="text"
                                                        name="username"
                                                        class="form-control"
-                                                       value="<?php if (isset($formdata['username'])) echo $formdata['username']; ?>"
+                                                       value="<?php if (isset($formdata['username'])) { echo $formdata['username']; } ?>"
                                                        />
                                                 <span class="error"><!--error message on failed input-->
-                                                    <?php if (isset($errors['username'])) echo $errors['username']; ?>
+                                                    <?php if (isset($errors['username'])) { echo $errors['username']; } ?>
                                                 </span>
                                             </div>
                                             <div class="form-group"><!--password-->
@@ -62,7 +60,7 @@
                                                        value=""
                                                        />
                                                 <span class="error"><!--error message on failed input-->
-                                                    <?php if (isset($errors['password'])) echo $errors['password']; ?>
+                                                    <?php if (isset($errors['password'])) { echo $errors['password']; } ?>
                                                 </span>
                                             </div>
                                             <button type="submit" class = "btn btn-default loginbtn">Login</button><!--login button-->

@@ -19,7 +19,7 @@ try {
     $formdata['username'] = filter_input($input_method, "username", FILTER_SANITIZE_STRING);
     $formdata['password'] = filter_input($input_method, "password", FILTER_SANITIZE_STRING);
     
-    // throw an exception if any of the form fields 
+    // throw an exception if any of the form fields
     // are empty
     if (empty($formdata['username'])) {
         $errors['username'] = "Username required";
@@ -33,12 +33,12 @@ try {
         $errors['password'] = "Password required";
     }
     if (empty($errors)) {
-        // since none of the form fields were empty, 
+        // since none of the form fields were empty,
         // store the form data in variables
         $username = $formdata['username'];
         $password = $formdata['password'];
 
-        // create a UserTable object and use it to retrieve 
+        // create a UserTable object and use it to retrieve
         // the users
         $connection = DB::getConnection();
         $userTable = new UserTable($connection);
@@ -49,8 +49,7 @@ try {
         // and exception
         if ($user == null) {
             $errors['username'] = "Username is not registered";
-        }
-        else {
+        } else {
             if ($password !== $user->getPassword()) {
                 $errors['password'] = "Password is incorrect";
             }
@@ -70,18 +69,16 @@ try {
     // now the user is registered and logged in so redirect
     // them the their home page
     // Note the user is redirected to home.php rather than
-    // requiring the home.php script at this point - this 
+    // requiring the home.php script at this point - this
     // ensures that if the user refreshes the home page they
     // will not be resubmitting the login form.
-    // 
+    //
     // require 'home.php';
     header('Location: index.php');
-    }
-    catch (Exception $ex) {
+    } catch (Exception $ex) {
         // if an exception occurs then extract the message
         // from the exception and send the user the
         // registration form
         $errorMessage = $ex->getMessage();
-        require 'login_form.php';
+        require_once 'login_form.php';
     }
-    ?>

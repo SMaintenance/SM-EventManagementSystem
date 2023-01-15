@@ -11,16 +11,17 @@ validateEvents(INPUT_POST, $formdata, $errors);
 
 if (empty($errors)) {
     $name = $formdata['Name'];
-    $email = $formdata['Email']; 
+    $email = $formdata['Email'];
     $contactNum = $formdata['ContactNum'];
     $title = $formdata['Title'];
-    $description = $formdata['Description']; 
-    $eventType = $formdata['EventType'];   
+    $description = $formdata['Description'];
+    $eventType = $formdata['EventType'];
     $startDate = $formdata['StartDate'];
     $endDate = $formdata['EndDate'];
     $location = $formdata['Location'];
 
-    $booking = new Booking(-1, $name, $email, $contactNum, $title, $description, $eventType, $startDate, $endDate, $location);
+    $booking = new Booking(-1, $name, $email, $contactNum, $title, 
+    $description, $eventType, $startDate, $endDate, $location);
 
     $connection = Connection::getInstance();
 
@@ -29,7 +30,6 @@ if (empty($errors)) {
     $id = $gateway->insert($booking);
 
     header('Location: index.php');
-}
-else {
-    require 'bookEventForm.php';
+} else {
+    require_once 'bookEventForm.php';
 }

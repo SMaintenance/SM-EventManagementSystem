@@ -10,7 +10,7 @@ if (!isset($errors)) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -20,14 +20,14 @@ if (!isset($errors)) {
             color: red;
         }
     </style>
-    <?php require 'utils/styles.php'; ?>
+    <?php require_once 'utils/styles.php'; ?>
     <!--css links. file found in utils folder-->
-    <?php require 'utils/scripts.php'; ?>
+    <?php require_once 'utils/scripts.php'; ?>
     <!--js links. file found in utils folder-->
 </head>
 
 <body>
-    <?php require 'utils/header.php'; ?>
+    <?php require_once 'utils/header.php'; ?>
     <!--header content. file found in utils folder-->
     <div class="content">
         <div class="container" style="width:50%">
@@ -218,7 +218,7 @@ if (!isset($errors)) {
             <!--return/back button-->
         </div>
     </div>
-    <?php require 'utils/footer.php'; ?>
+    <?php require_once 'utils/footer.php'; ?>
     <!--footer content. file found in utils folder-->
     <script type="text/javascript">
         document.getElementById('imageUploaded').onchange = function() {
@@ -226,5 +226,4 @@ if (!isset($errors)) {
         }
     </script>
 </body>
-
 </html>

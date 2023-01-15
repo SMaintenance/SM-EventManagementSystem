@@ -24,10 +24,10 @@ if (!$formdata) {
 if (isset($_POST['submit'])) {
     $title = $formdata['Title'];
     $description = $formdata['Description'];
-    $eType = !empty($formdata['EventType']) ? $formdata['EventType'] : NULL;
+    $eType = !empty($formdata['EventType']) ? $formdata['EventType'] : null;
     $sDate = $formdata['StartDate'];
     $eDate = $formdata['EndDate'];
-    $cost = NULL;;
+    $cost = null;
     $locID = $formdata['LocationID'];
 
     // Where the file is going to be stored
@@ -60,5 +60,4 @@ if (isset($_POST['submit'])) {
 
     header('Location: viewBookings.php');
 }
-?>
 

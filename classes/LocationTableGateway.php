@@ -96,7 +96,10 @@ class LocationTableGateway
     //execute a insert sql statement that inserts data taken from user to a database.
     public function insert($p)
     {
-        $sql = "INSERT INTO locations(Name, Address, ManagerFName, ManagerLName, ManagerEmail, ManagerNumber, MaxCapacity, LocationType, SeatingAvailable,  Url, Image) VALUES (:Name, :Address,:ManagerFName , :ManagerLName, :ManagerEmail, :ManagerNumber, :MaxCapacity, :LocationType, :Seat, :Url, :Image)";
+        $sql = "INSERT INTO locations(Name, Address, ManagerFName, ManagerLName, ManagerEmail, 
+        ManagerNumber, MaxCapacity, LocationType, SeatingAvailable,  Url, Image) 
+        VALUES (:Name, :Address,:ManagerFName , :ManagerLName, :ManagerEmail, 
+        :ManagerNumber, :MaxCapacity, :LocationType, :Seat, :Url, :Image)";
 
         $statement = $this->connect->prepare($sql);
         $params = array(
@@ -113,13 +116,7 @@ class LocationTableGateway
             "Image"             => $p->getImage()
         );
 
-        echo "<pre>";
-        print_r($p);
-        print_r($params);
-        echo "</pre>";
-
         $status = $statement->execute($params);
-
 
         if (!$status) {
             die("Could not insert location");

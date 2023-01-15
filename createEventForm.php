@@ -18,19 +18,19 @@ if (!isset($errors)) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Create Event Form</title>
-    <?php require 'utils/styles.php'; ?>
+    <?php require_once 'utils/styles.php'; ?>
     <!--css links. file found in utils folder-->
-    <?php require 'utils/scripts.php'; ?>
+    <?php require_once 'utils/scripts.php'; ?>
     <!--js links. file found in utils folder-->
 </head>
 
 <body>
-    <?php require 'utils/header.php'; ?>
+    <?php require_once 'utils/header.php'; ?>
     <!--header content. file found in utils folder-->
     <div class="content">
         <div class="container" style="width: 50%">
@@ -198,5 +198,4 @@ if (!isset($errors)) {
         }
     </script>
 </body>
-
 </html>

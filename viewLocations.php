@@ -22,17 +22,17 @@ if (!is_logged_in()) {
 $user = $_SESSION['user'];
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title></title>
-    <?php require 'utils/styles.php'; ?>
-    <?php require 'utils/scripts.php'; ?>
+    <?php require_once 'utils/styles.php'; ?>
+    <?php require_once 'utils/scripts.php'; ?>
 </head>
 
 <body>
-    <?php require 'utils/header.php'; ?>
+    <?php require_once 'utils/header.php'; ?>
     <div class="content">
         <div class="container">
             <?php
@@ -41,7 +41,7 @@ $user = $_SESSION['user'];
             }
             ?>
             <h3>Location List</h3>
-            <table class="table table-hover">
+            <table class="table table-hover" aria-describedby="location list">
                 <thead>
                     <tr>
                         <!--table label-->
@@ -75,11 +75,15 @@ $user = $_SESSION['user'];
                         echo '<td>' . $row['ManagerNumber'] . '</td>';
                         echo '<td>' . $row['MaxCapacity'] . '</td>';
                         echo '<td>'
-                            . '<a href="editLocationForm.php?id=' . $row['LocationID'] . '"><span class="glyphicon glyphicon-pencil mr-2"></a> ';
+                            . '<a href="editLocationForm.php?id='. $row['LocationID'] . '">
+                            <span class="glyphicon glyphicon-pencil mr-2"></a> ';
                         if (in_array($row['LocationID'], $events)) {
-                            echo '<a class="cannotDeleteButton" style="cursor:pointer;"><span class="glyphicon glyphicon-trash mr-2"></a> ';
+                            echo '<a class="cannotDeleteButton" style="cursor:pointer;">
+                            <span class="glyphicon glyphicon-trash mr-2"></a> ';
                         } else {
-                            echo '<a onclick="deleteLocation('.$row['LocationID'].')" data-toggle="modal" data-target="#deleteModal" class="deleteButton" style="cursor:pointer;"><span class="glyphicon glyphicon-trash mr-2"></a> ';
+                            echo '<a onclick="deleteLocation('.$row['LocationID'].')" data-toggle="modal"
+                             data-target="#deleteModal" class="deleteButton" style="cursor:pointer;">
+                             <span class="glyphicon glyphicon-trash mr-2"></a> ';
                         }
                             echo '<a href="viewLocation.php?id=' . $row['LocationID'] . '">View Event</a> ';
                         echo '</td>' . '</tr>';
@@ -146,7 +150,6 @@ $user = $_SESSION['user'];
         })
     </script>
 
-    <?php require 'utils/footer.php'; ?>
+    <?php require_once 'utils/footer.php'; ?>
 </body>
-
 </html>

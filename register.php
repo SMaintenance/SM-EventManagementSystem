@@ -19,7 +19,7 @@ try {
     $formdata['password'] = filter_input($input_method, "password", FILTER_SANITIZE_STRING);
     $formdata['cpassword'] = filter_input($input_method, "cpassword", FILTER_SANITIZE_STRING);
 
-    // throw an exception if any of the form fields 
+    // throw an exception if any of the form fields
     // are empty
     if (empty($formdata['username'])) {
         $errors['username'] = "Username required";
@@ -79,7 +79,7 @@ try {
     // now the user is registered and logged in so redirect
     // them the their home page
     // Note the user is redirected to home.php rather than
-    // requiring the home.php script at this point - this 
+    // requiring the home.php script at this point - this
     // ensures that if the user refreshes the home page they
     // will not be resubmitting the login form.
     // 
@@ -91,6 +91,5 @@ catch (Exception $ex) {
     // from the exception and send the user the
     // registration form
     $errorMessage = $ex->getMessage();
-    require 'register_form.php';
+    require_once 'register_form.php';
 }
-?>

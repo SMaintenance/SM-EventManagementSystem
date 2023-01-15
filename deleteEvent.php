@@ -13,6 +13,4 @@ $connection = Connection::getInstance();
 $gateway = new EventTableGateway($connection);
 
 $gateway->delete($id);
-echo($id);
 header('Location: viewEvents.php');
-?>
