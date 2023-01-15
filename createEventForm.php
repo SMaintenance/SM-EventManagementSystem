@@ -3,6 +3,7 @@ require_once 'functions.php';
 require_once 'classes/Location.php';
 require_once 'classes/LocationTableGateway.php';
 require_once 'classes/Connection.php';
+require_once 'utils/checkLogin.php';
 
 $connection = Connection::getInstance();
 $gateway = new LocationTableGateway($connection);
@@ -174,7 +175,7 @@ if (!isset($errors)) {
                         <label class="control-label">Attach Event Image</label>
                     </div>
                     <div class="col-md-9">
-                        <img src="uploads/<?php echo "noImage.png" ?>" style="width: 100%; height: auto" id="image">
+                        <img src="uploads/<?php echo "noImage.png" ?>" alt="noImage" style="width: 100%; height: auto" id="image">
                         <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;">
                         <label class="btn btn-default" style="margin-top: 3%;" for="imageUploaded">
                             Choose file
@@ -190,7 +191,7 @@ if (!isset($errors)) {
             </form>
         </div>
     </div>
-    <?php require 'utils/footer.php'; ?>
+    <?php require_once 'utils/footer.php'; ?>
     <!--footer content. file found in utils folder-->
     <script type="text/javascript">
         document.getElementById('imageUploaded').onchange = function () {

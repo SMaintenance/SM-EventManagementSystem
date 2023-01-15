@@ -1,3 +1,6 @@
+<?php
+require_once 'utils/checkLogin.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -7,7 +10,9 @@
         <?php require_once 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
     </head>
     <body>
-        <?php require_once 'utils/header.php'; ?><!--header content. file found in utils folder-->
+        <?php
+            require_once 'utils/header.php'
+        ?>
         <div class = "content"><!--body content holder-->
             <div class = "container">
                 <div class = "col-md-12"><!--body content title holder with 12 grid columns-->

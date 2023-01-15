@@ -1,5 +1,6 @@
 <?php
 require_once 'functions.php';
+require_once 'utils/checkLogin.php';
 
 if (!isset($formdata)) {
     $formdata = array();

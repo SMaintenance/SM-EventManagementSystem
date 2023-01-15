@@ -1,17 +1,17 @@
 <?php
 class Event
 {
+    private $id;
     private $title;
-    private $description;  
+    private $description;
     private $eventType;
     private $startDate;
     private $endDate;
     private $cost;
     private $locationID;
     private $image;
-    
-    public function __construct($id, $title, $description, $eType, 
-    $sDate, $eDate, $cost, $locID, $image)
+
+    public function __construct($id, $title, $description, $eType, $sDate, $eDate, $cost, $locID, $image)
     {
         $this->id = $id;
         $this->title = $title;
@@ -23,23 +23,41 @@ class Event
         $this->locationID = $locID;
         $this->image = $image;
     }
-    
+
     public function getId()
-    { return $this->id; }
+    {
+        return $this->id;
+    }
     public function getTitle()
-    { return $this->title; }
+    {
+        return $this->title;
+    }
     public function getDescription()
-    { return $this->description; }
+    {
+        return $this->description;
+    }
     public function getEventType()
-    { return $this->eventType; }
+    {
+        return $this->eventType;
+    }
     public function getStartDate()
-    { return $this->startDate; }
+    {
+        return $this->startDate;
+    }
     public function getEndDate()
-    { return $this->endDate; }
+    {
+        return $this->endDate;
+    }
     public function getCost()
-    { return $this->cost; }
+    {
+        return $this->cost;
+    }
     public function getLocationID()
-    { return $this->locationID; }
+    {
+        return $this->locationID;
+    }
     public function getImage()
-    { return $this->image; }
+    {
+        return $this->image;
+    }
 }

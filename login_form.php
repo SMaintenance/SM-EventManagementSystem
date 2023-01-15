@@ -1,3 +1,7 @@
+<?php
+require_once 'utils/checkLogin.php';
+?>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="en">
     <head>

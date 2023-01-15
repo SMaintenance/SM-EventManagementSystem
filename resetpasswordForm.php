@@ -1,4 +1,5 @@
 <?php
+require_once 'utils/checkLogin.php';
 if (!isset($_GET['username'])) {
     die("Illegal request");
 }
