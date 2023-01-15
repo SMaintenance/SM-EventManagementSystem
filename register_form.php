@@ -2,15 +2,15 @@
 require_once 'utils/checkLogin.php';
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
-        <?php require 'utils/styles.php'; ?><!--css links. file found in utils folder-->
+        <?php require_once 'utils/styles.php'; ?><!--css links. file found in utils folder-->
         <?php require 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
     </head>
     <body>
-        <?php require 'utils/header.php'; ?><!--header content. file found in utils folder-->
+        <?php require_once 'utils/header.php'; ?><!--header content. file found in utils folder-->
         <div class ="content"><!--body content holder-->
             <div class = "container">
                 <div class ="col-md-6 col-md-offset-3">
@@ -21,10 +21,10 @@ require_once 'utils/checkLogin.php';
                                    id="username"
                                    name="username"
                                    class="form-control"
-                                   value="<?php if (isset($username)) echo $username; ?>"
+                                   value="<?php if (isset($username)) { echo $username; } ?>"
                                    >
                             <span class="error">
-                                <?php if (isset($errors['username'])) echo $errors['username']; ?>
+                                <?php if (isset($errors['username'])) { echo $errors['username']; } ?>
                             </span>
                         </div>
                         <div class="form-group">
@@ -36,7 +36,7 @@ require_once 'utils/checkLogin.php';
                                    value=""
                                    >
                             <span class="error">
-                                <?php if (isset($errors['password'])) echo $errors['password']; ?>
+                                <?php if (isset($errors['password'])) { echo $errors['password']; } ?>
                             </span>
                         </div>
                         <div class="form-group">
@@ -48,7 +48,7 @@ require_once 'utils/checkLogin.php';
                                    value=""
                                    >
                             <span class="error">
-                                <?php if (isset($errors['cpassword'])) echo $errors['cpassword']; ?>
+                                <?php if (isset($errors['cpassword'])) { echo $errors['cpassword']; } ?>
                             </span>
                         </div>
                         <button type="submit" class = "btn btn-default">Register</button>
@@ -56,6 +56,6 @@ require_once 'utils/checkLogin.php';
                 </div>
             </div>
         </div>
-        <?php require 'utils/footer.php'; ?>
+        <?php require_once 'utils/footer.php'; ?>
     </body>
 </html>

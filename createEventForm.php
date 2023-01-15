@@ -19,7 +19,7 @@ if (!isset($errors)) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -199,5 +199,4 @@ if (!isset($errors)) {
         }
     </script>
 </body>
-
 </html>

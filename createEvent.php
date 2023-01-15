@@ -46,6 +46,6 @@ if (isset($_POST['submit'])) {
 
         header('Location: viewEvents.php');
     } else {
-        require 'createEventForm.php';
+        require_once 'createEventForm.php';
     }
 }

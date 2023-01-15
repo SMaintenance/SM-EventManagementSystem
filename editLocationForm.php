@@ -36,7 +36,7 @@ if (!isset($errors)) {
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -245,7 +245,7 @@ if (!isset($errors)) {
             </form>
         </div>
     </div>
-    <?php require 'utils/footer.php'; ?>
+    <?php require_once 'utils/footer.php'; ?>
     <!--footer content. file found in utils folder-->
     <script type="text/javascript">
         document.getElementById('imageUploaded').onchange = function () {

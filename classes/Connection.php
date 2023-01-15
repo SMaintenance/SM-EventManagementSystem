@@ -1,10 +1,12 @@
 <?php
-class Connection {
+class Connection 
+{
+    private static $connect = null;
     
-    private static $connect = NULL;
-    
-    public static function getInstance() {
-        if (Connection::$connect === NULL) {
+    public static function getInstance()
+    {
+        if (Connection::$connect === null)
+        {
             // connect to the database
             $host = "localhost";
 			$database = "year2project";
@@ -22,7 +24,8 @@ class Connection {
         return Connection::$connect;
     }
     
-    public static function getMySQLDate($date) {
+    public static function getMySQLDate($date)
+    {
         $date_arr  = explode('-', $date);
         return $date_arr[2] . '-' . $date_arr[1] . '-' . $date_arr[0];
     }

@@ -8,6 +8,8 @@ class EventTableGateway
     private $query = "SELECT e.*, l.name FROM events e ";
     private $errmsg = "Could not retrieve event details";
 
+    private $fail_retrieve = "Could not retrieve event details";
+
     public function __construct($c)
     {
         $this->connect = $c;
@@ -117,11 +119,6 @@ class EventTableGateway
             "Image"      => $p->getImage()
         );
 
-        echo "<pre>";
-        print_r($p);
-        print_r($params);
-        echo "</pre>";
-
         $status = $statement->execute($params);
 
 
@@ -129,9 +126,7 @@ class EventTableGateway
             die("Could not insert event");
         }
 
-        $id = $this->connect->lastInsertId();
-
-        return $id;
+        return $this->connect->lastInsertId();
     }
 
     public function update($p)

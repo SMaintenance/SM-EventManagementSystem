@@ -1,4 +1,5 @@
 <?php
+
 class DB {
 
     private static $host = "localhost";
@@ -7,6 +8,7 @@ class DB {
     private static $password = "";
     
     public static function getConnection() {
+
         $dsn = 'mysql:host=' . DB::$host . ';dbname=' . DB::$database;
 
         $connection = new PDO($dsn, DB::$username, DB::$password);
@@ -14,5 +16,4 @@ class DB {
 
         return $connection;
     }
-
 }

@@ -2,12 +2,12 @@
 require_once 'utils/checkLogin.php';
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Event Management System</title>
-        <?php require 'utils/styles.php'; ?><!--css links. file found in utils folder-->
-        <?php require 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
+        <?php require_once 'utils/styles.php'; ?><!--css links. file found in utils folder-->
+        <?php require_once 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
     </head>
     <body>
         <?php
@@ -30,7 +30,7 @@ require_once 'utils/checkLogin.php';
                 <section>
                     <div class="container">
                         <div class="col-md-6"><!--image holder with 6 grid columns-->
-                            <img src="images/wedding2.jpg" class="img-responsive">
+                            <img src="images/wedding2.jpg" class="img-responsive" alt="wedding">
                         </div>
                         <div class="subcontent col-md-6"><!--Text holder with 6 column grid-->
                             <h1>Wedding</h1><!--title-->
@@ -58,7 +58,7 @@ require_once 'utils/checkLogin.php';
                 <section>
                     <div class="container">
                         <div class="col-md-6"><!--image holder with 6 grid columns-->
-                            <img src="images/birthday2.jpg" class="img-responsive">
+                            <img src="images/birthday2.jpg" class="img-responsive" alt="bithday">
                         </div>
                         <div class="subcontent col-md-6"><!--Text holder with 6 column grid-->
                             <h1>Birthday</h1><!--title-->
@@ -86,14 +86,12 @@ require_once 'utils/checkLogin.php';
                 <section>
                     <div class="container">
                         <div class="col-md-6"><!--image holder with 6 grid columns-->
-                            <img src="images/fashion2.jpg" class="img-responsive">
+                            <img src="images/fashion2.jpg" class="img-responsive" alt="fashion">
                         </div>
                         <div class="subcontent col-md-6"><!--Text holder with 6 column grid-->
                             <h1>Fashion</h1><!--title-->
                             <p><!--content-->
-                            Fast becoming to go-to location for fashion events, PR gatherings and product launches, 
-                            The Urban Purveyor Group venues provide you with choice and quality in premium locations 
-                            for all your event needs.
+                            Fast becoming to go-to location for fashion events, PR, gatherings and product launches, The Urban Purveyor Group venues provide you with choice and quality in premium locations for all your event needs.
                             </p>
                             <hr class="customline"><!--css modified horizontal line-->
                             <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
@@ -114,7 +112,7 @@ require_once 'utils/checkLogin.php';
                 <section>
                     <div class="container">
                         <div class="col-md-6"><!--image holder with 6 grid columns-->
-                            <img src="images/meeting2.jpg" class="img-responsive">
+                            <img src="images/meeting2.jpg" class="img-responsive" alt="meeting">
                         </div>
                         <div class="subcontent col-md-6"><!--Text holder with 6 column grid-->
                             <h1>Meeting</h1><!--title-->
@@ -132,6 +130,6 @@ require_once 'utils/checkLogin.php';
                 </section>
             </div><!--row div-->
         </div><!--body content div-->
-        <?php require 'utils/footer.php'; ?><!--footer content. file found in utils folder-->
+        <?php require_once 'utils/footer.php'; ?><!--footer content. file found in utils folder-->
     </body>
 </html>

@@ -4,14 +4,17 @@ require_once 'User.php';
 
 class UserTable {
     private $link;
+    private $user_required = "User required";
     
-    public function __construct($connection) {
+    public function __construct($connection)
+    {
         $this->link = $connection;
     }
 
-    public function insert($user) {
+    public function insert($user)
+    {
         if (!isset($user)) {
-            throw new Exception("User required");
+            throw new Exception($this->user_required);
         }
         $sql = "INSERT INTO users(username, password, role) "
              . "VALUES (:username, :password, :role)";
@@ -23,19 +26,18 @@ class UserTable {
         );
         $stmt = $this->link->prepare($sql);
         $status = $stmt->execute($params);
-        if ($status != true) {
+        if (!$status) {
             $errorInfo = $stmt->errorInfo();
             throw new Exception("Could not save user: " . $errorInfo[2]);
         }
 
-        $id = $this->link->lastInsertId('users');
-        
-        return $id;
+        return $this->link->lastInsertId('users');
     }
 
-    public function delete($user) {
+    public function delete($user)
+    {
         if (!isset($user)) {
-            throw new Exception("User required");
+            throw new Exception($this->user_required);
         }
         $id = $user->getId();
         if ($id == null) {
@@ -45,15 +47,16 @@ class UserTable {
         $params = array('id' => $user->getId());
         $stmt = $this->link->prepare($sql);
         $status = $stmt->execute($params);
-        if ($status != true) {
+        if (!$status) {
             $errorInfo = $stmt->errorInfo();
             throw new Exception("Could not delete user: " . $errorInfo[2]);
         }
     }
 
-    public function update($user) {
+    public function update($user)
+    {
         if (!isset($user)) {
-            throw new Exception("User required");
+            throw new Exception($this->user_required);
         }
         $id = $user->getId();
         if ($id == null) {
@@ -66,18 +69,19 @@ class UserTable {
         );
         $stmt = $this->link->prepare($sql);
         $status = $stmt->execute($params);
-        if ($status != true) {
+        if (!$status) {
             $errorInfo = $stmt->errorInfo();
             throw new Exception("Could not update user: " . $errorInfo[2]);
         }
     }
 
-    public function getUserById($id) {
+    public function getUserById($id)
+    {
         $sql = "SELECT * FROM users WHERE id = :id";
         $params = array('id' => $id);
         $stmt = $this->link->prepare($sql);
         $status = $stmt->execute($params);
-        if ($status != true) {
+        if (!$status) {
             $errorInfo = $stmt->errorInfo();
             throw new Exception("Could not retrieve user: " . $errorInfo[2]);
         }
@@ -93,12 +97,13 @@ class UserTable {
         return $user;
     }
 
-    public function getUserByUsername($username) {
+    public function getUserByUsername($username)
+    {
         $sql = "SELECT * FROM users WHERE username = :username";
         $params = array('username' => $username);
         $stmt = $this->link->prepare($sql);
         $status = $stmt->execute($params);
-        if ($status != true) {
+        if (!$status) {
             $errorInfo = $stmt->errorInfo();
             throw new Exception("Could not retrieve user: " . $errorInfo[2]);
         }
@@ -114,11 +119,12 @@ class UserTable {
         return $user;
     }
 
-    public function getUsers() {
+    public function getUsers()
+    {
         $sql = "SELECT * FROM users";
         $stmt = $this->link->prepare($sql);
         $status = $stmt->execute();
-        if ($status != true) {
+        if (!$status) {
             $errorInfo = $stmt->errorInfo();
             throw new Exception("Could not retrieve users: " . $errorInfo[2]);
         }
@@ -138,5 +144,3 @@ class UserTable {
         return $users;
     }
 }
-
-?>
