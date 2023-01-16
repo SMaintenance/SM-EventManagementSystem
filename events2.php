@@ -78,8 +78,9 @@ $statement = $gateway->getEventsOrderByDate($start, $numEventsPerPage);
         <nav aria-label="Page navigation">
         <ul class="pagination">';
         $prev = $page - 1;
+        $str = '<li><a href="events2.php?page=';
         if ($prev > 0) {
-            echo '<li><a href="events2.php?page=' . $prev . '">&laquo;</a></li>';
+            echo $str . $prev . '">&laquo;</a></li>';
         }
 
         $numPages = ceil($totalNumEvents / $numEventsPerPage);
@@ -87,13 +88,13 @@ $statement = $gateway->getEventsOrderByDate($start, $numEventsPerPage);
             if ($i == $page) {
                 echo '<li><a href="#" class="current">' . $i . '</a></li>';
             } else {
-                echo '<li><a href="events2.php?page=' . $i . '">' . $i . '</a></li>';
+                echo $str . $i . '">' . $i . '</a></li>';
             }
         }
 
         $next = $page + 1;
         if ($next <= $numPages) {
-            echo '<li><a href="events2.php?page=' . $next . '">&raquo;</a></li>';
+            echo $str . $next . '">&raquo;</a></li>';
         }
         echo '</ul></nav></div>';
         ?>

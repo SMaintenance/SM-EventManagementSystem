@@ -7,16 +7,16 @@
                 </a>
             </div>
             <ul class="nav navbar-nav navbar-right"><!--navigation-->
-                
 
-                <li><a href = "index.php">Home</a></li>
-                <li><a href = "viewEvents.php">Events</a></li>
-                <li><a href = "viewLocations.php">Locations</a></li>
-                <li><a href = "viewBookings.php">Bookings</a></li>
-                <li><a href = "contact.php">Contact Us</a></li>
-                <li class="btnlogout"><a class = "btn btn-default navbar-btn" href = "logout.php">Logout <span class = "glyphicon glyphicon-log-out"></span></a></li>
 
-                
+                <li><a href="index.php">Home</a></li>
+                <li><a href="viewEvents.php">Events</a></li>
+                <li><a href="viewLocations.php">Locations</a></li>
+                <li><a href="viewBookings.php">Bookings</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
+                <li class="btnlogout"><a class="btn btn-default navbar-btn" href="logout.php">Logout <span class="glyphicon glyphicon-log-out"></span></a></li>
+
+
 
                 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"><!--modal for login-->
                     <div class="modal-dialog" role="document">
@@ -31,16 +31,22 @@
                                         <form action="login.php" method="POST">
                                             <div class="form-group"><!--username-->
                                                 <label for="username">Username:</label>
-                                                <input type="text" name="username" class="form-control" value="<?php if (isset($formdata['username'])) echo $formdata['username']; ?>" />
+                                                <input type="text" name="username" class="form-control" value="<?php if (isset($formdata['username'])) {
+                                                                                                                    echo $formdata['username'];
+                                                                                                                } ?>" />
                                                 <span class="error"><!--error message on failed input-->
-                                                    <?php if (isset($errors['username'])) echo $errors['username']; ?>
+                                                    <?php if (isset($errors['username'])) {
+                                                        echo $errors['username'];
+                                                    } ?>
                                                 </span>
                                             </div>
                                             <div class="form-group"><!--password-->
                                                 <label for="password">Password:</label>
                                                 <input type="password" name="password" class="form-control" value="" />
                                                 <span class="error"><!--error message on failed input-->
-                                                    <?php if (isset($errors['password'])) echo $errors['password']; ?>
+                                                    <?php if (isset($errors['password'])) {
+                                                        echo $errors['password'];
+                                                    } ?>
                                                 </span>
                                             </div>
                                             <button type="submit" class="btn btn-default loginbtn">Login</button><!--login button-->

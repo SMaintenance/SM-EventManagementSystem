@@ -70,14 +70,14 @@ $user = $_SESSION['user'];
                             . '<a href="viewLocation.php?id=' . $row['LocationID'] . '">' . $row['name'] . '</a> '
                             . '</td>';
                         echo '<td>'
-                            . '<a href="editEventForm.php?id=' . $row['EventID'] . '&locId=' . 
+                            . '<a href="editEventForm.php?id=' . $row['EventID'] . '&locId=' .
                             $row['LocationID'] . '"><span class="glyphicon glyphicon-pencil mr-2"></a> '
-                            . '<a onclick="deleteEvent('.$row['EventID'].')" data-toggle="modal" 
+                            . '<a onclick="deleteEvent(' . $row['EventID'] . ')" data-toggle="modal" 
                             data-target="#deleteModal" class="deleteButton" style="cursor:pointer;">
                             <span class="glyphicon glyphicon-trash"></a>'
                             . '</td>';
                         echo '</tr>';
-                        
+
                         $count++;
                         $row = $statement->fetch(PDO::FETCH_ASSOC);
                     }
@@ -93,7 +93,9 @@ $user = $_SESSION['user'];
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
                 </div>
                 <form id="delete-form" action="" method="post">
@@ -112,11 +114,12 @@ $user = $_SESSION['user'];
 
     <script>
         function deleteEvent(id) {
-                document.getElementById("delete-form").action = "deleteEvent.php?id="+id;
-                
+            document.getElementById("delete-form").action = "deleteEvent.php?id=" + id;
+
         }
     </script>
 
     <?php require_once 'utils/footer.php'; ?>
 </body>
+
 </html>

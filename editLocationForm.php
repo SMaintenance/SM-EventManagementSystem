@@ -5,9 +5,11 @@ require_once 'classes/Connection.php';
 require_once 'functions.php';
 require_once 'utils/checkLogin.php';
 
+const msg = "Illegal request";
+
 $id = $_GET['id'];
 if (!isset($_GET['id'])) {
-    die("Illegal request");
+    die(msg);
 }
 
 $connection = Connection::getInstance();
@@ -18,12 +20,12 @@ $statement1 = $gateway->getFacilitiesById($id);
 
 $row = $statement->fetch(PDO::FETCH_ASSOC);
 if (!$row) {
-    die("Illegal request");
+    die(msg);
 }
 
 $row1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
 if (!$row1) {
-    die("Illegal request");
+    die(msg);
 }
 
 if (!isset($formdata)) {
@@ -41,14 +43,14 @@ if (!isset($errors)) {
 <head>
     <meta charset="UTF-8">
     <title>Edit Location</title>
-    <?php require 'utils/styles.php'; ?>
+    <?php require_once 'utils/styles.php'; ?>
     <!--css links. file found in utils folder-->
-    <?php require 'utils/scripts.php'; ?>
+    <?php require_once 'utils/scripts.php'; ?>
     <!--js links. file found in utils folder-->
 </head>
 
 <body>
-    <?php require 'utils/header.php'; ?>
+    <?php require_once 'utils/header.php'; ?>
     <!--header content. file found in utils folder-->
     <div class="content">
         <div class="container" style="width: 50%;">
@@ -68,7 +70,7 @@ if (!isset($errors)) {
                         <label for="Name" class="col-md-2 control-label">Name</label>
                         <!--label-->
                         <div class="col-md-5">
-                            <input type="text" class="form-control" id="Name" name="Name" value="<?php echo (isset($formdata['Name'])) ? ($formdata['Name']) :  $row['Name']; ?>" />
+                            <input type="text" class="form-control" id="Name" name="Name" value="<?php echo (isset($formdata['Name'])) ? ($formdata['Name']) : $row['Name']; ?>" />
                             <!--input with current data from database-->
                         </div>
                         <div class="col-md-4">
@@ -225,7 +227,7 @@ if (!isset($errors)) {
                     <div class="form-group">
                         <label class="col-md-2 control-label">Attach File</label>
                         <div class="col-md-5">
-                            <img src="uploads/<?php echo $row['Image'] ?>" style="width: 100%; height: auto" id="image">
+                            <img src="uploads/<?php echo $row['Image'] ?>" alt="Image" style="width: 100%; height: auto" id="image">
                             <input type="hidden" class="control-label" name="old_image" value="<?php echo $row['Image'] ?>">
                             <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;">
                             <label class="btn btn-default" style="margin-top: 2%;" for="imageUploaded">
@@ -235,11 +237,9 @@ if (!isset($errors)) {
                     </div>
                 </div>
                 <br>
-                <button type="submit" name="submit" class="btn btn-default pull-right" name="editLocation">Update <span
-                        class="glyphicon glyphicon-floppy-disk"></span></button>
+                <button type="submit" name="submit" class="btn btn-default pull-right" name="editLocation">Update <span class="glyphicon glyphicon-floppy-disk"></span></button>
                 <!--submit button-->
-                <a class="btn btn-default" href="viewlocations.php"><span
-                        class="glyphicon glyphicon-circle-arrow-left"></span> Back</a>
+                <a class="btn btn-default" href="viewlocations.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a>
                 <!--return/back button-->
 
             </form>
@@ -248,7 +248,7 @@ if (!isset($errors)) {
     <?php require_once 'utils/footer.php'; ?>
     <!--footer content. file found in utils folder-->
     <script type="text/javascript">
-        document.getElementById('imageUploaded').onchange = function () {
+        document.getElementById('imageUploaded').onchange = function() {
             document.getElementById('image').src = URL.createObjectURL(imageUploaded.files[0]);
         }
     </script>
