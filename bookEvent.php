@@ -20,8 +20,10 @@ if (empty($errors)) {
     $endDate = $formdata['EndDate'];
     $location = $formdata['Location'];
 
-    $booking = new Booking(-1, $name, $email, $contactNum, $title, 
-    $description, $eventType, $startDate, $endDate, $location);
+    $booking = new Booking(-1, $name, $email, $contactNum, $title,
+                           $description, $eventType, $startDate,
+                           $endDate, $location)
+                           ;
 
     $connection = Connection::getInstance();
 

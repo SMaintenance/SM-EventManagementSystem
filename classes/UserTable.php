@@ -2,7 +2,8 @@
 
 require_once 'User.php';
 
-class UserTable {
+class UserTable
+{
     private $link;
     private $user_required = "User required";
     
@@ -14,7 +15,7 @@ class UserTable {
     public function insert($user)
     {
         if (!isset($user)) {
-            throw new Exception($this->user_required);
+            throw new ArgumentException($this->user_required);
         }
         $sql = "INSERT INTO users(username, password, role) "
              . "VALUES (:username, :password, :role)";
@@ -28,7 +29,7 @@ class UserTable {
         $status = $stmt->execute($params);
         if (!$status) {
             $errorInfo = $stmt->errorInfo();
-            throw new Exception("Could not save user: " . $errorInfo[2]);
+            throw new ArgumentException("Could not save user: " . $errorInfo[2]);
         }
 
         return $this->link->lastInsertId('users');
@@ -37,11 +38,11 @@ class UserTable {
     public function delete($user)
     {
         if (!isset($user)) {
-            throw new Exception($this->user_required);
+            throw new ArgumentException($this->user_required);
         }
         $id = $user->getId();
         if ($id == null) {
-            throw new Exception("User id required");
+            throw new ArgumentException("User id required");
         }
         $sql = "DELETE FROM users WHERE id = :id";
         $params = array('id' => $user->getId());
@@ -49,18 +50,18 @@ class UserTable {
         $status = $stmt->execute($params);
         if (!$status) {
             $errorInfo = $stmt->errorInfo();
-            throw new Exception("Could not delete user: " . $errorInfo[2]);
+            throw new ArgumentException("Could not delete user: " . $errorInfo[2]);
         }
     }
 
     public function update($user)
     {
         if (!isset($user)) {
-            throw new Exception($this->user_required);
+            throw new ArgumentException($this->user_required);
         }
         $id = $user->getId();
         if ($id == null) {
-            throw new Exception("User id required");
+            throw new ArgumentException("User id required");
         }
         $sql = "UPDATE users SET password = :password WHERE id = :id";
         $params = array(
@@ -71,7 +72,7 @@ class UserTable {
         $status = $stmt->execute($params);
         if (!$status) {
             $errorInfo = $stmt->errorInfo();
-            throw new Exception("Could not update user: " . $errorInfo[2]);
+            throw new ArgumentException("Could not update user: " . $errorInfo[2]);
         }
     }
 
@@ -83,7 +84,7 @@ class UserTable {
         $status = $stmt->execute($params);
         if (!$status) {
             $errorInfo = $stmt->errorInfo();
-            throw new Exception("Could not retrieve user: " . $errorInfo[2]);
+            throw new ArgumentException("Could not retrieve user: " . $errorInfo[2]);
         }
 
         $user = null;
@@ -105,7 +106,7 @@ class UserTable {
         $status = $stmt->execute($params);
         if (!$status) {
             $errorInfo = $stmt->errorInfo();
-            throw new Exception("Could not retrieve user: " . $errorInfo[2]);
+            throw new ArgumentException("Could not retrieve user: " . $errorInfo[2]);
         }
 
         $user = null;
@@ -126,7 +127,7 @@ class UserTable {
         $status = $stmt->execute();
         if (!$status) {
             $errorInfo = $stmt->errorInfo();
-            throw new Exception("Could not retrieve users: " . $errorInfo[2]);
+            throw new ArgumentException("Could not retrieve users: " . $errorInfo[2]);
         }
 
         $users = array();

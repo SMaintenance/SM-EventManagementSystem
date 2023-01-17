@@ -7,7 +7,7 @@ require_once 'utils/checkLogin.php';
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title></title>
         <?php require_once 'utils/styles.php'; ?><!--css links. file found in utils folder-->
-        <?php require 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
+        <?php require_once 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
     </head>
     <body>
         <?php require_once 'utils/header.php'; ?><!--header content. file found in utils folder-->

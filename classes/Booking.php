@@ -11,8 +11,9 @@ class Booking
     private $endDate;
     private $location;
 
-    public function __construct($id, $name, $email, $contactNum, $title, 
-    $description, $eventType, $startDate, $endDate, $location)
+    public function __construct($id, $name, $email, $contactNum, $title,
+                                $description, $eventType, $startDate, 
+                                $endDate, $location)
     {
         $this->id = $id;
         $this->name = $name;

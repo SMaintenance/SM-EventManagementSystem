@@ -61,7 +61,6 @@ function validateEvents($inputMethod, &$formdata, &$errors)
     }
     
     if ($formdata['Location'] === "") {
-        $locID = intval($formdata['Location']);
         $errors['Location'] = "Location required";
     }
 }

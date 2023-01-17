@@ -15,7 +15,8 @@ class Location
     private $image = null;
 
     public function __construct($id, $name, $address, $manFName, $manLName, $manEmail,
-    $manNumber, $maxCap, $locationType, $seat, $facilities, $url, $image)
+                                $manNumber, $maxCap, $locationType, $seat, 
+                                $facilities, $url, $image)
     {
         $this->id = $id;
         $this->name = $name;

@@ -46,7 +46,8 @@ if (!$row) {
                             <label for="Name" class="control-label">Full Name</label><!--event title-->
                         </div>
                         <div class="col-md-9">
-                            <input readonly type="text" class="form-control" id="Name" name="Name" value="<?php echo $row['FullName']; ?>" /><!--input-->
+                            <input readonly type="text" class="form-control" id="Name"
+                            name="Name" value="<?php echo $row['FullName']; ?>" /><!--input-->
                         </div>
                         <div class="col-md-offset-3" style="padding-left:15px">
                         </div>
@@ -57,7 +58,8 @@ if (!$row) {
                             <label for="Email" class="control-label">Email</label><!--event title-->
                         </div>
                         <div class="col-md-9">
-                            <input readonly type="email" class="form-control" id="Email" name="Email" value="<?php echo $row['Email'];?>" /><!--input-->
+                            <input readonly type="email" class="form-control" id="Email"
+                            name="Email" value="<?php echo $row['Email'];?>" /><!--input-->
                         </div>
                     </div>
 
@@ -66,7 +68,8 @@ if (!$row) {
                             <label for="ContactNum" class="control-label">Contact Number</label><!--event title-->
                         </div>
                         <div class="col-md-9">
-                            <input readonly type="number" class="form-control" id="ContactNum" name="ContactNum" value="<?php echo $row['ContactNum'];?>" /><!--input-->
+                            <input readonly type="number" class="form-control" id="ContactNum"
+                            name="ContactNum" value="<?php echo $row['ContactNum'];?>" /><!--input-->
                         </div>
                         <div class="col-md-offset-3" style="padding-left:15px">
                         </div>
@@ -80,7 +83,8 @@ if (!$row) {
                             <label for="Title" class="control-label">Title</label><!--event title-->
                         </div>
                         <div class="col-md-9">
-                            <input readonly type="text" class="form-control" id="Title" name="Title" value="<?php echo $row['Title'];?>" /><!--input-->
+                            <input readonly type="text" class="form-control" id="Title"
+                            name="Title" value="<?php echo $row['Title'];?>" /><!--input-->
                         </div>
                     </div>
 
@@ -89,7 +93,8 @@ if (!$row) {
                             <label for="Description" class=" control-label">Description</label><!--event description-->
                         </div>
                         <div class="col-md-9">
-                            <input readonly type="text" class="form-control" id="Description" name="Description" value="<?php echo $row['Description'];?>" /><!--input-->
+                            <input readonly type="text" class="form-control" id="Description"
+                            name="Description" value="<?php echo $row['Description'];?>" /><!--input-->
                         </div>
                         <div class="col-md-offset-3" style="padding-left:15px">
                         </div>
@@ -100,10 +105,14 @@ if (!$row) {
                             <label for="EventType" class="control-label">Event Type</label><!--event type-->
                         </div>
                         <div class="col-md-9">
-                            <input readonly type="radio" name="EventType" value=1 <?php echoChecked($row, "EventType", 1); ?>>  Wedding <br>
-                            <input readonly type="radio"  name="EventType" value=2 <?php echoChecked($row, "EventType", 2); ?>>  Birthday <br>
-                            <input readonly type="radio" name="EventType" value=3 <?php echoChecked($row, "EventType", 3); ?>>  Fashion <br>
-                            <input readonly type="radio"  name="EventType" value=4 <?php echoChecked($row, "EventType", 4); ?>>  Meeting <br>
+                            <input readonly type="radio" name="EventType" value=1
+                            <?php echoChecked($row, "EventType", 1); ?>>  Wedding <br>
+                            <input readonly type="radio"  name="EventType" value=2
+                            <?php echoChecked($row, "EventType", 2); ?>>  Birthday <br>
+                            <input readonly type="radio" name="EventType" value=3
+                            <?php echoChecked($row, "EventType", 3); ?>>  Fashion <br>
+                            <input readonly type="radio"  name="EventType" value=4
+                            <?php echoChecked($row, "EventType", 4); ?>>  Meeting <br>
                         </div>
                         <div class="col-md-offset-3" style="padding-left:15px">
                         </div>
@@ -114,7 +123,8 @@ if (!$row) {
                             <label for="StartDate" class="control-label">Start Date</label><!--start date-->
                         </div>
                         <div class="col-md-9">
-                            <input readonly type="date" class="form-control" id="StartDate" name="StartDate" value="<?php echo $row['StartDate'];?>" /><!--input-->
+                            <input readonly type="date" class="form-control" id="StartDate"
+                            name="StartDate" value="<?php echo $row['StartDate'];?>" /><!--input-->
                         </div>
                         <div class="col-md-offset-3" style="padding-left:15px">
                         </div>
@@ -125,7 +135,8 @@ if (!$row) {
                             <label for="EndDate" class="control-label">End Date</label><!--end date-->
                         </div>
                         <div class="col-md-9">
-                            <input readonly type="date" class="form-control" id="EndDate" name="EndDate" value="<?php echo $row['EndDate'];?>" /><!--input-->
+                            <input readonly type="date" class="form-control" id="EndDate"
+                            name="EndDate" value="<?php echo $row['EndDate'];?>" /><!--input-->
                         </div>
                         <div class="col-md-offset-3" style="padding-left:15px">
                         </div>
@@ -137,16 +148,20 @@ if (!$row) {
                         </div>
                         <div class="col-md-9">
                             <select readonly name="Location" id="Location" class="form-control">
-                                <option readonly value=<?php echo $row['LocationID'];?>><?php echo $row['Name'];?></option>
+                                <option readonly value=<?php echo $row['LocationID'];?>>
+                                <?php echo $row['Name'];?></option>
                                 </select>
                         </div>
                         <div class="col-md-offset-3" style="padding-left:15px">
                         </div>
                     </div>
-                    <a class="btn btn-default navbar-btn" href = "viewBookings.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a><!--register button-->
+                    <a class="btn btn-default navbar-btn" href = "viewBookings.php">
+                        <span class="glyphicon glyphicon-circle-arrow-left"></span> 
+                        Back
+                    </a><!--register button-->
                 </form>
             </div>
         </div>
-        <?php require_once 'utils/footer.php'; ?><!--footer content. file found in utils folder-->
+        <?php require_once 'utils/footer.php';?>
     </body>
 </html>

@@ -158,7 +158,8 @@ if (!isset($errors)) {
                             <label for="EndDate" class="control-label">End Date</label><!--end date-->
                         </div>
                         <div class="col-md-9">
-                            <input type="date" class="form-control" id="EndDate" name="EndDate" value="<?php echoValue($formdata, "EndDate")?>" /><!--input-->
+                            <input type="date" class="form-control" id="EndDate"
+                            name="EndDate" value="<?php echoValue($formdata, "EndDate")?>" /><!--input-->
                         </div>
                         <div class="col-md-offset-3" style="padding-left:15px">
                             <span id="EndDateError" class="error"><!--error message for invalid input-->
@@ -190,7 +191,10 @@ if (!isset($errors)) {
                             </span>
                         </div>
                     </div>
-                    <button type="submit" class = "btn btn-default pull-right submit">Book Event <span class="glyphicon glyphicon-send"></span></button>
+                    <button type="submit" class = "btn btn-default pull-right submit">
+                        Book Event 
+                        <span class="glyphicon glyphicon-send"></span>
+                    </button>
                     <a class="btn btn-default navbar-btn" href = "index.php">
                         <span class="glyphicon glyphicon-circle-arrow-left"></span> 
                         Back
@@ -198,6 +202,6 @@ if (!isset($errors)) {
                 </form>
             </div>
         </div>
-        <?php require_once 'utils/footer.php'; ?><!--footer content. file found in utils folder-->
+        <?php require_once 'utils/footer.php';?><!--footer content. file found in utils folder-->
     </body>
 </html>

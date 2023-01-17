@@ -35,21 +35,21 @@ try {
     if (empty($formdata['cpassword'])) {
         $errors['cpassword'] = "Confirm password required";
     }
-    // if the password fields do not match 
+    // if the password fields do not match
     // then throw an exception
-    if (!empty($formdata['password']) && !empty($formdata['cpassword']) 
+    if (!empty($formdata['password']) && !empty($formdata['cpassword'])
             && $formdata['password'] != $formdata['cpassword']) {
         $errors['password'] = "Passwords must match";
     }
 
     if (empty($errors)) {
-        // since none of the form fields were empty, 
+        // since none of the form fields were empty,
         // store the form data in variables
         $username = $formdata['username'];
         $password = $formdata['password'];
         $cpassword = $formdata['cpassword'];
 
-        // create a UserTable object and use it to retrieve 
+        // create a UserTable object and use it to retrieve
         // the users
         $connection = DB::getConnection();
         $userTable = new UserTable($connection);
@@ -64,7 +64,7 @@ try {
     }
     
     if (!empty($errors)) {
-        throw new Exception("There were errors. Please fix them.");
+        throw new ArgumentException("There were errors. Please fix them.");
     }
     
     // since the username is not aleady registered, create
@@ -85,8 +85,7 @@ try {
     // 
     // require 'home.php';
     header('Location: index.php');
-}
-catch (Exception $ex) {
+} catch (Exception $ex) {
     // if an exception occurs then extract the message
     // from the exception and send the user the
     // registration form

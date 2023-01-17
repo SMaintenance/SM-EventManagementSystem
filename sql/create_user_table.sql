@@ -16,5 +16,3 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
 (1, 'joe@bloggs.com', 'secret', 'admin'),
-(2, 'mary@bloggs.com', 'secret', 'staff'),
-(3, 'fred@bloggs.com', 'secret', 'user');

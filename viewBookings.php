@@ -33,7 +33,7 @@ $user = $_SESSION['user'];
         <?php require_once 'utils/header.php'; ?>
         <div class = "content">
             <div class = "container">
-                <?php 
+                <?php
                 if (isset($message)) {
                     echo '<p>'.$message.'</p>';
                 }
@@ -46,7 +46,7 @@ $user = $_SESSION['user'];
                             <th>Customer's Name</th>
                             <th>Contact</th>
                             <th>Title</th>
-                            <th>Event Type</th>    
+                            <th>Event Type</th>
                             <th>Start Date</th>
                             <th>End Date</th>
                             <th>Location</th>
@@ -107,7 +107,8 @@ $user = $_SESSION['user'];
         </div>
         
         <!-- add to event modal -->
-        <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
+        <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" 
+             aria-labelledby="modalLabelSmall" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
 
@@ -119,20 +120,32 @@ $user = $_SESSION['user'];
                     </div>
 
                     <div id="modal-content" class="modal-body">
-                        <form id="image-form" action="" method="POST" class="form-horizontal" enctype="multipart/form-data">
+                        <form id="image-form" action="" method="POST" 
+                              class="form-horizontal" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Attach Event Image</label>
                                 <div class="col-md-5">
-                                    <img src="uploads/<?php echo "noImage.png" ?>" style="width: 100%; height: auto" id="image" alt="event">
-                                    <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;" required>
+                                    <img src="uploads/<?php echo "noImage.png" ?>" 
+                                        style="width: 100%; height: auto" id="image" 
+                                        alt="event">
+                                    <input type="file" id="imageUploaded" 
+                                           class="control-label" name="image" 
+                                           style="display: none;" required>
                                     <label class="btn btn-default" style="margin-top: 3%;" for="imageUploaded">
                                         Choose file
                                     </label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button type="submit" name="submit" class="btn btn-default pull-right submit mr-3">Add to Event <span class="glyphicon glyphicon-send"></span></button>
-                                <button type="button" class="btn btn-default pull-right mr-1" data-dismiss="modal">Cancel</button>
+                                <button type="submit" name="submit" 
+                                        class="btn btn-default pull-right submit mr-3">
+                                        Add to Event 
+                                        <span class="glyphicon glyphicon-send"></span>
+                                </button>
+                                <button type="button" class="btn btn-default pull-right mr-1" 
+                                        data-dismiss="modal">
+                                        Cancel
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -141,7 +154,8 @@ $user = $_SESSION['user'];
         </div>
 
         <!-- delete modal -->
-        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="modalLabelSmall" aria-hidden="true">
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+             aria-labelledby="modalLabelSmall" aria-hidden="true">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
 
@@ -157,8 +171,11 @@ $user = $_SESSION['user'];
                     </div>
                     <form id="delete-form" action="" method="POST" enctype="multipart/form-data">
                         <div class="modal-footer">
-                            <button type="submit" class="delete btn btn-default pull-right">Delete <span class="glyphicon glyphicon-trash"></span></button>
-                            <button type="button" class="btn btn-default pull-right mr-1" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="delete btn btn-default pull-right">
+                                Delete <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                            <button type="button" class="btn btn-default pull-right mr-1" 
+                                    data-dismiss="modal">Cancel</button>
                         </div>
                     </form>
                 </div>

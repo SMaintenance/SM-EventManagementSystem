@@ -40,9 +40,13 @@ require_once 'utils/checkLogin.php';
                             location for your special day.
                             </p>
                             <hr class="customline"><!--css modified horizontal line-->
-                            <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
-                            Book Event  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
-                            </button></a>
+                            <a href = "bookEventForm.php">
+                                <button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
+                                    Book Event
+                                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                                    </span><!--arrow right glyphicon-->
+                                </button>
+                            </a>
                         </div><!--subcontent div-->
                     </div><!--container div-->
                 </section>
@@ -68,9 +72,13 @@ require_once 'utils/checkLogin.php';
                             party wishes come true so you can kick back, drink up and enjoy your special day!
                             </p>
                             <hr class="customline"><!--css modified horizontal line-->
-                            <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
-                            Book Event  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
-                            </button></a>
+                            <a href = "bookEventForm.php">
+                                <button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
+                                    Book Event
+                                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                                    </span><!--arrow right glyphicon-->
+                                </button>
+                            </a>
                         </div><!--subcontent div-->
                     </div><!--container div-->
                 </section>
@@ -91,12 +99,18 @@ require_once 'utils/checkLogin.php';
                         <div class="subcontent col-md-6"><!--Text holder with 6 column grid-->
                             <h1>Fashion</h1><!--title-->
                             <p><!--content-->
-                            Fast becoming to go-to location for fashion events, PR, gatherings and product launches, The Urban Purveyor Group venues provide you with choice and quality in premium locations for all your event needs.
+                            Fast becoming to go-to location for fashion events,
+                            PR, gatherings and product launches, The Urban Purveyor Group venues
+                            provide you with choice and quality in premium locations for all your event needs.
                             </p>
                             <hr class="customline"><!--css modified horizontal line-->
-                            <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
-                            Book Event  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
-                            </button></a>
+                            <a href = "bookEventForm.php">
+                                <button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
+                                    Book Event
+                                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                                    </span><!--arrow right glyphicon-->
+                                </button>
+                            </a>
                         </div><!--subcontent div-->
                     </div><!--container div-->
                 </section>
@@ -122,9 +136,13 @@ require_once 'utils/checkLogin.php';
                             dedicated event team can assist with all aspects of your event planning.
                             </p>
                             <hr class="customline"><!--css modified horizontal line-->
-                            <a href = "bookEventForm.php"><button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
-                            Book Event  <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span><!--arrow right glyphicon-->
-                            </button></a>
+                            <a href = "bookEventForm.php">
+                                <button type="button" class="btn btn-default btn-lg"><!--view event button (no function implemented)-->
+                                    Book Event
+                                    <span class="glyphicon glyphicon-arrow-right" aria-hidden="true">
+                                    </span><!--arrow right glyphicon-->
+                                </button>
+                            </a>
                         </div><!--subcontent div-->
                     </div><!--container div-->
                 </section>
