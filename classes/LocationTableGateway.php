@@ -96,9 +96,9 @@ class LocationTableGateway
     //execute a insert sql statement that inserts data taken from user to a database.
     public function insert($p)
     {
-        $sql = "INSERT INTO locations(Name, Address, ManagerFName, ManagerLName, ManagerEmail, 
-        ManagerNumber, MaxCapacity, LocationType, SeatingAvailable,  Url, Image) 
-        VALUES (:Name, :Address,:ManagerFName , :ManagerLName, :ManagerEmail, 
+        $sql = "INSERT INTO locations(Name, Address, ManagerFName, ManagerLName, ManagerEmail,
+        ManagerNumber, MaxCapacity, LocationType, SeatingAvailable,  Url, Image)
+        VALUES (:Name, :Address,:ManagerFName , :ManagerLName, :ManagerEmail,
         :ManagerNumber, :MaxCapacity, :LocationType, :Seat, :Url, :Image)";
 
         $statement = $this->connect->prepare($sql);

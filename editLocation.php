@@ -66,6 +66,6 @@ if (isset($_POST['submit'])) {
     } else {
         validateLocation(INPUT_POST, $formdata, $errors);
         $_GET['id'] = $_POST['id'];
-        require 'editLocationForm.php';
+        require_once 'editLocationForm.php';
     }
 }

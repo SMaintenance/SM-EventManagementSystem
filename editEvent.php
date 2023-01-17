@@ -49,7 +49,7 @@ if (isset($_POST['submit'])) {
         validateEvents(INPUT_POST, $formdata, $errors);
         $_GET['id'] = $_POST['id'];
         $_GET['locId'] = $_POST['LocID'];
-        require 'editEventForm.php'; 
+        require_once 'editEventForm.php'; 
     }
 
 }

@@ -201,11 +201,16 @@ if (!isset($errors)) {
                         <label class="col-md-2 control-label">Facilities</label>
                         <div class="col-md-5">
                             <?php $facilities = (isset($formdata['facilities'])) ? ($formdata['facilities']) : array_column($row1, 'Facility');  ?>
-                            <input type="checkbox" name="facilities[]" value=1 <?php echo (in_array("1", $facilities)) ?  "checked" : "";  ?>> Sound Room <br>
-                            <input type="checkbox" name="facilities[]" value=2 <?php echo (in_array("2", $facilities)) ?  "checked" : "";  ?>> Big Screen Room <br>
-                            <input type="checkbox" name="facilities[]" value=3 <?php echo (in_array("3", $facilities)) ?  "checked" : "";  ?>> Restaurants <br>
-                            <input type="checkbox" name="facilities[]" value=4 <?php echo (in_array("4", $facilities)) ?  "checked" : "";  ?>> Bar <br>
-                            <input type="checkbox" name="facilities[]" value=5 <?php echo (in_array("5", $facilities)) ?  "checked" : "";  ?>> Disabled Access Toilets <br>
+                            <input type="checkbox" name="facilities[]" value=1 <?php echo (in_array("1", $facilities))
+                                                                                    ?  "checked" : "";  ?>> Sound Room <br>
+                            <input type="checkbox" name="facilities[]" value=2 <?php echo (in_array("2", $facilities))
+                                                                                    ?  "checked" : "";  ?>> Big Screen Room <br>
+                            <input type="checkbox" name="facilities[]" value=3 <?php echo (in_array("3", $facilities))
+                                                                                    ?  "checked" : "";  ?>> Restaurants <br>
+                            <input type="checkbox" name="facilities[]" value=4 <?php echo (in_array("4", $facilities))
+                                                                                    ?  "checked" : "";  ?>> Bar <br>
+                            <input type="checkbox" name="facilities[]" value=5 <?php echo (in_array("5", $facilities))
+                                                                                    ?  "checked" : "";  ?>> Disabled Access Toilets <br>
                         </div>
                         <div class="col-md-4">
                             <span id="typeError" class="error">
@@ -227,9 +232,17 @@ if (!isset($errors)) {
                     <div class="form-group">
                         <label class="col-md-2 control-label">Attach File</label>
                         <div class="col-md-5">
-                            <img src="uploads/<?php echo $row['Image'] ?>" alt="Image" style="width: 100%; height: auto" id="image">
-                            <input type="hidden" class="control-label" name="old_image" value="<?php echo $row['Image'] ?>">
-                            <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;">
+                            <img src="uploads/
+                                <?php echo $row['Image'] ?>" alt="Image" style="width: 100%; height: auto" id="image">
+                            <input type="hidden" class="control-label" name="old_image" value="
+                                <?php echo $row['Image'] ?>">
+                            <input 
+                                type="file" 
+                                id="imageUploaded" 
+                                class="control-label" 
+                                name="image" 
+                                style="display: none;"
+                            >
                             <label class="btn btn-default" style="margin-top: 2%;" for="imageUploaded">
                                 Choose file
                             </label>
@@ -237,9 +250,15 @@ if (!isset($errors)) {
                     </div>
                 </div>
                 <br>
-                <button type="submit" name="submit" class="btn btn-default pull-right" name="editLocation">Update <span class="glyphicon glyphicon-floppy-disk"></span></button>
+                <button type="submit" name="submit" class="btn btn-default pull-right" name="editLocation">
+                    Update 
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                </button>
                 <!--submit button-->
-                <a class="btn btn-default" href="viewlocations.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a>
+                <a class="btn btn-default" href="viewlocations.php">
+                    <span class="glyphicon glyphicon-circle-arrow-left"></span> 
+                    Back
+                </a>
                 <!--return/back button-->
 
             </form>
