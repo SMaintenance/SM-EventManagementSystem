@@ -65,30 +65,31 @@ $user = $_SESSION['user'];
                     $row1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
                     $events = array_column($row1, 'LocationID');
                     $count = 1;
+                    $tdClosing = '</td>';
                     while ($row) {
                         echo '<tr data-depth = 0>';
-                        echo '<td>' . $count . '</td>';
-                        echo '<td>' . $row['Name'] . '</td>';
-                        echo '<td>' . $row['Address'] . '</td>';
-                        echo '<td>' . $row['ManagerFName'] . '</td>';
-                        echo '<td>' . $row['ManagerLName'] . '</td>';
-                        echo '<td>' . $row['ManagerEmail'] . '</td>';
-                        echo '<td>' . $row['ManagerNumber'] . '</td>';
-                        echo '<td>' . $row['MaxCapacity'] . '</td>';
+                        echo '<td>' . $count . $tdClosing;
+                        echo '<td>' . $row['Name'] . $tdClosing;
+                        echo '<td>' . $row['Address'] . $tdClosing;
+                        echo '<td>' . $row['ManagerFName'] . $tdClosing;
+                        echo '<td>' . $row['ManagerLName'] . $tdClosing;
+                        echo '<td>' . $row['ManagerEmail'] . $tdClosing;
+                        echo '<td>' . $row['ManagerNumber'] . $tdClosing;
+                        echo '<td>' . $row['MaxCapacity'] . $tdClosing;
                         echo '<td>'
-                            . '<a href="editLocationForm.php?id='. $row['LocationID'] . '">
+                            . '<a href="editLocationForm.php?id=' . $row['LocationID'] . '">
                             <span class="glyphicon glyphicon-pencil mr-2"></a> ';
                         if (in_array($row['LocationID'], $events)) {
                             echo '<a class="cannotDeleteButton" style="cursor:pointer;">
                             <span class="glyphicon glyphicon-trash mr-2"></a> ';
                         } else {
-                            echo '<a onclick="deleteLocation('.$row['LocationID'].')" data-toggle="modal"
+                            echo '<a onclick="deleteLocation(' . $row['LocationID'] . ')" data-toggle="modal"
                              data-target="#deleteModal" class="deleteButton" style="cursor:pointer;">
                              <span class="glyphicon glyphicon-trash mr-2"></a> ';
                         }
-                            echo '<a href="viewLocation.php?id=' . $row['LocationID'] . '">View Event</a> ';
-                        echo '</td>' . '</tr>';
-                        
+                        echo '<a href="viewLocation.php?id=' . $row['LocationID'] . '">View Event</a> ';
+                        echo $tdClosing . '</tr>';
+
                         $count++;
                         $row = $statement->fetch(PDO::FETCH_ASSOC);
                     }
@@ -103,7 +104,9 @@ $user = $_SESSION['user'];
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     <h4 class="modal-title" id="myModalLabel">Delete Confirmation</h4>
                 </div>
                 <form id="delete-form" action="" method="post">
@@ -124,7 +127,9 @@ $user = $_SESSION['user'];
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                     <h4 class="modal-title" id="myModalLabel">Unable to Delete Location</h4>
                 </div>
                 <div class="modal-body">
@@ -140,8 +145,8 @@ $user = $_SESSION['user'];
 
     <script>
         function deleteLocation(id) {
-                document.getElementById("delete-form").action = "deleteLocation.php?id="+id;
-                
+            document.getElementById("delete-form").action = "deleteLocation.php?id=" + id;
+
         }
 
         $(document).ready(function() {
@@ -153,4 +158,5 @@ $user = $_SESSION['user'];
 
     <?php require_once 'utils/footer.php'; ?>
 </body>
+
 </html>

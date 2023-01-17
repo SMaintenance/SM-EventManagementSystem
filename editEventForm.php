@@ -45,14 +45,14 @@ if (!isset($errors)) {
 <head>
     <meta charset="UTF-8">
     <title>Edit Event</title>
-    <?php require 'utils/styles.php'; ?>
+    <?php require_once 'utils/styles.php'; ?>
     <!--css links. file found in utils folder-->
-    <?php require 'utils/scripts.php'; ?>
+    <?php require_once 'utils/scripts.php'; ?>
     <!--js links. file found in utils folder-->
 </head>
 
 <body>
-    <?php require 'utils/header.php'; ?>
+    <?php require_once 'utils/header.php'; ?>
     <!--header content. file found in utils folder-->
     <div class="content">
         <div class="container" style="width:50%">
@@ -76,7 +76,7 @@ if (!isset($errors)) {
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
                         <span id="TitleError" class="error">
-                            <?php echoValue($errors, 'Title'); ?>   
+                            <?php echoValue($errors, 'Title'); ?>
                             <!--error message for invalid input-->
                         </span>
                     </div>
@@ -92,7 +92,7 @@ if (!isset($errors)) {
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
                         <span id="DescriptionError" class="error">
-                            <?php echoValue($errors, 'Description'); ?>   
+                            <?php echoValue($errors, 'Description'); ?>
                             <!--error message for invalid input-->
                         </span>
                     </div>
@@ -112,7 +112,7 @@ if (!isset($errors)) {
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
                         <span id="EventTypeError" class="error">
-                            <?php echoValue($errors, 'EventType'); ?>   
+                            <?php echoValue($errors, 'EventType'); ?>
                             <!--error message for invalid input-->
                     </div>
                 </div>
@@ -196,7 +196,7 @@ if (!isset($errors)) {
                         <label class="control-label">Attach Event Image</label>
                     </div>
                     <div class="col-md-9">
-                        <img src="uploads/<?php echo $row['Image'] ?>" style="width: 100%; height: auto" id="image">
+                        <img src="uploads/<?php echo $row['Image'] ?>" alt="Event Image" style="width: 100%; height: auto" id="image">
                         <input type="hidden" class="control-label" name="old_image" value="<?php echo $row['Image'] ?>">
                         <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;">
                         <label class="btn btn-default" style="margin-top: 2%;" for="imageUploaded">
@@ -212,7 +212,7 @@ if (!isset($errors)) {
             </form>
         </div>
     </div>
-    <?php require 'utils/footer.php'; ?>
+    <?php require_once 'utils/footer.php'; ?>
     <!--footer content. file found in utils folder-->
     <script type="text/javascript">
         document.getElementById('imageUploaded').onchange = function() {

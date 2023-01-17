@@ -1,7 +1,7 @@
 
 <?php
 if ($logged_in) {
-    require 'utils/loginNav.php';
+    require_once 'utils/loginNav.php';
 } else {
-    require 'utils/logoutNav.php';
+    require_once 'utils/logoutNav.php';
 }

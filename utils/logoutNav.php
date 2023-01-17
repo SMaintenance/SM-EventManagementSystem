@@ -12,15 +12,17 @@
                 <li><a href="events2.php">Events</a></li>
                 <li><a href="locations2.php">Locations</a></li>
                 <li><a href="contact.php">Contact Us</a></li>
-                <a style="background-color : powderblue; " href="login_form.php" class="btn btn-default navbar-btn">Login <Span class="glyphicon glyphicon-log-in"></span></a>
-                <!-- <button type = "button" class = "btn btn-default navbar-btn" data-toggle = "modal" data-target = "#login">Login <Span class="glyphicon glyphicon-log-in"></span></button>'; -->
-
+                <a style="background-color : powderblue; " href="login_form.php" class="btn btn-default navbar-btn">Login
+                    <Span class="glyphicon glyphicon-log-in"></span>
+                </a>
 
                 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"><!--modal for login-->
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header"><!--modal header-->
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                                 <h4 class="modal-title" id="myModalLabel">Login</h4><!--modal title-->
                             </div>
                             <div class="row">
@@ -29,26 +31,38 @@
                                         <form action="login.php" method="POST">
                                             <div class="form-group"><!--username-->
                                                 <label for="username">Username:</label>
-                                                <input type="text" name="username" class="form-control" value="<?php if (isset($formdata['username'])) echo $formdata['username']; ?>" />
+                                                <input type="text" name="username" class="form-control" value="<?php if (isset($formdata['username'])) {
+                                                                                                                    echo $formdata['username'];
+                                                                                                                } ?>" />
                                                 <span class="error"><!--error message on failed input-->
-                                                    <?php if (isset($errors['username'])) echo $errors['username']; ?>
+                                                    <?php if (isset($errors['username'])) {
+                                                        echo $errors['username'];
+                                                    } ?>
                                                 </span>
                                             </div>
                                             <div class="form-group"><!--password-->
                                                 <label for="password">Password:</label>
                                                 <input type="password" name="password" class="form-control" value="" />
                                                 <span class="error"><!--error message on failed input-->
-                                                    <?php if (isset($errors['password'])) echo $errors['password']; ?>
+                                                    <?php if (isset($errors['password'])) {
+                                                        echo $errors['password'];
+                                                    } ?>
                                                 </span>
                                             </div>
-                                            <button type="submit" class="btn btn-default loginbtn">Login</button><!--login button-->
-                                            <a class="btn btn-default navbar-btn rgsterbtn" href="register_form.php">Register</a><!--register button-->
+                                            <button type="submit" class="btn btn-default loginbtn">
+                                                Login
+                                            </button><!--login button-->
+                                            <a class="btn btn-default navbar-btn rgsterbtn" href="register_form.php">
+                                                Register
+                                            </a><!--register button-->
                                         </form>
                                     </div>
                                 </div><!--modal body div-->
                             </div><!--row div-->
                             <div class="modal-footer"><!--modal footer-->
-                                <button type="button" class="btn btn-default closebtn" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default closebtn" data-dismiss="modal">
+                                    Close
+                                </button>
                                 <p><!--close button-->
                             </div><!--modal footer div-->
                         </div><!--modal content div-->

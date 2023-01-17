@@ -11,8 +11,17 @@ class Event
     private $locationID;
     private $image;
 
-    public function __construct($id, $title, $description, $eType, $sDate, $eDate, $cost, $locID, $image)
-    {
+    public function __construct(
+        $id,
+        $title,
+        $description,
+        $eType,
+        $sDate,
+        $eDate,
+        $cost,
+        $locID,
+        $image
+    ) {
         $this->id = $id;
         $this->title = $title;
         $this->description = $description;

@@ -6,4 +6,3 @@ if (is_logged_in()) {
 } else {
     $logged_in = false;
 }
-?>
