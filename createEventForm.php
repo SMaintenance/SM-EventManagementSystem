@@ -50,7 +50,8 @@ if (!isset($errors)) {
                     </div>
                     <!--event title-->
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="Title" name="Title" value="<?php echoValue($formdata, "Title") ?>" />
+                        <input type="text" class="form-control" id="Title" name="Title" value="
+                            <?php echoValue($formdata, "Title") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left: 15px">
@@ -66,7 +67,8 @@ if (!isset($errors)) {
                     </div>
                     <!--event description-->
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="Description" name="Description" value="<?php echoValue($formdata, "Description") ?>" />
+                        <input type="text" class="form-control" id="Description" name="Description" value="
+                            <?php echoValue($formdata, "Description") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left: 15px">
@@ -102,7 +104,8 @@ if (!isset($errors)) {
                     </div>
                     <!--start date-->
                     <div class="col-md-9">
-                        <input type="date" class="form-control" id="StartDate" name="StartDate" value="<?php echoValue($formdata, "StartDate") ?>" />
+                        <input type="date" class="form-control" id="StartDate" name="StartDate" value="
+                            <?php echoValue($formdata, "StartDate") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left: 15px">
@@ -118,7 +121,8 @@ if (!isset($errors)) {
                     </div>
                     <!--end date-->
                     <div class="col-md-9">
-                        <input type="date" class="form-control" id="EndDate" name="EndDate" value="<?php echoValue($formdata, "EndDate") ?>" />
+                        <input type="date" class="form-control" id="EndDate" name="EndDate" value="
+                            <?php echoValue($formdata, "EndDate") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left: 15px">
@@ -134,7 +138,8 @@ if (!isset($errors)) {
                     </div>
                     <!--cost-->
                     <div class="col-md-9">
-                        <input type="number" class="form-control" id="Cost" name="Cost" value="<?php echoValue($formdata, "Cost") ?>" />
+                        <input type="number" class="form-control" id="Cost" name="Cost" value="
+                            <?php echoValue($formdata, "Cost") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left: 15px">
@@ -170,7 +175,8 @@ if (!isset($errors)) {
                         <label class="control-label">Attach Event Image</label>
                     </div>
                     <div class="col-md-9">
-                        <img src="uploads/<?php echo "noImage.png" ?>" alt="noImage" style="width: 100%; height: auto" id="image">
+                        <img src="uploads/
+                            <?php echo "noImage.png" ?>" alt="noImage" style="width: 100%; height: auto" id="image" />
                         <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;">
                         <label class="btn btn-default" style="margin-top: 3%;" for="imageUploaded">
                             Choose file
@@ -178,8 +184,14 @@ if (!isset($errors)) {
                     </div>
                 </div>
                 <br>
-                <button type="submit" name="submit" class="btn btn-default pull-right submit">Create Event <span class="glyphicon glyphicon-send"></span></button>
-                <a class="btn btn-default navbar-btn" href="viewEvents.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> Back</a>
+                <button type="submit" name="submit" class="btn btn-default pull-right submit">
+                    Create Event
+                    <span class="glyphicon glyphicon-send"></span>
+                </button>
+                <a class="btn btn-default navbar-btn" href="viewEvents.php">
+                    <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                    Back
+                </a>
                 <!--register button-->
             </form>
         </div>
