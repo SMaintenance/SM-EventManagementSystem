@@ -24,8 +24,7 @@ require_once 'utils/checkLogin.php';
                     <?php
                     if (isset($errorMessage)) {
                         echo "<p>$errorMessage</p>"; 
-                    }
-                    ?>
+                    }?>
                     <form action="login.php" method="POST"><!--form-->
                         <div class = "form-group">
                             <!--username field-->
