@@ -14,7 +14,7 @@ class BookingTableGateway
     public function getBookings()
     {
         // execute a query to get all bookings
-        $sqlQuery = "SELECT * FROM bookings LEFT JOIN locations 
+        $sqlQuery = "SELECT * FROM bookings LEFT JOIN locations
         ON bookings.LocationID = locations.LocationID";
         
         $statement = $this->connect->prepare($sqlQuery);
@@ -30,7 +30,7 @@ class BookingTableGateway
     public function getBookingsById($id)
     {
         // execute a query to get all bookings
-        $sqlQuery = "SELECT * FROM bookings LEFT JOIN locations 
+        $sqlQuery = "SELECT * FROM bookings LEFT JOIN locations
         ON bookings.LocationID = locations.LocationID WHERE BookingID = $id";
         
         $statement = $this->connect->prepare($sqlQuery);
@@ -45,15 +45,15 @@ class BookingTableGateway
     
     public function insert($p)
     {
-        $sql = "INSERT INTO bookings(FullName, Email, ContactNum, Title, 
-        Description, EventType, StartDate, EndDate, LocationID) 
-        VALUES (:FullName, :Email, :ContactNum, :Title, 
+        $sql = "INSERT INTO bookings(FullName, Email, ContactNum, Title,
+        Description, EventType, StartDate, EndDate, LocationID)
+        VALUES (:FullName, :Email, :ContactNum, :Title,
         :Description, :EventType, :StartDate, :EndDate, :LocationID)";
         
         $statement = $this->connect->prepare($sql);
         $params = array(
             "FullName"        => $p->getName(),
-            "Email"           => $p->getEmail(),    
+            "Email"           => $p->getEmail(),
             "ContactNum"      => $p->getContactNum(),
             "Title"           => $p->getTitle(),
             "Description"     => $p->getDescription(),

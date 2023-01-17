@@ -1,17 +1,16 @@
 <?php
-class Connection 
+class Connection
 {
     private static $connect = null;
     
     public static function getInstance()
     {
-        if (Connection::$connect === null)
-        {
+        if (Connection::$connect === null) {
             // connect to the database
             $host = "localhost";
-			$database = "year2project";
-			$username = "root";
-			$password = "";
+		    $database = "year2project";
+		    $username = "root";
+		    $password = "";
 
             $dsn = "mysql:host=" . $host . ";dbname=" . $database;
 

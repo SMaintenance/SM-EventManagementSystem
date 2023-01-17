@@ -13,19 +13,35 @@ class User
         $this->role = $r;
     }
     public function getId()
-    { return $this->id; }
+    { 
+        return $this->id; 
+    }
     public function getUsername()
-    { return $this->username; }
+    { 
+        return $this->username; 
+    }
     public function getPassword()
-    { return $this->password; }
+    { 
+        return $this->password; 
+    }
     public function getRole()
-    { return $this->role; }
+    { 
+        return $this->role; 
+    }
     public function setId($i)
-    { $this->id = $i; }
+    { 
+        $this->id = $i; 
+    }
     public function setUsername($n)
-    { $this->username = $n; }
+    { 
+        $this->username = $n; 
+    }
     public function setPassword($p)
-    { $this->password = $p; }
+    { 
+        $this->password = $p; 
+    }
     public function setRole($r)
-    { $this->role = $r; }
+    { 
+        $this->role = $r; 
+    }
 }
