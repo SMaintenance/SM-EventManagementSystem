@@ -1,5 +1,6 @@
 <?php
 require_once 'functions.php';
+require_once 'utils/checkLogin.php';
 
 if (!isset($formdata)) {
     $formdata = array();
@@ -205,7 +206,7 @@ if (!isset($errors)) {
                 <div class="row form-group">
                     <label class="col-md-3 control-label">Attach File</label>
                     <div class="col-md-5">
-                        <img src="uploads/<?php echo "noImage.png" ?>" style="width: 100%; height: auto" id="image">
+                        <img src="uploads/<?php echo "noImage.png" ?>" alt="noImage" style="width: 100%; height: auto" id="image">
                         <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;">
                         <label class="btn btn-default" style="margin-top: 3%;" for="imageUploaded">
                             Choose file
@@ -226,4 +227,5 @@ if (!isset($errors)) {
         }
     </script>
 </body>
+
 </html>

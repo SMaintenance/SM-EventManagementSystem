@@ -1,13 +1,14 @@
 <?php
-require_once 'utils/functions.php';
-require_once 'classes/User.php';
+	require_once 'utils/functions.php';
+	use User;
 
-start_session();
+	start_session();
 
-if (!is_logged_in()) {
-    header("Location: index.php");
-} else {
-	unset($_SESSION['user']);
-	
-	header("Location: index.php");
-}
+	if (!is_logged_in()) {
+		header("Location: index.php");
+	} else {
+		unset($_SESSION['user']);
+		
+		header("Location: index.php");
+	}
+?>

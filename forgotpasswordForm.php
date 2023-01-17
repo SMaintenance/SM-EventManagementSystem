@@ -1,5 +1,8 @@
+<?php
+require_once 'utils/checkLogin.php';
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login Form</title>
@@ -8,11 +11,11 @@
                 color: red;
             }            
         </style>  
-        <?php require 'utils/styles.php'; ?><!--css links. file found in utils folder-->
-        <?php require 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
+        <?php require_once 'utils/styles.php'; ?><!--css links. file found in utils folder-->
+        <?php require_once 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
     </head>
     <body>
-    <?php require 'utils/header.php'; ?><!--header content. file found in utils folder-->
+    <?php require_once 'utils/header.php'; ?><!--header content. file found in utils folder-->
         <div class = "content"><!--body content holder-->
             <div class = "container">
                 <h1 class="text-center">Forgot Password</h1><!--form title-->
@@ -40,6 +43,6 @@
                     </form>
             </div><!--container div-->
         </div><!--content div-->
-        <?php require 'utils/footer.php'; ?><!--footer content. file found in utils folder-->
+        <?php require_once 'utils/footer.php'; ?><!--footer content. file found in utils folder-->
     </body>
 </html>

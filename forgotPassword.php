@@ -41,6 +41,6 @@ try {
     catch (Exception $ex) {
 
         $errorMessage = $ex->getMessage();
-        require 'forgotpasswordForm.php';
+        require_once 'forgotpasswordForm.php';
     }
     ?>

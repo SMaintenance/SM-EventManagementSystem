@@ -61,6 +61,6 @@ try {
 
         $_GET['username'] = $formdata['username'];
         $errorMessage = $ex->getMessage();
-        require 'resetpasswordForm.php';
+        require_once 'resetpasswordForm.php';
     }
     ?>

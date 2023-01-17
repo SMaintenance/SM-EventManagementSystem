@@ -1,9 +1,10 @@
 <?php
 
-require_once 'utils/functions.php';
-require_once 'classes/User.php';
-require_once 'classes/DB.php';
-require_once 'classes/UserTable.php';
+use User;
+use DB;
+use UserTable;
+require_once  'utils/functions.php';
+// C:\xampp\htdocs\SM-EventManagementSystem\utils\functions.php
 
 start_session();
 
@@ -24,10 +25,6 @@ try {
     if (empty($formdata['username'])) {
         $errors['username'] = "Username required";
     }
-    //$email = filter_var($formdata['username'], FILTER_VALIDATE_EMAIL);
-    //if ($email != $formdata['username']) {
-    //    $errors['username'] = "Valid email required required";
-    //}
 
     if (empty($formdata['password'])) {
         $errors['password'] = "Password required";
@@ -57,7 +54,7 @@ try {
     }
     
     if (!empty($errors)) {
-        throw new Exception("");
+        throw new Exception("Errors!");
     }
     
     // since the username is not aleady registered, create

@@ -40,7 +40,21 @@ if (isset($_POST['submit'])) {
             echo "Congratulations! File Uploaded Successfully.";
         }
 
-        $location = new Location(-1, $locationName, $locationAddress, $managerFName, $managerLName, $managerEmail, $managerNumber, $maxCap, $locationType, $seat, $facilities, $url, $file);
+        $location = new Location(
+            -1,
+            $locationName,
+            $locationAddress,
+            $managerFName,
+            $managerLName,
+            $managerEmail,
+            $managerNumber,
+            $maxCap,
+            $locationType,
+            $seat,
+            $facilities,
+            $url,
+            $file
+        );
 
         $connection = Connection::getInstance();
 

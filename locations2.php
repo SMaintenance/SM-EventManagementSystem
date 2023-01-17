@@ -2,6 +2,7 @@
 require_once 'classes/Location.php';
 require_once 'classes/LocationTableGateway.php';
 require_once 'classes/Connection.php';
+require_once 'utils/checkLogin.php';
 
 $connection = Connection::getInstance();
 $gateway = new LocationTableGateway($connection);
@@ -64,8 +65,9 @@ $statement = $gateway->getLocationsOrderById($start, $numLocationsPerPage);
         <nav aria-label="Page navigation">
         <ul class="pagination">';
         $prev = $page - 1;
+        $str = '<li><a href="locations2.php?page=';
         if ($prev > 0) {
-            echo '<li><a href="locations2.php?page=' . $prev . '">&laquo;</a></li>';
+            echo $str . $prev . '">&laquo;</a></li>';
         }
 
         $numPages = ceil($totalNumLocations / $numLocationsPerPage);
@@ -73,13 +75,13 @@ $statement = $gateway->getLocationsOrderById($start, $numLocationsPerPage);
             if ($i == $page) {
                 echo '<li><a href="#" class="current">' . $i . '</a></li>';
             } else {
-                echo '<li><a href="locations2.php?page=' . $i . '">' . $i . '</a></li>';
+                echo $str . $i . '">' . $i . '</a></li>';
             }
         }
 
         $next = $page + 1;
         if ($next <= $numPages) {
-            echo '<li><a href="locations2.php?page=' . $next . '">&raquo;</a></li>';
+            echo $str . $next . '">&raquo;</a></li>';
         }
         echo '</ul></nav></div>';
         ?>
