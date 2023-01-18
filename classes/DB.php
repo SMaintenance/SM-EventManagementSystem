@@ -2,11 +2,6 @@
 
 class DB {
 
-    // private static $host = "localhost";
-    // private static $database = "year2project";
-    // private static $username = "root";
-    // private static $password = "";
-
     public static function getConnection()
     {
         $config = require_once 'config.php';
