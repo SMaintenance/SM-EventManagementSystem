@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once 'classes/Event.php';
 require_once 'classes/EventTableGateway.php';
 require_once 'classes/Connection.php';
@@ -49,3 +50,4 @@ if (isset($_POST['submit'])) {
         require_once 'createEventForm.php';
     }
 }
+ob_end_flush();

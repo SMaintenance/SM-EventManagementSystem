@@ -1,10 +1,8 @@
 <?php
-
-use User;
-use DB;
-use UserTable;
-require_once  'utils/functions.php';
-// C:\xampp\htdocs\SM-EventManagementSystem\utils\functions.php
+require_once 'utils/functions.php';
+require_once 'classes/User.php';
+require_once 'classes/DB.php';
+require_once 'classes/UserTable.php';
 
 start_session();
 

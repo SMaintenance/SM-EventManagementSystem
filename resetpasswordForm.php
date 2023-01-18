@@ -27,18 +27,18 @@ $username  = $_GET['username'];
                 <form action="resetPassword.php" method="POST"><!--form-->
                 <br><br>
                 <div class="container">
-                    <input type="hidden" value="<?php if (isset($username)) echo $username; ?>" name="username">
+                    <input type="hidden" value="<?php if (isset($username)) { echo $username; } ?>" name="username">
                     <div class="form-inline text-center" style="padding-right:1.9cm;">
                         <div class = "form-group">
                             <label for="password" class="" style="width:7.3cm">Please enter your new password: </label>
-                            <input type="password"name="password"class="form-control" value="<?php if (isset($formdata['password'])) echo $formdata['password']; ?>">
+                            <input type="password"name="password"class="form-control" value="<?php if (isset($formdata['password'])) { echo $formdata['password']; } ?>">
                         </div>
                     </div>
                     <br>
                     <div class="form-inline text-center">
                     <div class = "form-group">
                             <label for="password_confirmation" class="" style="width:7cm">Please re-enter your the password: </label>
-                            <input type="password"name="password_confirmation"class="form-control" value="<?php if (isset($formdata['password_confirmation'])) echo $formdata['password_confirmation']; ?>">
+                            <input type="password"name="password_confirmation"class="form-control" value="<?php if (isset($formdata['password_confirmation'])) { echo $formdata['password_confirmation']; } ?>">
                         </div>
                         <button type = "submit" class = "btn btn-primary">Save</button>
                     </div>
@@ -55,6 +55,6 @@ $username  = $_GET['username'];
                     </form>
             </div><!--container div-->
         </div><!--content div-->
-        <?php require 'utils/footer.php'; ?><!--footer content. file found in utils folder-->
+        <?php require_once 'utils/footer.php'; ?><!--footer content. file found in utils folder-->
     </body>
 </html>

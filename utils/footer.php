@@ -31,10 +31,10 @@
                         <img src = "images/twitter.png">
                         <img src = "images/googleplus.png">
                         <img src = "images/youtube.png"> -->
-                        <a href="https://www.youtube.com/"><img src="images/socmed/yt.png" height="45px" width="65px">
-                        <a href="https://www.facebook.com/"><img src = "images/socmed/facebook.png" height="60px" width="70px">
-                        <a href="https://www.twitter.com/"><img src = "images/socmed/twitter.png" height="50px" width="55px">
-                        <a href="https://www.instagram.com/"><img src = "images/socmed/instagram.png" height="50px" width="50px">
+                        <a href="https://www.youtube.com/"><img src="images/socmed/yt.png" height="45px" width="65px" alt="youtube">
+                        <a href="https://www.facebook.com/"><img src = "images/socmed/facebook.png" height="60px" width="70px" alt="facebook">
+                        <a href="https://www.twitter.com/"><img src = "images/socmed/twitter.png" height="50px" width="55px" alt="twitter">
+                        <a href="https://www.instagram.com/"><img src = "images/socmed/instagram.png" height="50px" width="50px" alt="instagram">
                         
                         
                 </div>

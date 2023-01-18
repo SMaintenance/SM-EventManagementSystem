@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once 'classes/Booking.php';
 require_once 'classes/BookingTableGateway.php';
 require_once 'classes/Connection.php';
@@ -35,3 +36,4 @@ if (empty($errors)) {
 } else {
     require_once 'bookEventForm.php';
 }
+ob_end_flush();

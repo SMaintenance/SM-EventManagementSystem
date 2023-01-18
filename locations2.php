@@ -23,7 +23,7 @@ $statement = $gateway->getLocationsOrderById($start, $numLocationsPerPage);
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Locations</title>
     <?php require_once 'utils/styles.php'; ?><!--css links. file found in utils folder-->
-    <?php require 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
+    <?php require_once 'utils/scripts.php'; ?><!--js links. file found in utils folder-->
 </head>
 
 <body>
@@ -88,7 +88,7 @@ $statement = $gateway->getLocationsOrderById($start, $numLocationsPerPage);
 
 
     </div>
-    <?php require 'utils/footer.php'; ?>
+    <?php require_once 'utils/footer.php'; ?>
 </body>
 
 </html>

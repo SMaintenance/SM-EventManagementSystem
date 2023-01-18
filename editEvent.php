@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once 'classes/Event.php';
 require_once 'classes/EventTableGateway.php';
 require_once 'classes/Connection.php';
@@ -51,5 +52,5 @@ if (isset($_POST['submit'])) {
         $_GET['locId'] = $_POST['LocID'];
         require_once 'editEventForm.php'; 
     }
-
 }
+ob_end_flush();

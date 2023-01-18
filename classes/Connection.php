@@ -7,10 +7,14 @@ class Connection
     {
         if (Connection::$connect === null) {
             // connect to the database
+            // $host = "localhost";
+		    // $database = "year2project";
+		    // $username = "root";
+		    // $password = "";
             $host = "localhost";
-		    $database = "year2project";
-		    $username = "root";
-		    $password = "";
+			$database = "id20148164_urban_event";
+			$username = "id20148164_urbanevent";
+			$password = "S!hqGQf+2=ut)etm";
 
             $dsn = "mysql:host=" . $host . ";dbname=" . $database;
 

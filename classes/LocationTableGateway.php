@@ -178,8 +178,6 @@ class LocationTableGateway
         );
 
         echo "<pre>";
-        print_r($p);
-        print_r($params);
         print_r($statement);
         echo "</pre>";
 
