@@ -81,8 +81,8 @@ $user = $_SESSION['user'];
                                 echo '<td>'
                                 . '<a href="viewBookingForm.php?id='.$row['BookingID'].'">
                                 <span class="glyphicon glyphicon-eye-open mr-2"></span></a>'
-                                . '<a onclick="deleteBooking('.$row['BookingID'].')"><
-                                span class="glyphicon glyphicon-trash mr-2"></span></a> '
+                                . '<a onclick="deleteBooking('.$row['BookingID'].')" data-toggle="modal" data-target="#deleteModal">
+                                <span class="glyphicon glyphicon-trash mr-2"></span></a> '
                                 . '<a href="removeFromEvent.php?id='.$row['EventID'].'">&nbspRemove from Event</a> '
                                 . '</td>';
                             } else {

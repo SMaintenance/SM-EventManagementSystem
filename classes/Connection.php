@@ -1,20 +1,21 @@
 <?php
+
+
 class Connection
 {
     private static $connect = null;
     
     public static function getInstance()
     {
+        $config = require_once 'config.php';
+
         if (Connection::$connect === null) {
+            
             // connect to the database
-            // $host = "localhost";
-		    // $database = "year2project";
-		    // $username = "root";
-		    // $password = "";
-            $host = "localhost";
-			$database = "id20148164_urban_event";
-			$username = "id20148164_urbanevent";
-			$password = "S!hqGQf+2=ut)etm";
+            $host = $config['host'];
+			$database = $config['database'];
+			$username = $config['username'];
+			$password = $config['password'];
 
             $dsn = "mysql:host=" . $host . ";dbname=" . $database;
 

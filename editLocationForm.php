@@ -232,8 +232,8 @@ if (!isset($errors)) {
                     <div class="form-group">
                         <label class="col-md-2 control-label">Attach File</label>
                         <div class="col-md-5">
-                            <img src="uploads/
-                                <?php echo $row['Image'] ?>" alt="Image" style="width: 100%; height: auto" id="image">
+                            <img src="uploads/<?php echo $row['Image'] ?>"
+                                 alt="Image" style="width: 100%; height: auto" id="image">
                             <input type="hidden" class="control-label" name="old_image" value="
                                 <?php echo $row['Image'] ?>">
                             <input 

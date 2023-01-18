@@ -175,8 +175,8 @@ if (!isset($errors)) {
                         <label class="control-label">Attach Event Image</label>
                     </div>
                     <div class="col-md-9">
-                        <img src="uploads/
-                            <?php echo "noImage.png" ?>" alt="noImage" style="width: 100%; height: auto" id="image" />
+                        <img src="uploads/<?php echo "noImage.png" ?>"
+                             alt="noImage" style="width: 100%; height: auto" id="image" />
                         <input type="file" id="imageUploaded" class="control-label" name="image" style="display: none;">
                         <label class="btn btn-default" style="margin-top: 3%;" for="imageUploaded">
                             Choose file
