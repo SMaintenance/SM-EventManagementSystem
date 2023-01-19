@@ -70,7 +70,8 @@ if (!isset($errors)) {
                         <label for="Name" class="col-md-2 control-label">Name</label>
                         <!--label-->
                         <div class="col-md-5">
-                            <input type="text" class="form-control" id="Name" name="Name" value="<?php echo (isset($formdata['Name'])) ? ($formdata['Name']) : $row['Name']; ?>" />
+                            <input type="text" class="form-control" id="Name" name="Name" 
+                            value="<?php echo (isset($formdata['Name'])) ? ($formdata['Name']) : $row['Name']; ?>" />
                             <!--input with current data from database-->
                         </div>
                         <div class="col-md-4">
@@ -84,7 +85,8 @@ if (!isset($errors)) {
                         <label for="Address" class="col-md-2 control-label">Address</label>
                         <!--label-->
                         <div class="col-md-5">
-                            <input type="text" class="form-control" id="Address" name="Address" value="<?php echo (isset($formdata['Address'])) ? ($formdata['Address']) :  $row['Address'];  ?>" />
+                            <input type="text" class="form-control" id="Address" name="Address" 
+                            value="<?php echo (isset($formdata['Address'])) ? ($formdata['Address']) :  $row['Address'];  ?>" />
                             <!--input with current data from database-->
                         </div>
                         <div class="col-md-4">
@@ -98,7 +100,8 @@ if (!isset($errors)) {
                         <label for="ManagerFName" class="col-md-2 control-label">Manager First Name</label>
                         <!--label-->
                         <div class="col-md-5">
-                            <input type="text" class="form-control" id="ManagerFName" name="ManagerFName" value="<?php echo (isset($formdata['ManagerFName'])) ? ($formdata['ManagerFName']) : $row['ManagerFName']; ?>" />
+                            <input type="text" class="form-control" id="ManagerFName" name="ManagerFName" 
+                            value="<?php echo (isset($formdata['ManagerFName'])) ? ($formdata['ManagerFName']) : $row['ManagerFName']; ?>" />
                             <!--input with current data from database-->
                         </div>
                         <div class="col-md-4">
@@ -112,7 +115,8 @@ if (!isset($errors)) {
                         <label for="ManagerLName" class="col-md-2 control-label">Manager Last Name</label>
                         <!--label-->
                         <div class="col-md-5">
-                            <input type="text" class="form-control" id="ManagerLName" name="ManagerLName" value="<?php echo (isset($formdata['ManagerLName'])) ? ($formdata['ManagerLName']) : $row['ManagerLName']; ?>" />
+                            <input type="text" class="form-control" id="ManagerLName" name="ManagerLName" 
+                            value="<?php echo (isset($formdata['ManagerLName'])) ? ($formdata['ManagerLName']) : $row['ManagerLName']; ?>" />
                             <!--input with current data from database-->
                         </div>
                         <div class="col-md-4">
@@ -126,7 +130,8 @@ if (!isset($errors)) {
                         <label for="ManagerEmail" class="col-md-2 control-label">Manager Email</label>
                         <!--label-->
                         <div class="col-md-5">
-                            <input type="text" class="form-control" id="ManagerEmail" name="ManagerEmail" value="<?php echo (isset($formdata['ManagerEmail'])) ? ($formdata['ManagerEmail']) : $row['ManagerEmail']; ?>" />
+                            <input type="text" class="form-control" id="ManagerEmail" name="ManagerEmail" 
+                            value="<?php echo (isset($formdata['ManagerEmail'])) ? ($formdata['ManagerEmail']) : $row['ManagerEmail']; ?>" />
                             <!--input with current data from database-->
                         </div>
                         <div class="col-md-4">
@@ -140,7 +145,8 @@ if (!isset($errors)) {
                         <label for="ManagerNumber" class="col-md-2 control-label">Manager Number</label>
                         <!--label-->
                         <div class="col-md-5">
-                            <input type="number" class="form-control" id="ManagerNumber" name="ManagerNumber" value="<?php echo (isset($formdata['ManagerNumber'])) ? ($formdata['ManagerNumber']) : $row['ManagerNumber']; ?>" />
+                            <input type="number" class="form-control" id="ManagerNumber" name="ManagerNumber" 
+                            value="<?php echo (isset($formdata['ManagerNumber'])) ? ($formdata['ManagerNumber']) : $row['ManagerNumber']; ?>" />
                             <!--input with current data from database-->
                         </div>
                         <div class="col-md-4">
@@ -154,7 +160,8 @@ if (!isset($errors)) {
                         <label for="MaxCapacity" class="col-md-2 control-label">Max Capacity</label>
                         <!--label-->
                         <div class="col-md-5">
-                            <input type="number" class="form-control" id="MaxCapacity" name="MaxCapacity" value="<?php echo (isset($formdata['MaxCapacity'])) ? ($formdata['MaxCapacity']) : $row['MaxCapacity']; ?>" />
+                            <input type="number" class="form-control" id="MaxCapacity" name="MaxCapacity" 
+                            value="<?php echo (isset($formdata['MaxCapacity'])) ? ($formdata['MaxCapacity']) : $row['MaxCapacity']; ?>" />
                             <!--input with current data from database-->
                         </div>
                         <div class="col-md-4">
@@ -221,7 +228,8 @@ if (!isset($errors)) {
                     <div class="form-group">
                         <label class="col-md-2 control-label">Url</label>
                         <div class="col-md-5">
-                            <input type="text" class="control-label" name="link" value="<?php echo (isset($formdata['Url'])) ? ($formdata['Url']) :  $row['Url']; ?>">
+                            <input type="text" class="control-label" name="link" 
+                            value="<?php echo (isset($formdata['Url'])) ? ($formdata['Url']) :  $row['Url']; ?>">
                         </div>
                         <div class="col-md-4">
                             <span id="urlError" class="error">
@@ -234,8 +242,8 @@ if (!isset($errors)) {
                         <div class="col-md-5">
                             <img src="uploads/<?php echo $row['Image'] ?>"
                                  alt="Image" style="width: 100%; height: auto" id="image">
-                            <input type="hidden" class="control-label" name="old_image" value="
-                                <?php echo $row['Image'] ?>">
+                            <input type="hidden" class="control-label" name="old_image" 
+                            value="<?php echo $row['Image'] ?>">
                             <input 
                                 type="file" 
                                 id="imageUploaded" 

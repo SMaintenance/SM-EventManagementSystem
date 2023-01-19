@@ -71,7 +71,8 @@ if (!isset($errors)) {
                         <!--event title-->
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="Title" name="Title" value="<?php echo (isset($formdata['Title'])) ? ($formdata['Title']) : $row['Title']; ?>" />
+                        <input type="text" class="form-control" id="Title" 
+                        name="Title" value="<?php echo (isset($formdata['Title'])) ? ($formdata['Title']) : $row['Title']; ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
@@ -87,7 +88,8 @@ if (!isset($errors)) {
                         <!--event description-->
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="Description" name="Description" value="<?php echo (isset($formdata['Description'])) ? ($formdata['Description']) : $row['Description']; ?>" />
+                        <input type="text" class="form-control" id="Description" 
+                        name="Description" value="<?php echo (isset($formdata['Description'])) ? ($formdata['Description']) : $row['Description']; ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
@@ -123,7 +125,8 @@ if (!isset($errors)) {
                         <!--start date-->
                     </div>
                     <div class="col-md-9">
-                        <input type="date" class="form-control" id="StartDate" name="StartDate" value="<?php echo (isset($formdata['StartDate'])) ? ($formdata['StartDate']) :  $row['StartDate']; ?>" />
+                        <input type="date" class="form-control" id="StartDate" name="StartDate" 
+                        value="<?php echo (isset($formdata['StartDate'])) ? ($formdata['StartDate']) :  $row['StartDate']; ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
@@ -139,7 +142,8 @@ if (!isset($errors)) {
                         <!--end date-->
                     </div>
                     <div class="col-md-9">
-                        <input type="date" class="form-control" id="EndDate" name="EndDate" value="<?php echo (isset($formdata['EndDate'])) ? ($formdata['EndDate']) : $row['EndDate']; ?>" />
+                        <input type="date" class="form-control" id="EndDate" name="EndDate" 
+                        value="<?php echo (isset($formdata['EndDate'])) ? ($formdata['EndDate']) : $row['EndDate']; ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
@@ -155,7 +159,8 @@ if (!isset($errors)) {
                         <!--cost-->
                     </div>
                     <div class="col-md-9">
-                        <input type="number" class="form-control" id="Cost" name="Cost" value="<?php echo (isset($formdata['Cost'])) ? ($formdata['Cost']) : $row['Cost']; ?>" />
+                        <input type="number" class="form-control" id="Cost" name="Cost" 
+                        value="<?php echo (isset($formdata['Cost'])) ? ($formdata['Cost']) : $row['Cost']; ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">

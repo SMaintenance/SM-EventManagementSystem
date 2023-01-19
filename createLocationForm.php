@@ -45,8 +45,8 @@ if (!isset($errors)) {
                         <label for="Name" class="control-label">Location Name</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="Name" name="Name" value="
-                            <?php echoValue($formdata, "Name") ?>" />
+                        <input type="text" class="form-control" id="Name" name="Name" 
+                               value="<?php echoValue($formdata, "Name") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
@@ -61,8 +61,8 @@ if (!isset($errors)) {
                         <label for="Address" class="control-label">Address</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="Address" name="Address" value="
-                            <?php echoValue($formdata, "Address") ?>" />
+                        <input type="text" class="form-control" id="Address" name="Address" 
+                               value="<?php echoValue($formdata, "Address") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
@@ -77,8 +77,7 @@ if (!isset($errors)) {
                         <label for="managerFName" class="control-label">Manager First Name</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="managerFName" name="managerFName" value="
-                            <?php echoValue($formdata, "managerFName") ?>" />
+                        <input type="text" class="form-control" id="managerFName" name="managerFName" value="<?php echoValue($formdata, "managerFName") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
@@ -93,8 +92,7 @@ if (!isset($errors)) {
                         <label for="managerLName" class="control-label">Manager Last Name</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="managerLName" name="managerLName" value="
-                            <?php echoValue($formdata, "managerLName") ?>" />
+                        <input type="text" class="form-control" id="managerLName" name="managerLName" value="<?php echoValue($formdata, "managerLName") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
@@ -109,8 +107,7 @@ if (!isset($errors)) {
                         <label for="managerEmail" class="control-label">Manager Email</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="email" class="form-control" id="managerEmail" name="managerEmail" value="
-                            <?php echoValue($formdata, "managerEmail") ?>" />
+                        <input type="email" class="form-control" id="managerEmail" name="managerEmail" value="<?php echoValue($formdata, "managerEmail") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
@@ -125,8 +122,7 @@ if (!isset($errors)) {
                         <label for="managerNumber" class="control-label">Manager Number</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="number" class="form-control" id="managerNumber" name="managerNumber" value="
-                            <?php echoValue($formdata, "managerNumber") ?>" />
+                        <input type="number" class="form-control" id="managerNumber" name="managerNumber" value="<?php echoValue($formdata, "managerNumber") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
@@ -141,8 +137,8 @@ if (!isset($errors)) {
                         <label for="locationMaxCap" class="control-label">Max Capacity</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="number" class="form-control" id="locationMaxCap" name="maxCap" value="
-                            <?php echoValue($formdata, "maxCap") ?>" />
+                        <input type="number" class="form-control" id="locationMaxCap" 
+                               name="maxCap" value="<?php echoValue($formdata, "maxCap") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">
@@ -200,8 +196,8 @@ if (!isset($errors)) {
                         <label for="Url" class="control-label">Url</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control" id="link" name="link" value="
-                            <?php echoValue($formdata, "link") ?>" />
+                        <input type="text" class="form-control" id="link" 
+                               name="link" value="<?php echoValue($formdata, "link") ?>" />
                         <!--input-->
                     </div>
                     <div class="col-md-offset-3" style="padding-left:15px">

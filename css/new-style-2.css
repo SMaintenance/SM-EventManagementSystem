@@ -5,8 +5,7 @@ body {
   
   /*background image style for header*/
   .bgImage {
-    /*background-image: url(../images/bgImage1.jpg);*/
-    background-image: url(../images/bgImage2.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.737), rgba(0, 0, 0, 0.362)), url(../images/bgImage2.jpg);
     background-size: cover;
     background-position: center center;
     height: 600px;
